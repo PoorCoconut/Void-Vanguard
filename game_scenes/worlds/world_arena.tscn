@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d4lexncmvmtmu"]
+
+[ext_resource type="PackedScene" uid="uid://nq35okwbsjh3" path="res://actors/player/player.tscn" id="1_0nqf4"]
+[ext_resource type="PackedScene" uid="uid://bf5atxwyrbuy8" path="res://actors/enemies/Statics/static_alien.tscn" id="2_k3utt"]
+[ext_resource type="PackedScene" uid="uid://bgqtco8cyoak0" path="res://actors/enemies/SeekerMissiles/seeker_missiles.tscn" id="3_qllcl"]
+
+[node name="world_arena" type="Node2D" unique_id=473827935 groups=["world"]]
+
+[node name="Background" type="ColorRect" parent="." unique_id=65147630]
+z_index = -2
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.6117647, 0.6901961, 0.5019608, 1)
+
+[node name="Player" parent="." unique_id=324051146 instance=ExtResource("1_0nqf4")]
+position = Vector2(160, 92)
+
+[node name="StaticAlien" parent="." unique_id=1871172355 instance=ExtResource("2_k3utt")]
+position = Vector2(96, 48)
+
+[node name="StaticAlien2" parent="." unique_id=1880552256 instance=ExtResource("2_k3utt")]
+position = Vector2(160, 32)
+
+[node name="StaticAlien3" parent="." unique_id=557588251 instance=ExtResource("2_k3utt")]
+position = Vector2(224, 48)
+
+[node name="SeekerMissiles" parent="." unique_id=1865496810 instance=ExtResource("3_qllcl")]
+position = Vector2(64, 64)

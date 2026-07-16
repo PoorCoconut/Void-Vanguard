@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bgqtco8cyoak0"]
+
+[ext_resource type="Script" uid="uid://glwgkq1s2sa0" path="res://actors/enemies/SeekerMissiles/seeker_missiles.gd" id="1_m2l6f"]
+[ext_resource type="Texture2D" uid="uid://0c33qikvsikl" path="res://actors/enemies/enemies.png" id="2_ftd07"]
+[ext_resource type="PackedScene" uid="uid://p3eg848tu85" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HurtBox/hurtbox_component.tscn" id="3_qwbf7"]
+[ext_resource type="PackedScene" uid="uid://cd0gji0ohlvxv" path="res://systems/Entity Components/Health Component/HealthComponent.tscn" id="4_k3lt5"]
+[ext_resource type="PackedScene" uid="uid://depdp5g8qy1y" path="res://systems/Trail Component/trail.tscn" id="5_qwbf7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0vby"]
+atlas = ExtResource("2_ftd07")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwbf7"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ftd07"]
+radius = 3.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qwbf7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3lt5"]
+radius = 13.0
+
+[node name="SeekerMissiles" type="CharacterBody2D" unique_id=1865496810]
+collision_layer = 4
+script = ExtResource("1_m2l6f")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=244624850]
+texture = SubResource("AtlasTexture_c0vby")
+
+[node name="HurtboxComponent" parent="." unique_id=330416737 instance=ExtResource("3_qwbf7")]
+collision_layer = 64
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]
+shape = SubResource("CircleShape2D_qwbf7")
+
+[node name="HealthComponent" parent="." unique_id=1869818733 instance=ExtResource("4_k3lt5")]
+MAX_HP = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1711199879]
+shape = SubResource("CircleShape2D_ftd07")
+
+[node name="Trail" parent="." unique_id=1115313834 instance=ExtResource("5_qwbf7")]
+width = 3.0
+default_color = Color(0.16862746, 0.34117648, 0.28235295, 1)
+end_cap_mode = 2
+MAX_LENGTH = 50
+
+[node name="SeekTimer" type="Timer" parent="." unique_id=1769402416]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="DEBUG_TARGET" type="Sprite2D" parent="." unique_id=1034470157]
+position = Vector2(-2.9802322e-08, 2.9802322e-08)
+scale = Vector2(2, 2)
+texture = SubResource("PlaceholderTexture2D_qwbf7")
+
+[node name="StoppingRadius" type="Area2D" parent="." unique_id=287876024]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoppingRadius" unique_id=2026910689]
+shape = SubResource("CircleShape2D_k3lt5")
+debug_color = Color(1, 0.6, 0.69803923, 0)
+
+[connection signal="timeout" from="SeekTimer" to="." method="_on_seek_timer_timeout"]
+[connection signal="body_entered" from="StoppingRadius" to="." method="_on_stopping_radius_body_entered"]
+
+[editable path="HurtboxComponent"]

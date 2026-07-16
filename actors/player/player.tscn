@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://nq35okwbsjh3"]
+
+[ext_resource type="Script" uid="uid://bip5hhxeryemi" path="res://actors/player/player.gd" id="1_bop6h"]
+[ext_resource type="Texture2D" uid="uid://btde754ou25cc" path="res://actors/player/player_ship.png" id="1_nvxhs"]
+[ext_resource type="PackedScene" uid="uid://depdp5g8qy1y" path="res://systems/Trail Component/trail.tscn" id="2_ilk7j"]
+[ext_resource type="PackedScene" uid="uid://p3eg848tu85" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HurtBox/hurtbox_component.tscn" id="7_a744p"]
+[ext_resource type="PackedScene" uid="uid://cd0gji0ohlvxv" path="res://systems/Entity Components/Health Component/HealthComponent.tscn" id="7_lsln6"]
+[ext_resource type="Texture2D" uid="uid://dsa5a54oekwx3" path="res://vfx/particles/dust_particles.png" id="8_a744p"]
+[ext_resource type="PackedScene" uid="uid://baahldfh4kwvn" path="res://systems/Entity Components/Movement Component/MovementComponent.tscn" id="10_7aotg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a744p"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bop6h"]
+radius = 4.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_388e2"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 4
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_a744p"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.05319149, 0.5842697), 3.5646064, 3.5646064, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Player" type="CharacterBody2D" unique_id=324051146 node_paths=PackedStringArray("hurtbox_component") groups=["player"]]
+collision_layer = 2
+script = ExtResource("1_bop6h")
+BULLET_SPEED = 150.0
+hurtbox_component = NodePath("HurtboxComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=459279473]
+texture = ExtResource("1_nvxhs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=920059306]
+shape = SubResource("CircleShape2D_a744p")
+
+[node name="MovementComponent" parent="." unique_id=1896702948 instance=ExtResource("10_7aotg")]
+
+[node name="HealthComponent" parent="." unique_id=1869818733 instance=ExtResource("7_lsln6")]
+MAX_HP = 5
+
+[node name="HurtboxComponent" parent="." unique_id=330416737 instance=ExtResource("7_a744p")]
+collision_layer = 16
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]
+shape = SubResource("CircleShape2D_bop6h")
+
+[node name="NosePoint" type="Marker2D" parent="." unique_id=156775397]
+unique_name_in_owner = true
+position = Vector2(0, -8)
+
+[node name="GasParticles" type="CPUParticles2D" parent="." unique_id=1574545612]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_388e2")
+position = Vector2(0, 4)
+emitting = false
+amount = 15
+texture = ExtResource("8_a744p")
+lifetime = 0.5
+randomness = 1.0
+direction = Vector2(0, 1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 40.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+linear_accel_min = 1.0
+linear_accel_max = 5.0
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_a744p")
+anim_offset_max = 1.0
+
+[node name="Trail" parent="." unique_id=1115313834 instance=ExtResource("2_ilk7j")]
+default_color = Color(0.8509804, 0.88235295, 0.80784315, 1)
+MAX_LENGTH = 100
+
+[editable path="HurtboxComponent"]
