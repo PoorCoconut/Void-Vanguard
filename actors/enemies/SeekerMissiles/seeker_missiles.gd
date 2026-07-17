@@ -6,6 +6,7 @@ var current_state: enemy_state = enemy_state.SEEKING
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var debug_target: Sprite2D = $DEBUG_TARGET
+@onready var health_component: HealthComponent = $HealthComponent
 
 @export var SPEED : float = 50.0
 @export var TURN_SPEED : float = 3.0
@@ -41,7 +42,7 @@ func _physics_process(delta: float) -> void:
 				velocity = lunge_direction * LUNGE_SPEED
 		enemy_state.LUNGING:
 			if global_position.distance_to(target_spot) < 5.0:
-				queue_free()
+				health_component.take_damage(1)
 	move_and_slide()
 
 func _on_stopping_radius_body_entered(body: Node2D) -> void:
@@ -51,3 +52,7 @@ func _on_stopping_radius_body_entered(body: Node2D) -> void:
 func _on_seek_timer_timeout() -> void:
 	if current_state == enemy_state.SEEKING:
 		current_state = enemy_state.PRIMING
+
+func _on_health_component_died() -> void:
+	SoundBank.play_sfx("enemy_explode", global_position)
+	queue_free()

@@ -2,7 +2,22 @@ extends Node
 
 #Store sound effects here...
 var sfx_dict : Dictionary = {
-	"test_sfx" : preload("res://sound/sfx/sfx_example.mp3")
+	"ui_buy" : preload("uid://cfjheddeeen0d"),
+	"countdown" : preload("uid://bllghm36glfuh"),
+	"dispell" : preload("uid://ddiuor0ftkqk4"),
+	"enemy_explode" : preload("uid://d3r00te3cnntf"),
+	"enemy_hit" : preload("uid://bbt28awbbs65a"),
+	"explode1" : preload("uid://vxnf8xdra3vn"),
+	"explode2" : preload("uid://csk7b5xx2wx3o"),
+	"game_over" : preload("uid://bk4gkpqvfx4sk"),
+	"long_explosion" : preload("uid://ng0j72ibydhp"),
+	"player_death" : preload("uid://bxhdto7n1tsci"),
+	"player_hit" : preload("uid://b8hnn0lsij1n2"),
+	"point" : preload("uid://i5je5mq4261"),
+	"shoot" : preload("uid://c77pwimp5wch8"),
+	"ui_back" : preload("uid://kwjnfnxf5150"),
+	"ui_next" : preload("uid://bw1ws6jbp3ml7"),
+	"ui_next2" : preload("uid://3hvrjk0cqlo4")
 }
 
 #Here is an example:

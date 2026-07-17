@@ -24,6 +24,7 @@ func _ready() -> void:
 	tween.tween_property(sprite, "scale", Vector2(1,1), randf_range(0.2, 0.5))
 
 func _on_health_component_died() -> void:
+	SoundBank.play_sfx("enemy_explode", global_position)
 	queue_free()
 
 func _process(delta: float) -> void:

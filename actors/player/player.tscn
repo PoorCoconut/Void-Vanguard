@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://depdp5g8qy1y" path="res://systems/Trail Component/trail.tscn" id="2_ilk7j"]
 [ext_resource type="PackedScene" uid="uid://p3eg848tu85" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HurtBox/hurtbox_component.tscn" id="7_a744p"]
 [ext_resource type="PackedScene" uid="uid://cd0gji0ohlvxv" path="res://systems/Entity Components/Health Component/HealthComponent.tscn" id="7_lsln6"]
+[ext_resource type="AudioStream" uid="uid://dg6s5ydre7ygv" path="res://sound/sfx/sfx_accelerating.mp3" id="8_388e2"]
 [ext_resource type="Texture2D" uid="uid://dsa5a54oekwx3" path="res://vfx/particles/dust_particles.png" id="8_a744p"]
 [ext_resource type="PackedScene" uid="uid://baahldfh4kwvn" path="res://systems/Entity Components/Movement Component/MovementComponent.tscn" id="10_7aotg"]
 
@@ -41,8 +42,10 @@ shape = SubResource("CircleShape2D_a744p")
 [node name="HealthComponent" parent="." unique_id=1869818733 instance=ExtResource("7_lsln6")]
 MAX_HP = 5
 
-[node name="HurtboxComponent" parent="." unique_id=330416737 instance=ExtResource("7_a744p")]
+[node name="HurtboxComponent" parent="." unique_id=330416737 node_paths=PackedStringArray("health_component") instance=ExtResource("7_a744p")]
 collision_layer = 16
+collision_mask = 32
+health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]
 shape = SubResource("CircleShape2D_bop6h")
@@ -75,5 +78,14 @@ anim_offset_max = 1.0
 [node name="Trail" parent="." unique_id=1115313834 instance=ExtResource("2_ilk7j")]
 default_color = Color(0.8509804, 0.88235295, 0.80784315, 1)
 MAX_LENGTH = 100
+
+[node name="AccelerateSFX" type="AudioStreamPlayer" parent="." unique_id=1897269447]
+stream = ExtResource("8_388e2")
+volume_db = -5.0
+pitch_scale = 0.01
+autoplay = true
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]
 
 [editable path="HurtboxComponent"]

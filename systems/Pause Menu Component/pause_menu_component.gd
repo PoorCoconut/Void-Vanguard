@@ -40,29 +40,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func show_menu() -> void:
 	self.show()
 	get_tree().paused = true 
-	
-	# 1. Enable the filter and start it at the maximum "normal" frequency
-	AudioServer.set_bus_effect_enabled(music_bus_idx, 0, true)
-	low_pass_filter.cutoff_hz = 20500.0
-	
-	# 2. Smoothly sweep the frequency down to a muffled 1500 Hz
-	if muffle_tween and muffle_tween.is_valid(): muffle_tween.kill()
-	muffle_tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	muffle_tween.tween_property(low_pass_filter, "cutoff_hz", 1500.0, 0.4)\
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 func hide_menu() -> void:
 	self.hide()
 	get_tree().paused = false 
-	
-	# 1. Smoothly sweep the frequency back up to 20500 Hz
-	if muffle_tween and muffle_tween.is_valid(): muffle_tween.kill()
-	muffle_tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	muffle_tween.tween_property(low_pass_filter, "cutoff_hz", 20500.0, 0.3)\
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-		
-	# 2. When the sweep finishes, turn the effect completely off to save CPU
-	muffle_tween.tween_callback(func(): AudioServer.set_bus_effect_enabled(music_bus_idx, 0, false))
 
 ##ADUIO SLIDERS
 func _on_vol_master_slider_value_changed(value: float) -> void:

@@ -15,19 +15,26 @@ var on_cooldown : bool = false
 
 @export_category("COMPONENTS")
 @export var hurtbox_component : HurtboxComponent
+@onready var health_component: HealthComponent = $HealthComponent
 
 @export_category("OTHERS")
 @export var WRAP_MARGIN : float = 16.0
 
+@onready var accelerate_sfx: AudioStreamPlayer = $AccelerateSFX
 @onready var gas_particles: CPUParticles2D = %GasParticles
 @onready var screen_size: Vector2 = get_viewport_rect().size
 
 const bullet_path : PackedScene = preload("res://objects/Bullets/Player Bullet/player_bullet.tscn")
 var CUR_DIR : Vector2
 
+func _ready() -> void:
+	print(health_component.CUR_HP, "/" , health_component.MAX_HP)
+	Events.player_hp_updated.emit(health_component.CUR_HP, health_component.MAX_HP)
+
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("shoot") and not on_cooldown:
 		on_cooldown = true
+		SoundBank.play_sfx("shoot", global_position)
 		var bullet : Bullet = bullet_path.instantiate()
 		bullet.SPEED = BULLET_SPEED
 		bullet.ROTA = rotation
@@ -46,9 +53,19 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("move"):
 		gas_particles.emitting = true
 		velocity = velocity.move_toward(-transform.y * MAX_SPEED, ACCELERATION * delta)
+		accelerate_sfx.pitch_scale = clampf(accelerate_sfx.pitch_scale + 0.01, 0.1, 0.5)
 	else:
 		gas_particles.emitting = false
 		velocity = lerp(velocity, Vector2.ZERO, FRICTION * delta)
+		accelerate_sfx.pitch_scale = clampf(accelerate_sfx.pitch_scale - 0.01, 0.1, 0.5)
 	move_and_slide()
 	global_position.x = wrapf(global_position.x, -WRAP_MARGIN, screen_size.x + WRAP_MARGIN)
 	global_position.y = wrapf(global_position.y, -WRAP_MARGIN, screen_size.y + WRAP_MARGIN)
+
+func _on_health_component_hp_changed(new_hp: Variant, max_hp: Variant) -> void:
+	SoundBank.play_sfx("player_hit", global_position)
+	Events.player_hp_updated.emit(new_hp, max_hp)
+
+func _on_health_component_died() -> void:
+	SoundBank.play_sfx("player_death", global_position)
+	print("PLAYER DIED!")

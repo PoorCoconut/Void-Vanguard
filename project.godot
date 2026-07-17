@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Coco's Game Template"
+config/name="Void Vanguard"
 run/main_scene="uid://camlgx74mlna4"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -54,6 +54,11 @@ folder_colors={
 
 player=""
 world=""
+
+[gui]
+
+theme/custom="uid://bxunig1efkrif"
+theme/custom_font="uid://dd6rliakdwj40"
 
 [input]
 

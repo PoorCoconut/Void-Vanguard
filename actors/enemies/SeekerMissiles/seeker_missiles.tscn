@@ -28,9 +28,10 @@ script = ExtResource("1_m2l6f")
 [node name="Sprite" type="Sprite2D" parent="." unique_id=244624850]
 texture = SubResource("AtlasTexture_c0vby")
 
-[node name="HurtboxComponent" parent="." unique_id=330416737 instance=ExtResource("3_qwbf7")]
+[node name="HurtboxComponent" parent="." unique_id=330416737 node_paths=PackedStringArray("health_component") instance=ExtResource("3_qwbf7")]
 collision_layer = 64
 collision_mask = 8
+health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]
 shape = SubResource("CircleShape2D_qwbf7")
@@ -65,6 +66,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_k3lt5")
 debug_color = Color(1, 0.6, 0.69803923, 0)
 
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="timeout" from="SeekTimer" to="." method="_on_seek_timer_timeout"]
 [connection signal="body_entered" from="StoppingRadius" to="." method="_on_stopping_radius_body_entered"]
 

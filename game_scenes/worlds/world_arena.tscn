@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://nq35okwbsjh3" path="res://actors/player/player.tscn" id="1_0nqf4"]
 [ext_resource type="PackedScene" uid="uid://bf5atxwyrbuy8" path="res://actors/enemies/Statics/static_alien.tscn" id="2_k3utt"]
 [ext_resource type="PackedScene" uid="uid://bgqtco8cyoak0" path="res://actors/enemies/SeekerMissiles/seeker_missiles.tscn" id="3_qllcl"]
+[ext_resource type="PackedScene" uid="uid://btbcu7i2ahwq5" path="res://systems/HUD/player_hud.tscn" id="4_wq4ge"]
+[ext_resource type="PackedScene" uid="uid://bkrih4wj555nw" path="res://systems/Pause Menu Component/pause_menu_component.tscn" id="5_46vrn"]
+[ext_resource type="PackedScene" uid="uid://bimgj4dl0xtn7" path="res://actors/enemies/Shuriken/shuriken.tscn" id="6_46vrn"]
 
 [node name="world_arena" type="Node2D" unique_id=473827935 groups=["world"]]
 
@@ -26,3 +29,11 @@ position = Vector2(224, 48)
 
 [node name="SeekerMissiles" parent="." unique_id=1865496810 instance=ExtResource("3_qllcl")]
 position = Vector2(64, 64)
+
+[node name="PlayerHUD" parent="." unique_id=1878162404 instance=ExtResource("4_wq4ge")]
+
+[node name="PauseMenuComponent" parent="." unique_id=547681459 instance=ExtResource("5_46vrn")]
+visible = false
+
+[node name="Shuriken" parent="." unique_id=1526867429 instance=ExtResource("6_46vrn")]
+position = Vector2(192, 144)
