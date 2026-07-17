@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://f3n5igu32ac3"]
+
+[ext_resource type="PackedScene" uid="uid://c58coiv6jurie" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HitBox/hitbox_component.tscn" id="1_0baf3"]
+[ext_resource type="Script" uid="uid://245ryc5u7krb" path="res://objects/obstacles/explosion/explosion.gd" id="1_lrcgp"]
+[ext_resource type="Texture2D" uid="uid://dsa5a54oekwx3" path="res://vfx/particles/dust_particles.png" id="3_cu88a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lrcgp"]
+radius = 16.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w84o0"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 4
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_f60qd"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.09574469, 1), 0.0, 0.0, 0, 0, Vector2(0.85106385, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="Explosion" type="Node2D" unique_id=1463017434]
+script = ExtResource("1_lrcgp")
+
+[node name="HitboxComponent" parent="." unique_id=1755790887 instance=ExtResource("1_0baf3")]
+collision_layer = 32
+damage = 2
+knockback_force = 100.0
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=939226382]
+shape = SubResource("CircleShape2D_lrcgp")
+
+[node name="ExplodeDark" type="CPUParticles2D" parent="." unique_id=1914063231]
+material = SubResource("CanvasItemMaterial_w84o0")
+emitting = false
+amount = 10
+texture = ExtResource("3_cu88a")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.8
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 79.21
+initial_velocity_max = 108.91
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+damping_min = 1.0
+damping_max = 5.0
+scale_amount_curve = SubResource("Curve_f60qd")
+color = Color(0.16862746, 0.34117648, 0.28235295, 1)
+anim_offset_max = 1.0
+
+[node name="ExplodeMed" type="CPUParticles2D" parent="." unique_id=1586040614]
+material = SubResource("CanvasItemMaterial_w84o0")
+emitting = false
+amount = 10
+texture = ExtResource("3_cu88a")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.8
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 79.21
+initial_velocity_max = 108.91
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+damping_min = 1.0
+damping_max = 5.0
+scale_amount_curve = SubResource("Curve_f60qd")
+color = Color(0.38039216, 0.5294118, 0.39215687, 1)
+anim_offset_max = 1.0
+
+[node name="ExplodeLight" type="CPUParticles2D" parent="." unique_id=1688075799]
+material = SubResource("CanvasItemMaterial_w84o0")
+emitting = false
+amount = 10
+texture = ExtResource("3_cu88a")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.8
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 79.21
+initial_velocity_max = 108.91
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+damping_min = 1.0
+damping_max = 5.0
+scale_amount_curve = SubResource("Curve_f60qd")
+color = Color(0.8039216, 0.8352941, 0.7607843, 1)
+anim_offset_max = 1.0
+
+[connection signal="finished" from="ExplodeDark" to="." method="_on_explode_dark_finished"]
+
+[editable path="HitboxComponent"]

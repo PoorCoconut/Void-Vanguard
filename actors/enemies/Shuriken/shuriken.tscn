@@ -28,7 +28,7 @@ MAX_HP = 2
 
 [node name="HurtboxComponent" parent="." unique_id=330416737 node_paths=PackedStringArray("health_component") instance=ExtResource("2_3celt")]
 collision_layer = 64
-collision_mask = 8
+collision_mask = 136
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]
@@ -36,11 +36,13 @@ shape = SubResource("CircleShape2D_3rid2")
 
 [node name="HitboxComponent" parent="." unique_id=1755790887 instance=ExtResource("3_3rid2")]
 collision_layer = 32
+knockback_force = 70.0
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=939226382]
 shape = SubResource("CircleShape2D_r3trl")
 
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]
 
 [editable path="HurtboxComponent"]
 [editable path="HitboxComponent"]

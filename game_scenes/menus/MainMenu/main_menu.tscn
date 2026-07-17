@@ -76,6 +76,7 @@ text = "SETTINGS"
 
 [node name="Button_Credits" type="Button" parent="ButtonContainerSizer/ButtonContainer" unique_id=1636824044]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "CREDITS"

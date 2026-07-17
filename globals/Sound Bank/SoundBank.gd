@@ -17,7 +17,9 @@ var sfx_dict : Dictionary = {
 	"shoot" : preload("uid://c77pwimp5wch8"),
 	"ui_back" : preload("uid://kwjnfnxf5150"),
 	"ui_next" : preload("uid://bw1ws6jbp3ml7"),
-	"ui_next2" : preload("uid://3hvrjk0cqlo4")
+	"ui_next2" : preload("uid://3hvrjk0cqlo4"),
+	"clear" : preload("uid://nuqc0tn2i00m"),
+	"event" : preload("uid://cia5p4ws44njq")
 }
 
 #Here is an example:

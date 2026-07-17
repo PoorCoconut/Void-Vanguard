@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c16bthglkir5v"]
+
+[ext_resource type="Script" uid="uid://bu26kxud5f5gd" path="res://objects/obstacles/asteroids/AsteroidsBig/asteroid_big.gd" id="1_fq6bl"]
+[ext_resource type="PackedScene" uid="uid://cd0gji0ohlvxv" path="res://systems/Entity Components/Health Component/HealthComponent.tscn" id="2_vy1n5"]
+[ext_resource type="Texture2D" uid="uid://dj2vgfv8e8ysl" path="res://objects/obstacles/asteroids/asteroids.png" id="3_hqv7m"]
+[ext_resource type="PackedScene" uid="uid://c58coiv6jurie" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HitBox/hitbox_component.tscn" id="4_3xmit"]
+[ext_resource type="PackedScene" uid="uid://p3eg848tu85" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HurtBox/hurtbox_component.tscn" id="5_65yed"]
+[ext_resource type="PackedScene" uid="uid://depdp5g8qy1y" path="res://systems/Trail Component/trail.tscn" id="6_fe2ng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq6bl"]
+atlas = ExtResource("3_hqv7m")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_efowb"]
+radius = 13.038404
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_losky"]
+radius = 17.029387
+
+[node name="AsteroidBig" type="CharacterBody2D" unique_id=873789391]
+collision_mask = 0
+script = ExtResource("1_fq6bl")
+
+[node name="HealthComponent" parent="." unique_id=1869818733 instance=ExtResource("2_vy1n5")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1396620407]
+texture = SubResource("AtlasTexture_fq6bl")
+hframes = 2
+
+[node name="HitboxComponent" parent="." unique_id=1755790887 instance=ExtResource("4_3xmit")]
+collision_layer = 128
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=939226382]
+shape = SubResource("CircleShape2D_efowb")
+
+[node name="HurtboxComponent" parent="." unique_id=330416737 node_paths=PackedStringArray("health_component") instance=ExtResource("5_65yed")]
+collision_layer = 256
+collision_mask = 40
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]
+shape = SubResource("CircleShape2D_losky")
+
+[node name="OnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="." unique_id=22031488]
+rect = Rect2(-128, -128, 256, 256)
+
+[node name="Trail" parent="." unique_id=1115313834 instance=ExtResource("6_fe2ng")]
+width = 10.0
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="screen_entered" from="OnScreenNotifier" to="." method="_on_on_screen_notifier_screen_entered"]
+[connection signal="screen_exited" from="OnScreenNotifier" to="." method="_on_on_screen_notifier_screen_exited"]
+
+[editable path="HitboxComponent"]
+[editable path="HurtboxComponent"]

@@ -1,12 +1,36 @@
 extends Node
 
 var CURRENT_WORLD_STATE : String = "Nothing"
+var points : int = 0
+var difficulty : String = "e"
 const SAVE_PATH : String = "user://savegame.json"
+
+#Player Upgrades
+var hull_upgraded: int = 0
+var thruster_upgraded: int = 0
+var laser_upgraded : int = 0
+var dispel_bought : int = 0
+
+var hull_health : int = 0
+var thruster_speed : float = 0
+var thruster_turn : float = 0
+var laser_cooldown : float = 0
+var laser_damage : int = 0
+
 
 func _ready() -> void:
 	print("GAME MANAGER LOADED!")
 
-
+func reset_game():
+	hull_upgraded = 0
+	thruster_upgraded = 0
+	laser_upgraded = 0
+	dispel_bought = 0
+	hull_health = 0
+	thruster_speed = 0
+	thruster_turn = 0
+	laser_cooldown = 0
+	laser_damage = 0
 ##SAVE FILE LOGIC
 func save_player_position(player_pos: Vector2) -> void:
 	var save_data = {

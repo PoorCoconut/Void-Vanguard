@@ -1,0 +1,389 @@
+[gd_scene format=3 uid="uid://cqp5k5hjblahw"]
+
+[ext_resource type="Script" uid="uid://bw58jfn3wbxp8" path="res://systems/ShopMenuComponent/shop_menu_component.gd" id="1_enl10"]
+[ext_resource type="Script" uid="uid://cu7uv8qy1tqsq" path="res://systems/ShopMenuComponent/shop_config.gd" id="2_i716x"]
+[ext_resource type="Shader" uid="uid://ipbk6i6jt2va" path="res://vfx/shaders/scrolling.gdshader" id="2_vdtu1"]
+[ext_resource type="Texture2D" uid="uid://ckl1drvn4hi5m" path="res://systems/ShopMenuComponent/shop_background.png" id="3_drksb"]
+[ext_resource type="Texture2D" uid="uid://bsq5jxhctomel" path="res://systems/ShopMenuComponent/ui_sprites.png" id="4_drksb"]
+
+[sub_resource type="Resource" id="Resource_7glbw"]
+script = ExtResource("2_i716x")
+metadata/_custom_type_script = "uid://cu7uv8qy1tqsq"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i716x"]
+shader = ExtResource("2_vdtu1")
+shader_parameter/rotate_degree = 15.000000223518
+shader_parameter/move_degree = 30.000000447036
+shader_parameter/speed = 0.250000011875
+shader_parameter/scale = 0.2
+shader_parameter/gap = Vector2(0, 0)
+shader_parameter/node_scale = Vector2(1, 0.56)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdtu1"]
+bg_color = Color(0.16862746, 0.34117648, 0.28235295, 0.6862745)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.15294118, 0.2, 0.21960784, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i716x"]
+atlas = ExtResource("4_drksb")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i716x"]
+load_path = "res://.godot/imported/ui_sprites.png-d4fe951ab2cf1e7e36a16bcfe590fac7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt2xc"]
+atlas = SubResource("CompressedTexture2D_i716x")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f0tnh"]
+load_path = "res://.godot/imported/ui_sprites.png-d4fe951ab2cf1e7e36a16bcfe590fac7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ecyw"]
+atlas = SubResource("CompressedTexture2D_f0tnh")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r6rrt"]
+load_path = "res://.godot/imported/ui_sprites.png-d4fe951ab2cf1e7e36a16bcfe590fac7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bfsb"]
+atlas = SubResource("CompressedTexture2D_r6rrt")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drksb"]
+atlas = ExtResource("4_drksb")
+region = Rect2(0, 16, 40, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_drksb"]
+load_path = "res://.godot/imported/ui_sprites.png-d4fe951ab2cf1e7e36a16bcfe590fac7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sglx"]
+atlas = SubResource("CompressedTexture2D_drksb")
+region = Rect2(0, 24, 40, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_857se"]
+atlas = SubResource("CompressedTexture2D_i716x")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phefk"]
+atlas = SubResource("CompressedTexture2D_f0tnh")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmpgy"]
+atlas = SubResource("CompressedTexture2D_r6rrt")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viuwn"]
+atlas = SubResource("CompressedTexture2D_i716x")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfv5l"]
+atlas = SubResource("CompressedTexture2D_f0tnh")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiy5a"]
+atlas = SubResource("CompressedTexture2D_r6rrt")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s3bt"]
+atlas = SubResource("CompressedTexture2D_i716x")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipkib"]
+atlas = SubResource("CompressedTexture2D_f0tnh")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71st0"]
+atlas = SubResource("CompressedTexture2D_r6rrt")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7glbw"]
+atlas = ExtResource("4_drksb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drksb"]
+bg_color = Color(0.15294118, 0.2, 0.21960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i716x"]
+bg_color = Color(0.8039216, 0.8352941, 0.7607843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7glbw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.15294118, 0.2, 0.21960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sglx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yt2xc"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6117647, 0.6901961, 0.5019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0tnh"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.15294118, 0.2, 0.21960784, 1)
+
+[node name="ShopMenuComponent" type="CanvasLayer" unique_id=442271377]
+process_mode = 3
+script = ExtResource("1_enl10")
+config = SubResource("Resource_7glbw")
+debug_points = true
+debug_menu = true
+
+[node name="Control" type="Control" parent="." unique_id=874590284]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Control" unique_id=120698752]
+material = SubResource("ShaderMaterial_i716x")
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("3_drksb")
+
+[node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=486521662]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 288.0
+offset_bottom = 160.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vdtu1")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer" unique_id=1362576086]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer" unique_id=196626994]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="Control/PanelContainer/MarginContainer/VBoxContainer" unique_id=373193555]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8039216, 0.8352941, 0.7607843, 1)
+bbcode_enabled = true
+text = "
+[wave amp=4.0]WELCOME TO THE SPACE SHOP!
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerPoints" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer" unique_id=153731385]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 P"
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer" unique_id=1025259844]
+layout_mode = 2
+
+[node name="UpgradeContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1791865343]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer" unique_id=1478717001]
+layout_mode = 2
+text = "UPGRADE SHIP"
+horizontal_alignment = 1
+
+[node name="HullUpgrade" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer" unique_id=1665018394]
+layout_mode = 2
+
+[node name="HullButton" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/HullUpgrade" unique_id=1756449311]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_i716x")
+texture_pressed = SubResource("AtlasTexture_yt2xc")
+texture_hover = SubResource("AtlasTexture_7ecyw")
+texture_disabled = SubResource("AtlasTexture_8bfsb")
+
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/HullUpgrade" unique_id=263994304]
+layout_mode = 2
+text = "HULL"
+
+[node name="HullCost" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/HullUpgrade" unique_id=1550667302]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0P"
+horizontal_alignment = 2
+
+[node name="Control" type="Control" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer" unique_id=1077855006]
+layout_mode = 2
+
+[node name="HullProgressBar" type="TextureProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/Control" unique_id=1537081048]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = -4.0
+offset_right = 130.0
+offset_bottom = 4.0
+max_value = 5.0
+texture_under = SubResource("AtlasTexture_drksb")
+texture_progress = SubResource("AtlasTexture_0sglx")
+
+[node name="ThrusterUpgrade" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer" unique_id=250231452]
+layout_mode = 2
+
+[node name="ThrusterButton" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/ThrusterUpgrade" unique_id=563672972]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_i716x")
+texture_pressed = SubResource("AtlasTexture_857se")
+texture_hover = SubResource("AtlasTexture_phefk")
+texture_disabled = SubResource("AtlasTexture_rmpgy")
+
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/ThrusterUpgrade" unique_id=1438673341]
+layout_mode = 2
+text = "THRUSTER"
+
+[node name="ThrusterCost" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/ThrusterUpgrade" unique_id=1256569471]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0P"
+horizontal_alignment = 2
+
+[node name="Control2" type="Control" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer" unique_id=181745809]
+layout_mode = 2
+
+[node name="ThrusterProgressBar" type="TextureProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/Control2" unique_id=655285100]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = -4.0
+offset_right = 130.0
+offset_bottom = 4.0
+max_value = 5.0
+texture_under = SubResource("AtlasTexture_drksb")
+texture_progress = SubResource("AtlasTexture_0sglx")
+
+[node name="LaserUpgrade" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer" unique_id=211513874]
+layout_mode = 2
+
+[node name="LaserButton" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/LaserUpgrade" unique_id=1920401262]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_i716x")
+texture_pressed = SubResource("AtlasTexture_viuwn")
+texture_hover = SubResource("AtlasTexture_xfv5l")
+texture_disabled = SubResource("AtlasTexture_hiy5a")
+
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/LaserUpgrade" unique_id=762655028]
+layout_mode = 2
+text = "LASER"
+
+[node name="LaserCost" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/LaserUpgrade" unique_id=1809801387]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0P"
+horizontal_alignment = 2
+
+[node name="Control3" type="Control" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer" unique_id=1734863330]
+layout_mode = 2
+
+[node name="LaserProgressBar" type="TextureProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/Control3" unique_id=798332408]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = -4.0
+offset_right = 130.0
+offset_bottom = 4.0
+max_value = 5.0
+texture_under = SubResource("AtlasTexture_drksb")
+texture_progress = SubResource("AtlasTexture_0sglx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer" unique_id=1273774032]
+layout_mode = 2
+
+[node name="RepairButton" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/HBoxContainer" unique_id=538280841]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_i716x")
+texture_pressed = SubResource("AtlasTexture_0s3bt")
+texture_hover = SubResource("AtlasTexture_ipkib")
+texture_disabled = SubResource("AtlasTexture_71st0")
+
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/HBoxContainer" unique_id=395166328]
+layout_mode = 2
+text = "REPAIR"
+
+[node name="RepairCost" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/HBoxContainer" unique_id=1764532679]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0P"
+horizontal_alignment = 2
+
+[node name="DispelContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2055993823]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DispelContainer" unique_id=1452801226]
+layout_mode = 2
+text = "DISPEL ENTITY"
+horizontal_alignment = 1
+
+[node name="Container" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DispelContainer" unique_id=1925112601]
+layout_mode = 2
+alignment = 1
+
+[node name="DispelButton" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DispelContainer/Container" unique_id=824157547]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_7glbw")
+
+[node name="DispelCost" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DispelContainer/Container" unique_id=348797146]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0P"
+
+[node name="EntityProgress" type="ProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DispelContainer" unique_id=1026732153]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_drksb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_i716x")
+show_percentage = false
+
+[node name="Control" type="Control" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DispelContainer" unique_id=312482945]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ContinueButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DispelContainer" unique_id=1062366045]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7glbw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0sglx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yt2xc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_f0tnh")
+text = "CONTINUE"
+
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/HullUpgrade/HullButton" to="." method="_on_hull_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/ThrusterUpgrade/ThrusterButton" to="." method="_on_thruster_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/LaserUpgrade/LaserButton" to="." method="_on_laser_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/HBoxContainer/RepairButton" to="." method="_on_repair_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DispelContainer/Container/DispelButton" to="." method="_on_dispel_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DispelContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

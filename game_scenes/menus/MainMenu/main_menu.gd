@@ -12,29 +12,37 @@ extends Control
 @export_file("*.tscn") var next_level_path : String
 
 func _ready() -> void:
+	
+	
 	slider_ma_vol.value = SettingsManager.master_vol
 	slider_mu_vol.value = SettingsManager.music_vol
 	slider_s_vol.value = SettingsManager.sfx_vol
 
 func _on_button_play_pressed() -> void:
+	SoundBank.play_sfx("ui_next", Vector2.ZERO)
 	GameManager.load_next_level(next_level_path)
 
 func _on_button_settings_pressed() -> void:
+	SoundBank.play_sfx("ui_next", Vector2.ZERO)
 	%SettingsContainer.show()
 
 func _on_button_credits_pressed() -> void:
+	SoundBank.play_sfx("ui_next", Vector2.ZERO)
 	pass
 
 func _on_button_exit_pressed() -> void:
+	SoundBank.play_sfx("ui_next", Vector2.ZERO)
 	get_tree().quit()
 
 func _on_back_button_pressed() -> void:
+	SoundBank.play_sfx("ui_back", Vector2.ZERO)
 	%SettingsContainer.hide()
 	%WarningLabel.hide()
 	%NukeButton.hide()
 	%ResetButton.show()
 
 func _on_reset_button_pressed() -> void:
+	SoundBank.play_sfx("ui_back", Vector2.ZERO)
 	%WarningLabel.show()
 	%NukeButton.show()
 	%ResetButton.hide()
@@ -52,6 +60,7 @@ func _on_slider_s_vol_value_changed(value: float) -> void:
 	SettingsManager.save_settings()
 
 func _on_nuke_button_pressed() -> void:
+	SoundBank.play_sfx("long_explosion", Vector2.ZERO)
 	#Reset ALL Settings to default, including player position
 	%WarningLabel.hide()
 	%NukeButton.hide()
@@ -77,29 +86,20 @@ func _on_nuke_button_pressed() -> void:
 	#RESET KEYBINDS
 	SettingsManager.reset_keybinds_to_default()
 
-
-func _on_button_1080p_pressed() -> void:
-	print("CLICKED 1080p BUTTON")
-	DisplayServer.window_set_size(Vector2i(1980, 1080))
-
-func _on_button_720p_pressed() -> void:
-	print("CLICKED 720p BUTTON")
-	DisplayServer.window_set_size(Vector2i(1280, 720))
-
-func _on_button_540p_pressed() -> void:
-	print("CLICKED 540p BUTTON")
-	DisplayServer.window_set_size(Vector2i(990, 540))
-
 func _on_button_windowed_pressed() -> void:
+	SoundBank.play_sfx("ui_next", Vector2.ZERO)
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on_button_fullscreen_pressed() -> void:
+	SoundBank.play_sfx("ui_next", Vector2.ZERO)
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _on_button_exclusive_fullscreen_pressed() -> void:
+	SoundBank.play_sfx("ui_next", Vector2.ZERO)
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 
 ##CONTROLS SETTINGS AND STUFF
 @onready var action_list_container : GridContainer = %RebindContainer
 func _on_controls_reset_pressed() -> void:
+	SoundBank.play_sfx("long_explosion", Vector2.ZERO)
 	SettingsManager.reset_keybinds_to_default()

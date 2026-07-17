@@ -30,7 +30,7 @@ texture = SubResource("AtlasTexture_c0vby")
 
 [node name="HurtboxComponent" parent="." unique_id=330416737 node_paths=PackedStringArray("health_component") instance=ExtResource("3_qwbf7")]
 collision_layer = 64
-collision_mask = 8
+collision_mask = 136
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]
@@ -60,7 +60,7 @@ texture = SubResource("PlaceholderTexture2D_qwbf7")
 
 [node name="StoppingRadius" type="Area2D" parent="." unique_id=287876024]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StoppingRadius" unique_id=2026910689]
 shape = SubResource("CircleShape2D_k3lt5")

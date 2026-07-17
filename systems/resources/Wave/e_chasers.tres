@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://cuxicnrw57tgp"]
+
+[ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="1_d427t"]
+[ext_resource type="PackedScene" uid="uid://bimgj4dl0xtn7" path="res://actors/enemies/Shuriken/shuriken.tscn" id="1_mxsbx"]
+
+[resource]
+script = ExtResource("1_d427t")
+enemies = Array[PackedScene]([ExtResource("1_mxsbx"), ExtResource("1_mxsbx")])
+spawn_all = true
+metadata/_custom_type_script = "uid://dxchcumix1ovh"

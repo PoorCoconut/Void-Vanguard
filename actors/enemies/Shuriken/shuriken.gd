@@ -3,13 +3,18 @@ class_name EnemyShuriken
 
 @export var WRAP_MARGIN : float = 16.0
 @onready var screen_size: Vector2 = get_viewport_rect().size
+@onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
+
 var target : Player
 var SPEED : float = 100.0
 var ACCELERATION : float = 10.0
 
-
 func _ready() -> void:
 	target = get_tree().get_first_node_in_group("player")
+	hurtbox_component.knockback_received.connect(_on_knockback_received)
+
+func _on_knockback_received(direction: Vector2, force: float):
+	velocity += direction * force
 
 func _physics_process(delta: float) -> void:
 	if is_instance_valid(target):
@@ -27,3 +32,6 @@ func _physics_process(delta: float) -> void:
 func _on_health_component_died() -> void:
 	SoundBank.play_sfx("enemy_explode", global_position)
 	queue_free()
+
+func _on_health_component_hp_changed(_new_hp: Variant, _max_hp: Variant) -> void:
+	SoundBank.play_sfx("enemy_hit", global_position)

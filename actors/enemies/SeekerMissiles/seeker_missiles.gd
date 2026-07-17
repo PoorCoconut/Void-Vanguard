@@ -13,6 +13,8 @@ var current_state: enemy_state = enemy_state.SEEKING
 @export var FRICTION : float = 5.0
 @export var LUNGE_SPEED : float = 300.0
 
+@export var explosion_path : PackedScene = preload("uid://f3n5igu32ac3")
+
 var target : Node2D
 var target_spot : Vector2
 
@@ -54,5 +56,7 @@ func _on_seek_timer_timeout() -> void:
 		current_state = enemy_state.PRIMING
 
 func _on_health_component_died() -> void:
-	SoundBank.play_sfx("enemy_explode", global_position)
+	var explosion := explosion_path.instantiate()
+	explosion.global_position = global_position
+	get_tree().get_first_node_in_group("world").add_child(explosion)
 	queue_free()

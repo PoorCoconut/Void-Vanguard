@@ -28,7 +28,8 @@ const bullet_path : PackedScene = preload("res://objects/Bullets/Player Bullet/p
 var CUR_DIR : Vector2
 
 func _ready() -> void:
-	print(health_component.CUR_HP, "/" , health_component.MAX_HP)
+	hurtbox_component.knockback_received.connect(_on_knockback_received)
+	accelerate_sfx.volume_db = -5
 	Events.player_hp_updated.emit(health_component.CUR_HP, health_component.MAX_HP)
 
 func _input(_event: InputEvent) -> void:
@@ -41,18 +42,18 @@ func _input(_event: InputEvent) -> void:
 		get_tree().get_first_node_in_group("world").add_child(bullet)
 		bullet.global_position = %NosePoint.global_position
 		
-		await get_tree().create_timer(COOLDOWN).timeout
+		await get_tree().create_timer(COOLDOWN + GameManager.laser_cooldown).timeout
 		on_cooldown = false
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("turn_left"):
-		rotation -= 1 * TURN_SPEED * delta
+		rotation -= 1 * (TURN_SPEED + GameManager.thruster_turn) * delta
 	elif Input.is_action_pressed("turn_right"):
-		rotation += 1 * TURN_SPEED * delta
+		rotation += 1 * (TURN_SPEED + GameManager.thruster_turn) * delta
 	
 	if Input.is_action_pressed("move"):
 		gas_particles.emitting = true
-		velocity = velocity.move_toward(-transform.y * MAX_SPEED, ACCELERATION * delta)
+		velocity = velocity.move_toward(-transform.y * (MAX_SPEED + GameManager.thruster_speed), ACCELERATION * delta)
 		accelerate_sfx.pitch_scale = clampf(accelerate_sfx.pitch_scale + 0.01, 0.1, 0.5)
 	else:
 		gas_particles.emitting = false
@@ -62,10 +63,17 @@ func _physics_process(delta: float) -> void:
 	global_position.x = wrapf(global_position.x, -WRAP_MARGIN, screen_size.x + WRAP_MARGIN)
 	global_position.y = wrapf(global_position.y, -WRAP_MARGIN, screen_size.y + WRAP_MARGIN)
 
+func _on_knockback_received(direction: Vector2, force: float):
+	velocity += direction * force
+
 func _on_health_component_hp_changed(new_hp: Variant, max_hp: Variant) -> void:
+	GameManager.do_camera_shake(5.0, 0.5)
 	SoundBank.play_sfx("player_hit", global_position)
 	Events.player_hp_updated.emit(new_hp, max_hp)
 
+signal player_death
 func _on_health_component_died() -> void:
+	player_death.emit()
+	GameManager.do_camera_shake(10.0, 1)
 	SoundBank.play_sfx("player_death", global_position)
 	print("PLAYER DIED!")

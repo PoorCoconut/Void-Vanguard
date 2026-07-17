@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://du8kp748p8ap1"]
+
+[ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="1_5t4qs"]
+[ext_resource type="PackedScene" uid="uid://c16bthglkir5v" path="res://objects/obstacles/asteroids/AsteroidsBig/asteroid_big.tscn" id="1_8skbn"]
+[ext_resource type="PackedScene" uid="uid://do8jf8y45s7pp" path="res://objects/obstacles/Asteroids Small/asteroid_small.tscn" id="3_8dlp8"]
+
+[resource]
+script = ExtResource("1_5t4qs")
+has_asteroid_belt = true
+metadata/_custom_type_script = "uid://dxchcumix1ovh"

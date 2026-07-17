@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://bfwqs77bsutpr"]
+
+[ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="1_8fp6x"]
+[ext_resource type="PackedScene" uid="uid://bf5atxwyrbuy8" path="res://actors/enemies/Statics/static_alien.tscn" id="1_8vyt5"]
+
+[resource]
+script = ExtResource("1_8fp6x")
+enemies = Array[PackedScene]([ExtResource("1_8vyt5"), ExtResource("1_8vyt5"), ExtResource("1_8vyt5"), ExtResource("1_8vyt5"), ExtResource("1_8vyt5"), ExtResource("1_8vyt5")])
+spawn_cooldown = 0.2
+metadata/_custom_type_script = "uid://dxchcumix1ovh"

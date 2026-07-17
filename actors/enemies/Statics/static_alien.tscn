@@ -14,7 +14,7 @@ radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5puj4"]
 
-[node name="StaticAlien" type="StaticBody2D" unique_id=1871172355]
+[node name="StaticAlien" type="CharacterBody2D" unique_id=438626886]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_o2c4d")
@@ -30,13 +30,14 @@ shape = SubResource("CircleShape2D_pi0rg")
 
 [node name="HitboxComponent" parent="." unique_id=1755790887 instance=ExtResource("2_o2c4d")]
 collision_layer = 32
+knockback_force = 50.0
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=939226382]
 shape = SubResource("CircleShape2D_o2c4d")
 
 [node name="HurtboxComponent" parent="." unique_id=330416737 node_paths=PackedStringArray("health_component") instance=ExtResource("3_5puj4")]
 collision_layer = 64
-collision_mask = 8
+collision_mask = 136
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]

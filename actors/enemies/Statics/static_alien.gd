@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends CharacterBody2D
 class_name EnemyStatic
 
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
@@ -22,6 +22,10 @@ func _ready() -> void:
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite, "scale", Vector2(1,1), randf_range(0.2, 0.5))
+	hurtbox_component.knockback_received.connect(_on_knockback_received)
+
+func _on_knockback_received(direction: Vector2, force: float):
+	velocity += direction * force
 
 func _on_health_component_died() -> void:
 	SoundBank.play_sfx("enemy_explode", global_position)

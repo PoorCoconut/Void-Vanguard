@@ -44,8 +44,9 @@ MAX_HP = 5
 
 [node name="HurtboxComponent" parent="." unique_id=330416737 node_paths=PackedStringArray("health_component") instance=ExtResource("7_a744p")]
 collision_layer = 16
-collision_mask = 32
+collision_mask = 160
 health_component = NodePath("../HealthComponent")
+iframe = 0.5
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]
 shape = SubResource("CircleShape2D_bop6h")
@@ -81,7 +82,7 @@ MAX_LENGTH = 100
 
 [node name="AccelerateSFX" type="AudioStreamPlayer" parent="." unique_id=1897269447]
 stream = ExtResource("8_388e2")
-volume_db = -5.0
+volume_db = -80.0
 pitch_scale = 0.01
 autoplay = true
 

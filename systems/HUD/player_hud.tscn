@@ -3,10 +3,6 @@
 [ext_resource type="Script" uid="uid://dax15qxwg4uwj" path="res://systems/HUD/player_hud.gd" id="1_cadqa"]
 [ext_resource type="Texture2D" uid="uid://dwj6love7lf1r" path="res://systems/HUD/health_bar.png" id="2_rhs8c"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2gw1j"]
-atlas = ExtResource("2_rhs8c")
-region = Rect2(0, 0, 48, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_rhs8c"]
 atlas = ExtResource("2_rhs8c")
 region = Rect2(0, 16, 48, 16)
@@ -15,25 +11,36 @@ region = Rect2(0, 16, 48, 16)
 atlas = ExtResource("2_rhs8c")
 region = Rect2(0, 32, 48, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gw1j"]
+atlas = ExtResource("2_rhs8c")
+region = Rect2(0, 0, 48, 16)
+
 [node name="PlayerHUD" type="CanvasLayer" unique_id=1878162404]
 script = ExtResource("1_cadqa")
 
 [node name="BarContainer" type="Node2D" parent="." unique_id=1156197549]
 position = Vector2(4, 168)
 
-[node name="WhiteBar" type="TextureProgressBar" parent="BarContainer" unique_id=1731804128]
-unique_name_in_owner = true
-offset_top = -8.0
-offset_right = 128.0
-offset_bottom = 8.0
-texture_progress = SubResource("AtlasTexture_2gw1j")
-
 [node name="BarChaser" type="TextureProgressBar" parent="BarContainer" unique_id=2074940599]
 unique_name_in_owner = true
 offset_top = -8.0
-offset_right = 128.0
+offset_right = 80.0
 offset_bottom = 8.0
+step = 0.1
+nine_patch_stretch = true
+stretch_margin_left = 16
+stretch_margin_right = 16
 texture_under = SubResource("AtlasTexture_rhs8c")
 texture_progress = SubResource("AtlasTexture_1tei2")
+
+[node name="WhiteBar" type="TextureProgressBar" parent="BarContainer" unique_id=1731804128]
+unique_name_in_owner = true
+offset_top = -8.0
+offset_right = 80.0
+offset_bottom = 8.0
+nine_patch_stretch = true
+stretch_margin_left = 16
+stretch_margin_right = 16
+texture_progress = SubResource("AtlasTexture_2gw1j")
 
 [node name="Timer" type="Timer" parent="." unique_id=277835653]

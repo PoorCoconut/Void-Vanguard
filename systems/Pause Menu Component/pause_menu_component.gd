@@ -38,10 +38,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			show_menu()
 
 func show_menu() -> void:
+	SoundBank.play_sfx("ui_next", Vector2.ZERO)
 	self.show()
 	get_tree().paused = true 
 
 func hide_menu() -> void:
+	SoundBank.play_sfx("ui_back", Vector2.ZERO)
 	self.hide()
 	get_tree().paused = false 
 

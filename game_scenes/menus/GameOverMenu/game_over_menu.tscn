@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cm7jura061s14"]
+
+[ext_resource type="Script" uid="uid://dmkwu8w4asyuc" path="res://game_scenes/menus/GameOverMenu/game_over_menu.gd" id="1_s4mws"]
+
+[node name="GameOverMenu" type="Control" unique_id=1523487392]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s4mws")
+next_level_path = "uid://camlgx74mlna4"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=316515017]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.15294118, 0.2, 0.21960784, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=853151386]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+theme_override_colors/default_color = Color(0.38039216, 0.5294118, 0.39215687, 1)
+bbcode_enabled = true
+text = "[shake rate=0.5 amp=0.5]G A M E   O V E R[/shake]
+
+
+The last defense has perished.
+The World is doomed in darkness!
+
+
+
+[wave]-Press any to insert coin-"
+horizontal_alignment = 1
+vertical_alignment = 1
