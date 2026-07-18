@@ -4,3 +4,10 @@ extends Node
 
 
 signal player_hp_updated(current_hp, max_hp)
+signal enemy_progress(prog : float)
+signal bought_hull_upgrade()
+signal do_bf()
+signal complete_game()
+
+signal change_melody(type : String)
+signal do_drums(enable : bool)

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://856jgosx474d"]
+
+[ext_resource type="PackedScene" uid="uid://c16bthglkir5v" path="res://objects/obstacles/asteroids/AsteroidsBig/asteroid_big.tscn" id="1_5b4fm"]
+[ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="2_hdeqp"]
+[ext_resource type="PackedScene" uid="uid://bimgj4dl0xtn7" path="res://actors/enemies/Shuriken/shuriken.tscn" id="2_yc2hf"]
+[ext_resource type="PackedScene" uid="uid://do8jf8y45s7pp" path="res://objects/obstacles/Asteroids Small/asteroid_small.tscn" id="3_yc2hf"]
+
+[resource]
+script = ExtResource("2_hdeqp")
+enemies = Array[PackedScene]([ExtResource("2_yc2hf"), ExtResource("2_yc2hf"), ExtResource("2_yc2hf"), ExtResource("2_yc2hf"), ExtResource("2_yc2hf"), ExtResource("2_yc2hf")])
+spawn_by = 2
+metadata/_custom_type_script = "uid://dxchcumix1ovh"

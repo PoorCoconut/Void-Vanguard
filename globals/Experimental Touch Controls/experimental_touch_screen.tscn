@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://br1ajwyix4rbj"]
+
+[ext_resource type="Script" uid="uid://qtx2d4ehc8c2" path="res://globals/Experimental Touch Controls/experimental_touch_screen.gd" id="1_bx1ej"]
+
+[node name="ExperimentalTouchScreen" type="CanvasLayer" unique_id=339463489]
+process_mode = 3
+layer = 5
+script = ExtResource("1_bx1ej")
+
+[node name="Control" type="Control" parent="." unique_id=1835531380]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=573132293]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=976877051]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="LeftButton" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=720658941]
+unique_name_in_owner = true
+layout_mode = 2
+text = "<---"
+
+[node name="RightButton" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=2066842203]
+unique_name_in_owner = true
+layout_mode = 2
+text = "--->"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer" unique_id=222416932]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="AtkButton" type="Button" parent="Control/MarginContainer/HBoxContainer2" unique_id=596149132]
+unique_name_in_owner = true
+layout_mode = 2
+text = "X"
+
+[node name="MovButton" type="Button" parent="Control/MarginContainer/HBoxContainer2" unique_id=1972025727]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Z"

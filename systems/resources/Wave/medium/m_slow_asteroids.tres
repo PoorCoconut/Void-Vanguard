@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://df0brcon0o6b5"]
+
+[ext_resource type="PackedScene" uid="uid://c16bthglkir5v" path="res://objects/obstacles/asteroids/AsteroidsBig/asteroid_big.tscn" id="1_ua1jc"]
+[ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="2_3wclm"]
+[ext_resource type="PackedScene" uid="uid://bf5atxwyrbuy8" path="res://actors/enemies/Statics/static_alien.tscn" id="2_052sq"]
+[ext_resource type="PackedScene" uid="uid://do8jf8y45s7pp" path="res://objects/obstacles/Asteroids Small/asteroid_small.tscn" id="3_052sq"]
+
+[resource]
+script = ExtResource("2_3wclm")
+enemies = Array[PackedScene]([ExtResource("2_052sq"), ExtResource("2_052sq"), ExtResource("2_052sq"), ExtResource("2_052sq")])
+has_asteroid_belt = true
+big_asteroid_count = 5
+asteroid_speed_min = 10.0
+asteroid_speed_max = 20.0
+metadata/_custom_type_script = "uid://dxchcumix1ovh"

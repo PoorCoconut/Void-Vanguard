@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cfipo3pg6i4ot"]
+
+[ext_resource type="Script" uid="uid://4nc1h1v6qdot" path="res://game_scenes/menus/WinMenu/win_menu.gd" id="1_g2etk"]
+
+[node name="WinMenu" type="Control" unique_id=340771282]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g2etk")
+next_level_path = "uid://camlgx74mlna4"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1889717006]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6117647, 0.6901961, 0.5019608, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1797797127]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.15294118, 0.2, 0.21960784, 1)
+bbcode_enabled = true
+text = "[wave amp=1.0]YOU WIN![/wave]
+
+
+THE WORLDS ARE NOW SAVED
+
+[wave amp=5.0]THE VOID VANGUARD[/wave]
+
+BECOMES MARKED IN HISTORY
+
+
+[wave]-Press any to insert coin-"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1

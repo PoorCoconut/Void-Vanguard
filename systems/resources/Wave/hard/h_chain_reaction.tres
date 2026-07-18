@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://disdmbofk7l3"]
+
+[ext_resource type="PackedScene" uid="uid://c16bthglkir5v" path="res://objects/obstacles/asteroids/AsteroidsBig/asteroid_big.tscn" id="1_j3ot8"]
+[ext_resource type="PackedScene" uid="uid://bgqtco8cyoak0" path="res://actors/enemies/SeekerMissiles/seeker_missiles.tscn" id="2_tem2u"]
+[ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="2_ww526"]
+[ext_resource type="PackedScene" uid="uid://do8jf8y45s7pp" path="res://objects/obstacles/Asteroids Small/asteroid_small.tscn" id="3_tem2u"]
+
+[resource]
+script = ExtResource("2_ww526")
+enemies = Array[PackedScene]([ExtResource("2_tem2u"), ExtResource("2_tem2u"), ExtResource("2_tem2u"), ExtResource("2_tem2u"), ExtResource("2_tem2u")])
+big_asteroid_count = 5
+asteroid_speed_min = 40.0
+asteroid_speed_max = 80.0
+metadata/_custom_type_script = "uid://dxchcumix1ovh"

@@ -11,7 +11,7 @@ func _ready() -> void:
 	rotation = ROTA
 
 func _physics_process(_delta: float) -> void:
-	velocity = -transform.y * SPEED
+	velocity = -transform.y * (SPEED + GameManager.laser_speed)
 	move_and_slide()
 
 func _on_visible_on_screen_screen_exited() -> void:

@@ -15,11 +15,27 @@ region = Rect2(0, 32, 48, 16)
 atlas = ExtResource("2_rhs8c")
 region = Rect2(0, 0, 48, 16)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhs8c"]
+bg_color = Color(0.16862746, 0.34117648, 0.28235295, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.15294118, 0.2, 0.21960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0keh"]
+bg_color = Color(0.8039216, 0.8352941, 0.7607843, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.38039216, 0.5294118, 0.39215687, 0)
+
 [node name="PlayerHUD" type="CanvasLayer" unique_id=1878162404]
 script = ExtResource("1_cadqa")
 
 [node name="BarContainer" type="Node2D" parent="." unique_id=1156197549]
-position = Vector2(4, 168)
+position = Vector2(8, 164)
 
 [node name="BarChaser" type="TextureProgressBar" parent="BarContainer" unique_id=2074940599]
 unique_name_in_owner = true
@@ -38,9 +54,19 @@ unique_name_in_owner = true
 offset_top = -8.0
 offset_right = 80.0
 offset_bottom = 8.0
+value = 100.0
 nine_patch_stretch = true
 stretch_margin_left = 16
 stretch_margin_right = 16
 texture_progress = SubResource("AtlasTexture_2gw1j")
 
 [node name="Timer" type="Timer" parent="." unique_id=277835653]
+
+[node name="EntityProgress" type="ProgressBar" parent="." unique_id=1620279836]
+offset_left = 8.0
+offset_top = 174.0
+offset_right = 312.0
+offset_bottom = 178.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rhs8c")
+theme_override_styles/fill = SubResource("StyleBoxFlat_i0keh")
+show_percentage = false

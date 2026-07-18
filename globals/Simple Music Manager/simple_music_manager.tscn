@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bn5ilj6dvhaem"]
+
+[ext_resource type="Script" uid="uid://cgaoaygk14kc2" path="res://globals/Simple Music Manager/simple_music_manager.gd" id="1_txlap"]
+[ext_resource type="AudioStream" uid="uid://calpkitc5k06g" path="res://sound/music/Void Vanguard - Multitrack wav/Bell Cute.wav" id="1_xu2pp"]
+[ext_resource type="AudioStream" uid="uid://b3rqgp302adv0" path="res://sound/music/Void Vanguard - Multitrack wav/Booster Blast.wav" id="2_txlap"]
+[ext_resource type="AudioStream" uid="uid://dfwvm31owtbom" path="res://sound/music/Void Vanguard - Multitrack wav/Drums.wav" id="3_uqmyi"]
+[ext_resource type="AudioStream" uid="uid://c62o7x3ep3rp2" path="res://sound/music/Void Vanguard - Multitrack wav/melody_boss.wav" id="4_8r6ei"]
+[ext_resource type="AudioStream" uid="uid://c62w2s7nqjshk" path="res://sound/music/Void Vanguard - Multitrack wav/melody_norm.wav" id="5_uu44m"]
+[ext_resource type="AudioStream" uid="uid://r0s6q5pscplp" path="res://sound/music/Void Vanguard - Multitrack wav/melody_shop.wav" id="6_li701"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_b80f1"]
+stream_count = 2
+stream_0/stream = ExtResource("1_xu2pp")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_txlap")
+stream_1/volume = 0.0
+
+[node name="SimpleMusicManager" type="Node" unique_id=2006899512]
+process_mode = 3
+script = ExtResource("1_txlap")
+
+[node name="Base" type="AudioStreamPlayer" parent="." unique_id=1340119013]
+stream = SubResource("AudioStreamSynchronized_b80f1")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+
+[node name="Drums" type="AudioStreamPlayer" parent="." unique_id=47261681]
+stream = ExtResource("3_uqmyi")
+autoplay = true
+bus = &"Music"
+
+[node name="Melody_Boss" type="AudioStreamPlayer" parent="." unique_id=1861766085]
+stream = ExtResource("4_8r6ei")
+autoplay = true
+bus = &"Music"
+
+[node name="Melody_Norm" type="AudioStreamPlayer" parent="." unique_id=1950529338]
+stream = ExtResource("5_uu44m")
+autoplay = true
+bus = &"Music"
+
+[node name="Melody_Shop" type="AudioStreamPlayer" parent="." unique_id=1758097591]
+stream = ExtResource("6_li701")
+autoplay = true
+bus = &"Music"

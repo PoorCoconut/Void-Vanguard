@@ -1,10 +1,18 @@
 extends Node2D
 @export_file("*.tscn") var next_level_path: String
+@export_file("*.tscn") var win_path: String
+@export var no_wave : bool = false
 @onready var count_down: AnimationPlayer = $CountDown
 @onready var wave_manager: WaveManager = $WaveManager
 @onready var shop: ShopMenuComponent = $ShopMenuComponent
 
 func _ready() -> void:
+	Events.do_drums.emit(true)
+	Events.change_melody.emit("norm")
+	
+	Events.complete_game.connect(_complete_game)
+	if no_wave:
+		return
 	count_down.play("wave_countdown")
 
 func _on_player_player_death() -> void:
@@ -28,3 +36,11 @@ func _on_enemy_spawner_wave_cleared() -> void:
 
 func _on_shop_menu_component_shop_exited() -> void:
 	count_down.play("wave_countdown")
+
+func _on_entity_loomer_time_done() -> void:
+	if GameManager.dispel_bought == 10:
+		return
+	GameManager.load_next_level(next_level_path)
+
+func _complete_game():
+	GameManager.load_next_level(win_path)

@@ -12,7 +12,9 @@ extends Control
 @export_file("*.tscn") var next_level_path : String
 
 func _ready() -> void:
-	
+	Events.do_drums.emit(false)
+	Events.change_melody.emit("none")
+	GameManager.reset_game()
 	
 	slider_ma_vol.value = SettingsManager.master_vol
 	slider_mu_vol.value = SettingsManager.music_vol
@@ -103,3 +105,12 @@ func _on_button_exclusive_fullscreen_pressed() -> void:
 func _on_controls_reset_pressed() -> void:
 	SoundBank.play_sfx("long_explosion", Vector2.ZERO)
 	SettingsManager.reset_keybinds_to_default()
+
+
+func _on_touch_controls_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		SoundBank.play_sfx("ui_next", Vector2.ZERO)
+		ExperimentalTouchScreen.show()
+	else:
+		SoundBank.play_sfx("ui_back", Vector2.ZERO)
+		ExperimentalTouchScreen.hide()

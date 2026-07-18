@@ -16,7 +16,7 @@ func _on_area_entered(area: Area2D) -> void:
 		is_invincible = true
 		var hitbox = area as HitboxComponent
 		if health_component:
-			print(get_parent().name + " hit for " + str(hitbox.damage) + " damage")
+			#print(get_parent().name + " hit for " + str(hitbox.damage) + " damage")
 			health_component.take_damage(hitbox.damage)
 		
 		var knockback_dir = (global_position - hitbox.global_position).normalized()

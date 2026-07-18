@@ -3,6 +3,7 @@ class_name EnemyMissile
 
 enum enemy_state { SEEKING, PRIMING, LUNGING }
 var current_state: enemy_state = enemy_state.SEEKING
+var points : int = 10
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var debug_target: Sprite2D = $DEBUG_TARGET
@@ -14,6 +15,7 @@ var current_state: enemy_state = enemy_state.SEEKING
 @export var LUNGE_SPEED : float = 300.0
 
 @export var explosion_path : PackedScene = preload("uid://f3n5igu32ac3")
+@export var point_visual_path : PackedScene = preload("uid://8kjvlwgpdk8j")
 
 var target : Node2D
 var target_spot : Vector2
@@ -58,5 +60,9 @@ func _on_seek_timer_timeout() -> void:
 func _on_health_component_died() -> void:
 	var explosion := explosion_path.instantiate()
 	explosion.global_position = global_position
-	get_tree().get_first_node_in_group("world").add_child(explosion)
+	get_tree().get_first_node_in_group("world").call_deferred("add_child", explosion)
+	var point_visual : PointVisualizer = point_visual_path.instantiate()
+	point_visual.global_position = global_position
+	point_visual.p = points * GameManager.diff_points_mult
+	get_tree().get_first_node_in_group("world").add_child(point_visual)
 	queue_free()

@@ -54,13 +54,14 @@ one_shot = true
 autostart = true
 
 [node name="DEBUG_TARGET" type="Sprite2D" parent="." unique_id=1034470157]
+visible = false
 position = Vector2(-2.9802322e-08, 2.9802322e-08)
 scale = Vector2(2, 2)
 texture = SubResource("PlaceholderTexture2D_qwbf7")
 
 [node name="StoppingRadius" type="Area2D" parent="." unique_id=287876024]
 collision_layer = 0
-collision_mask = 3
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StoppingRadius" unique_id=2026910689]
 shape = SubResource("CircleShape2D_k3lt5")

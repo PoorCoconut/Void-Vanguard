@@ -5,6 +5,7 @@ class_name ShopMenuComponent
 @export var player: Player
 @export var debug_points: bool = false
 @export var debug_menu : bool = false
+@export var entity : EnemyEntity
 
 @onready var hull_cost: Label = %HullCost
 @onready var hull_progress_bar: TextureProgressBar = %HullProgressBar
@@ -29,6 +30,7 @@ class_name ShopMenuComponent
 
 var current_repair_cost: float
 signal shop_exited
+
 func _ready() -> void:
 	if debug_points:
 		GameManager.points += 999999
@@ -39,6 +41,11 @@ func _input(event: InputEvent) -> void:
 		show_menu()
 
 func show_menu() -> void:
+	if GameManager.dispel_bought == 10:
+		return
+	
+	Events.change_melody.emit("shop")
+	
 	if config.repair_halve_on_shop_entry:
 		current_repair_cost = max(config.repair_base_cost, current_repair_cost / 2.0)
 	
@@ -50,6 +57,10 @@ func show_menu() -> void:
 
 func hide_menu() -> void:
 	print("hide the menu!")
+	if GameManager.dispel_bought == 10:
+		Events.change_melody.emit("boss")
+	else:
+		Events.change_melody.emit("norm")
 	SoundBank.play_sfx("ui_back", Vector2.ZERO)
 	self.hide()
 	get_tree().paused = false
@@ -110,6 +121,7 @@ func _on_hull_button_pressed() -> void:
 	GameManager.hull_upgraded += 1
 	GameManager.hull_health += 1
 	hull_progress_bar.value += 1
+	Events.bought_hull_upgrade.emit()
 	SoundBank.play_sfx("ui_buy", Vector2.ZERO)
 	refresh_ui()
 
@@ -123,17 +135,23 @@ func _on_thruster_button_pressed() -> void:
 	GameManager.points -= cost
 	
 	if GameManager.thruster_upgraded == 0:
-		GameManager.thruster_speed += 0.01
-		GameManager.thruster_turn += 10.0
+		GameManager.thruster_turn += 0.25
+		GameManager.thruster_speed += 12.5
+		
 	elif GameManager.thruster_upgraded == 1:
-		GameManager.thruster_turn += 0.01
+		GameManager.thruster_turn += 0.25
+		GameManager.thruster_speed += 12.5
+		
 	elif GameManager.thruster_upgraded == 2:
-		GameManager.thruster_turn += 0.05
-		GameManager.thruster_speed += 25.0
+		GameManager.thruster_turn += 0.25
+		GameManager.thruster_speed += 12.5
+		
 	elif GameManager.thruster_upgraded == 3:
-		GameManager.thruster_turn += 0.01
+		GameManager.thruster_turn += 0.25
+		GameManager.thruster_speed += 12.5
+		
 	elif GameManager.thruster_upgraded == 4:
-		GameManager.thruster_turn += 0.01
+		GameManager.thruster_turn += 0.25
 		GameManager.thruster_speed += 25.0
 	
 	GameManager.thruster_upgraded += 1
@@ -151,14 +169,18 @@ func _on_laser_button_pressed() -> void:
 	GameManager.points -= cost
 	
 	if GameManager.laser_upgraded == 0:
-		GameManager.laser_cooldown -= 0.1
+		GameManager.laser_speed += 10
+		GameManager.laser_cooldown -= 0.05
+		
 	elif GameManager.laser_upgraded == 1:
-		GameManager.laser_cooldown -= 0.1
+		GameManager.laser_cooldown -= 0.05
+		
 	elif GameManager.laser_upgraded == 2:
-		GameManager.laser_damage += 1
-		GameManager.laser_cooldown -= 0.1
+		GameManager.laser_speed += 10
+		
 	elif GameManager.laser_upgraded == 3:
-		GameManager.laser_cooldown -= 0.1
+		GameManager.laser_speed += 10
+		
 	elif GameManager.laser_upgraded == 4:
 		GameManager.laser_damage += 1
 		GameManager.laser_cooldown -= 0.1
@@ -188,13 +210,27 @@ func _on_dispel_button_pressed() -> void:
 		return
 	
 	GameManager.points -= cost
-	
+	GameManager.dispel_bought += 1
+	print("Bought Dispell: ", GameManager.dispel_bought, " / 10")
 	if GameManager.dispel_bought == 5:
 		GameManager.difficulty = "m"
+		GameManager.diff_dmg += 1
+		GameManager.diff_hp += 1
+		GameManager.diff_speed += 10
+		GameManager.diff_points_mult += 1
+		print("MEDIUM DIFFICULTY!")
 	elif GameManager.dispel_bought == 8:
 		GameManager.difficulty = "h"
+		GameManager.diff_dmg += 1
+		GameManager.diff_hp += 1
+		GameManager.diff_speed += 10
+		GameManager.diff_points_mult += 1
+		print("HARD DIFFICULTY!")
+	elif GameManager.dispel_bought == 10:
+		GameManager.difficulty = "b"
+		Events.do_bf.emit()
 	
-	GameManager.dispel_bought += 1
+	entity.reset_scale(Vector2.ZERO)
 	SoundBank.play_sfx("dispell", Vector2.ZERO)
 	hide_menu()
 

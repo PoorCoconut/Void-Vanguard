@@ -20,6 +20,7 @@ var on_cooldown : bool = false
 @export_category("OTHERS")
 @export var WRAP_MARGIN : float = 16.0
 
+@onready var blink_anim: AnimationPlayer = $BlinkAnim
 @onready var accelerate_sfx: AudioStreamPlayer = $AccelerateSFX
 @onready var gas_particles: CPUParticles2D = %GasParticles
 @onready var screen_size: Vector2 = get_viewport_rect().size
@@ -31,6 +32,7 @@ func _ready() -> void:
 	hurtbox_component.knockback_received.connect(_on_knockback_received)
 	accelerate_sfx.volume_db = -5
 	Events.player_hp_updated.emit(health_component.CUR_HP, health_component.MAX_HP)
+	Events.bought_hull_upgrade.connect(add_max_hp)
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("shoot") and not on_cooldown:
@@ -68,12 +70,18 @@ func _on_knockback_received(direction: Vector2, force: float):
 
 func _on_health_component_hp_changed(new_hp: Variant, max_hp: Variant) -> void:
 	GameManager.do_camera_shake(5.0, 0.5)
+	blink_anim.play("blink")
 	SoundBank.play_sfx("player_hit", global_position)
 	Events.player_hp_updated.emit(new_hp, max_hp)
 
 signal player_death
 func _on_health_component_died() -> void:
+	hurtbox_component.iframe = 100
 	player_death.emit()
 	GameManager.do_camera_shake(10.0, 1)
 	SoundBank.play_sfx("player_death", global_position)
 	print("PLAYER DIED!")
+
+func add_max_hp():
+	health_component.MAX_HP += 1
+	health_component.CUR_HP += 1

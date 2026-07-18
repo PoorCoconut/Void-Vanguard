@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cb0p2haf2ay11"]
+
+[ext_resource type="Script" uid="uid://bwrynvs8ijnm1" path="res://vfx/particles/Green Explosion/fx_green_explosion.gd" id="1_7bgwc"]
+[ext_resource type="Texture2D" uid="uid://dsa5a54oekwx3" path="res://vfx/particles/dust_particles.png" id="1_fhebq"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7bgwc"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 4
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_y1lr8"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.060532693, 1), 0.0, 0.0, 0, 0, Vector2(0.83050853, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hxtxc"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 4
+particles_anim_loop = false
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2iagh"]
+load_path = "res://.godot/imported/dust_particles.png-a74cf832453e13eaa70977fc14594043.ctex"
+
+[sub_resource type="Curve" id="Curve_hm33f"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.060532693, 1), 0.0, 0.0, 0, 0, Vector2(0.83050853, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="fx_green_explosion" type="Node2D" unique_id=937650217]
+script = ExtResource("1_7bgwc")
+
+[node name="light" type="CPUParticles2D" parent="." unique_id=226644738]
+material = SubResource("CanvasItemMaterial_7bgwc")
+emitting = false
+amount = 20
+texture = ExtResource("1_fhebq")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 37.56
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+scale_amount_curve = SubResource("Curve_y1lr8")
+color = Color(0.8039216, 0.8352941, 0.7607843, 1)
+anim_offset_max = 1.0
+
+[node name="dark" type="CPUParticles2D" parent="." unique_id=904922599]
+material = SubResource("CanvasItemMaterial_hxtxc")
+emitting = false
+amount = 20
+texture = SubResource("CompressedTexture2D_2iagh")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 37.56
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+scale_amount_curve = SubResource("Curve_hm33f")
+color = Color(0.38039216, 0.5294118, 0.39215687, 1)
+anim_offset_max = 1.0

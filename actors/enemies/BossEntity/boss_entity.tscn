@@ -1,0 +1,510 @@
+[gd_scene format=3 uid="uid://d4etyphwqbt40"]
+
+[ext_resource type="Script" uid="uid://c61bpbod5op3t" path="res://actors/enemies/BossEntity/boss_entity.gd" id="1_0iety"]
+[ext_resource type="PackedScene" uid="uid://c58coiv6jurie" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HitBox/hitbox_component.tscn" id="3_k1266"]
+[ext_resource type="PackedScene" uid="uid://p3eg848tu85" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HurtBox/hurtbox_component.tscn" id="3_n7sjo"]
+[ext_resource type="PackedScene" uid="uid://cd0gji0ohlvxv" path="res://systems/Entity Components/Health Component/HealthComponent.tscn" id="4_iygns"]
+[ext_resource type="Texture2D" uid="uid://b2n6l7pupepai" path="res://actors/enemies/Entity/entity_body.png" id="5_fh6vt"]
+[ext_resource type="Texture2D" uid="uid://cp5jufjvoyc1y" path="res://actors/enemies/Entity/entity_tentacles.png" id="6_k1266"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k1266"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_fh6vt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xv6ak"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_qx4xq"]
+_limits = [-5.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, -5), 0.0, 0.0, 0, 0, Vector2(1, 5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_tfcd4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k1266"]
+radius = 20.880613
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwbf7"]
+radius = 26.076809
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qwbf7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3lt5"]
+radius = 13.0
+
+[sub_resource type="Animation" id="Animation_xv6ak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Tentacle1:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Tentacle2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Container/Tentacle3:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Container/Tentacle4:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Container/Tentacle5:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Container/Tentacle6:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Container/Tentacle7:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Container/Tentacle8:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Container/Body:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_k1266"]
+resource_name = "blink"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Tentacle1:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Tentacle2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Container/Tentacle3:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Container/Tentacle4:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Container/Tentacle5:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Container/Tentacle6:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Container/Tentacle7:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Container/Tentacle8:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Container/Body:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1), Color(1, 1, 1, 1), Color(0.15294118, 0.2, 0.21960784, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xv6ak"]
+_data = {
+&"RESET": SubResource("Animation_xv6ak"),
+&"blink": SubResource("Animation_k1266")
+}
+
+[node name="BossEntity" type="CharacterBody2D" unique_id=1865496810]
+collision_layer = 4
+script = ExtResource("1_0iety")
+
+[node name="Container" type="Node2D" parent="." unique_id=2083840042]
+
+[node name="Body" type="CPUParticles2D" parent="Container" unique_id=1251160488]
+material = SubResource("CanvasItemMaterial_k1266")
+amount = 20
+texture = ExtResource("5_fh6vt")
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_fh6vt")
+color = Color(0.15294118, 0.2, 0.21960784, 1)
+anim_offset_max = 1.0
+
+[node name="Tentacle1" type="CPUParticles2D" parent="Container" unique_id=1037316183]
+material = SubResource("CanvasItemMaterial_xv6ak")
+position = Vector2(16, 0)
+amount = 20
+texture = ExtResource("6_k1266")
+speed_scale = 0.3
+randomness = 1.0
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 80.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+orbit_velocity_min = -0.05
+orbit_velocity_max = 0.05
+orbit_velocity_curve = SubResource("Curve_qx4xq")
+scale_amount_curve = SubResource("Curve_tfcd4")
+color = Color(0.15294118, 0.2, 0.21960784, 1)
+anim_offset_max = 1.0
+
+[node name="Tentacle2" type="CPUParticles2D" parent="Container" unique_id=1170562447]
+material = SubResource("CanvasItemMaterial_xv6ak")
+position = Vector2(0, 24)
+rotation = 1.5707964
+amount = 20
+texture = ExtResource("6_k1266")
+speed_scale = 0.3
+randomness = 1.0
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 80.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+orbit_velocity_min = -0.05
+orbit_velocity_max = 0.05
+orbit_velocity_curve = SubResource("Curve_qx4xq")
+scale_amount_curve = SubResource("Curve_tfcd4")
+color = Color(0.15294118, 0.2, 0.21960784, 1)
+anim_offset_max = 1.0
+
+[node name="Tentacle3" type="CPUParticles2D" parent="Container" unique_id=1215198092]
+material = SubResource("CanvasItemMaterial_xv6ak")
+position = Vector2(-16, 0)
+rotation = -3.1415925
+amount = 20
+texture = ExtResource("6_k1266")
+speed_scale = 0.3
+randomness = 1.0
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 80.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+orbit_velocity_min = -0.05
+orbit_velocity_max = 0.05
+orbit_velocity_curve = SubResource("Curve_qx4xq")
+scale_amount_curve = SubResource("Curve_tfcd4")
+color = Color(0.15294118, 0.2, 0.21960784, 1)
+anim_offset_max = 1.0
+
+[node name="Tentacle4" type="CPUParticles2D" parent="Container" unique_id=1751322422]
+material = SubResource("CanvasItemMaterial_xv6ak")
+position = Vector2(0, -16)
+rotation = -1.5707964
+amount = 20
+texture = ExtResource("6_k1266")
+speed_scale = 0.3
+randomness = 1.0
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 80.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+orbit_velocity_min = -0.05
+orbit_velocity_max = 0.05
+orbit_velocity_curve = SubResource("Curve_qx4xq")
+scale_amount_curve = SubResource("Curve_tfcd4")
+color = Color(0.15294118, 0.2, 0.21960784, 1)
+anim_offset_max = 1.0
+
+[node name="Tentacle5" type="CPUParticles2D" parent="Container" unique_id=593317940]
+material = SubResource("CanvasItemMaterial_xv6ak")
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+amount = 20
+texture = ExtResource("6_k1266")
+speed_scale = 0.3
+randomness = 1.0
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 80.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+orbit_velocity_min = -0.05
+orbit_velocity_max = 0.05
+orbit_velocity_curve = SubResource("Curve_qx4xq")
+scale_amount_curve = SubResource("Curve_tfcd4")
+color = Color(0.15294118, 0.2, 0.21960784, 1)
+anim_offset_max = 1.0
+
+[node name="Tentacle6" type="CPUParticles2D" parent="Container" unique_id=1147392728]
+material = SubResource("CanvasItemMaterial_xv6ak")
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+amount = 20
+texture = ExtResource("6_k1266")
+speed_scale = 0.3
+randomness = 1.0
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 80.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+orbit_velocity_min = -0.05
+orbit_velocity_max = 0.05
+orbit_velocity_curve = SubResource("Curve_qx4xq")
+scale_amount_curve = SubResource("Curve_tfcd4")
+color = Color(0.15294118, 0.2, 0.21960784, 1)
+anim_offset_max = 1.0
+
+[node name="Tentacle7" type="CPUParticles2D" parent="Container" unique_id=1003041504]
+material = SubResource("CanvasItemMaterial_xv6ak")
+rotation = 2.3561945
+scale = Vector2(0.99999994, 0.99999994)
+amount = 20
+texture = ExtResource("6_k1266")
+speed_scale = 0.3
+randomness = 1.0
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 80.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+orbit_velocity_min = -0.05
+orbit_velocity_max = 0.05
+orbit_velocity_curve = SubResource("Curve_qx4xq")
+scale_amount_curve = SubResource("Curve_tfcd4")
+color = Color(0.15294118, 0.2, 0.21960784, 1)
+anim_offset_max = 1.0
+
+[node name="Tentacle8" type="CPUParticles2D" parent="Container" unique_id=861168761]
+material = SubResource("CanvasItemMaterial_xv6ak")
+rotation = -2.3561945
+amount = 20
+texture = ExtResource("6_k1266")
+speed_scale = 0.3
+randomness = 1.0
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 80.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+orbit_velocity_min = -0.05
+orbit_velocity_max = 0.05
+orbit_velocity_curve = SubResource("Curve_qx4xq")
+scale_amount_curve = SubResource("Curve_tfcd4")
+color = Color(0.15294118, 0.2, 0.21960784, 1)
+anim_offset_max = 1.0
+
+[node name="HitboxComponent" parent="." unique_id=1755790887 instance=ExtResource("3_k1266")]
+collision_layer = 32
+knockback_force = 100.0
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=939226382]
+shape = SubResource("CircleShape2D_k1266")
+
+[node name="HurtboxComponent" parent="." unique_id=330416737 node_paths=PackedStringArray("health_component") instance=ExtResource("3_n7sjo")]
+collision_layer = 64
+collision_mask = 8
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]
+shape = SubResource("CircleShape2D_qwbf7")
+
+[node name="HealthComponent" parent="." unique_id=1869818733 instance=ExtResource("4_iygns")]
+MAX_HP = 25
+
+[node name="SeekTimer" type="Timer" parent="." unique_id=1769402416]
+wait_time = 5.0
+autostart = true
+
+[node name="DEBUG_TARGET" type="Sprite2D" parent="." unique_id=1034470157]
+visible = false
+position = Vector2(-2.9802322e-08, 2.9802322e-08)
+scale = Vector2(2, 2)
+texture = SubResource("PlaceholderTexture2D_qwbf7")
+
+[node name="StoppingRadius" type="Area2D" parent="." unique_id=287876024]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoppingRadius" unique_id=2026910689]
+shape = SubResource("CircleShape2D_k3lt5")
+debug_color = Color(1, 0.6, 0.69803923, 0)
+
+[node name="BlinkAnim" type="AnimationPlayer" parent="." unique_id=267762352]
+libraries/ = SubResource("AnimationLibrary_xv6ak")
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]
+[connection signal="timeout" from="SeekTimer" to="." method="_on_seek_timer_timeout"]
+[connection signal="body_entered" from="StoppingRadius" to="." method="_on_stopping_radius_body_entered"]
+
+[editable path="HitboxComponent"]
+[editable path="HurtboxComponent"]

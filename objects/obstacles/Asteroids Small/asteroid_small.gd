@@ -7,7 +7,10 @@ class_name AsteroidSmall
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var on_screen_notifier: VisibleOnScreenNotifier2D = $OnScreenNotifier
 
+@export var points : int = 1
 @export var rotation_speed: float = 0.0
+@export var green_explosion_path : PackedScene = preload("uid://cb0p2haf2ay11")
+@export var point_visual_path : PackedScene = preload("uid://8kjvlwgpdk8j")
 
 var has_been_onscreen: bool = false
 
@@ -28,6 +31,10 @@ func _on_health_component_died() -> void:
 		SoundBank.play_sfx("explode1", Vector2.ZERO)
 	else:
 		SoundBank.play_sfx("explode2", Vector2.ZERO)
+	var point_visual : PointVisualizer = point_visual_path.instantiate()
+	point_visual.global_position = global_position
+	point_visual.p = points * GameManager.diff_points_mult
+	get_tree().get_first_node_in_group("world").add_child(point_visual)
 	queue_free()
 
 func _on_on_screen_notifier_screen_entered() -> void:
@@ -36,3 +43,9 @@ func _on_on_screen_notifier_screen_entered() -> void:
 func _on_on_screen_notifier_screen_exited() -> void:
 	if has_been_onscreen:
 		queue_free()
+
+
+func _on_health_component_hp_changed(new_hp: Variant, max_hp: Variant) -> void:
+	var hit_fx := green_explosion_path.instantiate()
+	hit_fx.global_position = global_position
+	get_tree().get_first_node_in_group("world").add_child(hit_fx)

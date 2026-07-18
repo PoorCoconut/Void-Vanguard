@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cu7uv8qy1tqsq" path="res://systems/ShopMenuComponent/shop_config.gd" id="2_i716x"]
 [ext_resource type="Shader" uid="uid://ipbk6i6jt2va" path="res://vfx/shaders/scrolling.gdshader" id="2_vdtu1"]
 [ext_resource type="Texture2D" uid="uid://ckl1drvn4hi5m" path="res://systems/ShopMenuComponent/shop_background.png" id="3_drksb"]
-[ext_resource type="Texture2D" uid="uid://bsq5jxhctomel" path="res://systems/ShopMenuComponent/ui_sprites.png" id="4_drksb"]
+[ext_resource type="Texture2D" uid="uid://bsq5jxhctomel" path="res://game_assets/ui_sprites.png" id="4_drksb"]
 
 [sub_resource type="Resource" id="Resource_7glbw"]
 script = ExtResource("2_i716x")
@@ -31,22 +31,22 @@ border_color = Color(0.15294118, 0.2, 0.21960784, 1)
 atlas = ExtResource("4_drksb")
 region = Rect2(0, 0, 8, 8)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i716x"]
-load_path = "res://.godot/imported/ui_sprites.png-d4fe951ab2cf1e7e36a16bcfe590fac7.ctex"
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7glbw"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yt2xc"]
-atlas = SubResource("CompressedTexture2D_i716x")
+atlas = SubResource("CompressedTexture2D_7glbw")
 region = Rect2(0, 8, 8, 8)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f0tnh"]
-load_path = "res://.godot/imported/ui_sprites.png-d4fe951ab2cf1e7e36a16bcfe590fac7.ctex"
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ecyw"]
 atlas = SubResource("CompressedTexture2D_f0tnh")
 region = Rect2(8, 0, 8, 8)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r6rrt"]
-load_path = "res://.godot/imported/ui_sprites.png-d4fe951ab2cf1e7e36a16bcfe590fac7.ctex"
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8bfsb"]
 atlas = SubResource("CompressedTexture2D_r6rrt")
@@ -57,51 +57,112 @@ atlas = ExtResource("4_drksb")
 region = Rect2(0, 16, 40, 8)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_drksb"]
-load_path = "res://.godot/imported/ui_sprites.png-d4fe951ab2cf1e7e36a16bcfe590fac7.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0sglx"]
 atlas = SubResource("CompressedTexture2D_drksb")
 region = Rect2(0, 24, 40, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_857se"]
-atlas = SubResource("CompressedTexture2D_i716x")
-region = Rect2(0, 8, 8, 8)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_857se"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_phefk"]
-atlas = SubResource("CompressedTexture2D_f0tnh")
-region = Rect2(8, 0, 8, 8)
+atlas = SubResource("CompressedTexture2D_857se")
+region = Rect2(0, 0, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rmpgy"]
-atlas = SubResource("CompressedTexture2D_r6rrt")
-region = Rect2(16, 0, 8, 8)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rmpgy"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_viuwn"]
-atlas = SubResource("CompressedTexture2D_i716x")
+atlas = SubResource("CompressedTexture2D_rmpgy")
 region = Rect2(0, 8, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xfv5l"]
-atlas = SubResource("CompressedTexture2D_f0tnh")
-region = Rect2(8, 0, 8, 8)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xfv5l"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hiy5a"]
-atlas = SubResource("CompressedTexture2D_r6rrt")
-region = Rect2(16, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0s3bt"]
-atlas = SubResource("CompressedTexture2D_i716x")
-region = Rect2(0, 8, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ipkib"]
-atlas = SubResource("CompressedTexture2D_f0tnh")
+atlas = SubResource("CompressedTexture2D_xfv5l")
 region = Rect2(8, 0, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_71st0"]
-atlas = SubResource("CompressedTexture2D_r6rrt")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0s3bt"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipkib"]
+atlas = SubResource("CompressedTexture2D_0s3bt")
 region = Rect2(16, 0, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7glbw"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_71st0"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbccn"]
+atlas = SubResource("CompressedTexture2D_71st0")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dt53u"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j834"]
+atlas = SubResource("CompressedTexture2D_dt53u")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tqg63"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmn55"]
+atlas = SubResource("CompressedTexture2D_tqg63")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_el1gc"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaw73"]
+atlas = SubResource("CompressedTexture2D_el1gc")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pxcvs"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er2qj"]
+atlas = SubResource("CompressedTexture2D_pxcvs")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a2rpd"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_458uh"]
+atlas = SubResource("CompressedTexture2D_a2rpd")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dw8rj"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opg4t"]
+atlas = SubResource("CompressedTexture2D_dw8rj")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r04uj"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7bh3"]
+atlas = SubResource("CompressedTexture2D_r04uj")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg8hf"]
 atlas = ExtResource("4_drksb")
 region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sq8p5"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e75l"]
+atlas = SubResource("CompressedTexture2D_sq8p5")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0ks0c"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0knli"]
+atlas = SubResource("CompressedTexture2D_0ks0c")
+region = Rect2(48, 32, 16, 16)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drksb"]
 bg_color = Color(0.15294118, 0.2, 0.21960784, 1)
@@ -141,8 +202,6 @@ bg_color = Color(0.15294118, 0.2, 0.21960784, 1)
 process_mode = 3
 script = ExtResource("1_enl10")
 config = SubResource("Resource_7glbw")
-debug_points = true
-debug_menu = true
 
 [node name="Control" type="Control" parent="." unique_id=874590284]
 layout_mode = 3
@@ -249,10 +308,10 @@ layout_mode = 2
 [node name="ThrusterButton" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/ThrusterUpgrade" unique_id=563672972]
 unique_name_in_owner = true
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_i716x")
-texture_pressed = SubResource("AtlasTexture_857se")
-texture_hover = SubResource("AtlasTexture_phefk")
-texture_disabled = SubResource("AtlasTexture_rmpgy")
+texture_normal = SubResource("AtlasTexture_phefk")
+texture_pressed = SubResource("AtlasTexture_viuwn")
+texture_hover = SubResource("AtlasTexture_hiy5a")
+texture_disabled = SubResource("AtlasTexture_ipkib")
 
 [node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/ThrusterUpgrade" unique_id=1438673341]
 layout_mode = 2
@@ -285,10 +344,10 @@ layout_mode = 2
 [node name="LaserButton" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/LaserUpgrade" unique_id=1920401262]
 unique_name_in_owner = true
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_i716x")
-texture_pressed = SubResource("AtlasTexture_viuwn")
-texture_hover = SubResource("AtlasTexture_xfv5l")
-texture_disabled = SubResource("AtlasTexture_hiy5a")
+texture_normal = SubResource("AtlasTexture_kbccn")
+texture_pressed = SubResource("AtlasTexture_3j834")
+texture_hover = SubResource("AtlasTexture_lmn55")
+texture_disabled = SubResource("AtlasTexture_kaw73")
 
 [node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/LaserUpgrade" unique_id=762655028]
 layout_mode = 2
@@ -321,10 +380,10 @@ layout_mode = 2
 [node name="RepairButton" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/HBoxContainer" unique_id=538280841]
 unique_name_in_owner = true
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_i716x")
-texture_pressed = SubResource("AtlasTexture_0s3bt")
-texture_hover = SubResource("AtlasTexture_ipkib")
-texture_disabled = SubResource("AtlasTexture_71st0")
+texture_normal = SubResource("AtlasTexture_er2qj")
+texture_pressed = SubResource("AtlasTexture_458uh")
+texture_hover = SubResource("AtlasTexture_opg4t")
+texture_disabled = SubResource("AtlasTexture_t7bh3")
 
 [node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/UpgradeContainer/HBoxContainer" unique_id=395166328]
 layout_mode = 2
@@ -355,7 +414,9 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = SubResource("AtlasTexture_7glbw")
+texture_normal = SubResource("AtlasTexture_bg8hf")
+texture_hover = SubResource("AtlasTexture_0e75l")
+texture_disabled = SubResource("AtlasTexture_0knli")
 
 [node name="DispelCost" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DispelContainer/Container" unique_id=348797146]
 unique_name_in_owner = true
@@ -369,9 +430,11 @@ theme_override_styles/background = SubResource("StyleBoxFlat_drksb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_i716x")
 show_percentage = false
 
-[node name="Control" type="Control" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DispelContainer" unique_id=312482945]
+[node name="Label2" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DispelContainer" unique_id=49731061]
 layout_mode = 2
-size_flags_vertical = 3
+text = "DISPELLING WILL 
+PROCEED TO NEXT 
+ROUND"
 
 [node name="ContinueButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DispelContainer" unique_id=1062366045]
 layout_mode = 2

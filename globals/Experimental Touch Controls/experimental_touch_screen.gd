@@ -1,0 +1,22 @@
+extends CanvasLayer
+@onready var left_button: Button = %LeftButton   #turn_left
+@onready var right_button: Button = %RightButton  #turn_right
+@onready var atk_button: Button = %AtkButton      #shoot
+@onready var mov_button: Button = %MovButton      #move
+
+func _ready() -> void:
+	ExperimentalTouchScreen.hide()
+	left_button.button_down.connect(func(): Input.action_press("turn_left"))
+	left_button.button_up.connect(func(): Input.action_release("turn_left"))
+	
+	right_button.button_down.connect(func(): Input.action_press("turn_right"))
+	right_button.button_up.connect(func(): Input.action_release("turn_right"))
+	
+	mov_button.button_down.connect(func(): Input.action_press("move"))
+	mov_button.button_up.connect(func(): Input.action_release("move"))
+	
+	atk_button.pressed.connect(_on_atk_pressed)
+
+func _on_atk_pressed() -> void:
+	Input.action_press("shoot")
+	Input.action_release("shoot")

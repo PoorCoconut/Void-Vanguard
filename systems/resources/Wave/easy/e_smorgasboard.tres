@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://denps2iaqa207"]
+
+[ext_resource type="PackedScene" uid="uid://c16bthglkir5v" path="res://objects/obstacles/asteroids/AsteroidsBig/asteroid_big.tscn" id="1_fpc5c"]
+[ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="2_cwl34"]
+[ext_resource type="PackedScene" uid="uid://bgqtco8cyoak0" path="res://actors/enemies/SeekerMissiles/seeker_missiles.tscn" id="2_rtmus"]
+[ext_resource type="PackedScene" uid="uid://bimgj4dl0xtn7" path="res://actors/enemies/Shuriken/shuriken.tscn" id="3_cjepi"]
+[ext_resource type="PackedScene" uid="uid://do8jf8y45s7pp" path="res://objects/obstacles/Asteroids Small/asteroid_small.tscn" id="3_np0m6"]
+[ext_resource type="PackedScene" uid="uid://bf5atxwyrbuy8" path="res://actors/enemies/Statics/static_alien.tscn" id="4_h1rrl"]
+
+[resource]
+script = ExtResource("2_cwl34")
+enemies = Array[PackedScene]([ExtResource("2_rtmus"), ExtResource("3_cjepi"), ExtResource("4_h1rrl"), ExtResource("4_h1rrl"), ExtResource("4_h1rrl"), ExtResource("4_h1rrl")])
+spawn_all = true
+metadata/_custom_type_script = "uid://dxchcumix1ovh"

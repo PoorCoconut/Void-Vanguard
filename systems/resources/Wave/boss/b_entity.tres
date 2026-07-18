@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://c75paeudktrds"]
+
+[ext_resource type="PackedScene" uid="uid://c16bthglkir5v" path="res://objects/obstacles/asteroids/AsteroidsBig/asteroid_big.tscn" id="1_f42e4"]
+[ext_resource type="PackedScene" uid="uid://d4etyphwqbt40" path="res://actors/enemies/BossEntity/boss_entity.tscn" id="2_7ymnx"]
+[ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="2_jcb5a"]
+[ext_resource type="PackedScene" uid="uid://do8jf8y45s7pp" path="res://objects/obstacles/Asteroids Small/asteroid_small.tscn" id="3_7ymnx"]
+
+[resource]
+script = ExtResource("2_jcb5a")
+enemies = Array[PackedScene]([ExtResource("2_7ymnx")])
+metadata/_custom_type_script = "uid://dxchcumix1ovh"

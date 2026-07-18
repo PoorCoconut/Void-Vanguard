@@ -1,0 +1,304 @@
+[gd_scene format=3 uid="uid://bqboy24p051bl"]
+
+[ext_resource type="Script" uid="uid://dk7qcjnygls21" path="res://actors/enemies/Entity/entity_loomer.gd" id="1_w7cfc"]
+[ext_resource type="Texture2D" uid="uid://b2n6l7pupepai" path="res://actors/enemies/Entity/entity_body.png" id="2_qr8id"]
+[ext_resource type="Shader" uid="uid://bungmyc4iqet5" path="res://vfx/shaders/fiery.gdshader" id="3_2c5t4"]
+[ext_resource type="Texture2D" uid="uid://cgonrhfqqk8cb" path="res://actors/enemies/Entity/entity_sprites.png" id="3_qr8id"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7cfc"]
+atlas = ExtResource("2_qr8id")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr8id"]
+atlas = ExtResource("2_qr8id")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c5t4"]
+atlas = ExtResource("2_qr8id")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcsps"]
+atlas = ExtResource("2_qr8id")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6td3d"]
+atlas = ExtResource("2_qr8id")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sq7sh"]
+atlas = ExtResource("2_qr8id")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcgvb"]
+atlas = ExtResource("2_qr8id")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipfj6"]
+atlas = ExtResource("2_qr8id")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1cqa4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7cfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr8id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c5t4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcsps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6td3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sq7sh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcgvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipfj6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w7cfc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sq7sh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c5t4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7cfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcgvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcsps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr8id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6td3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipfj6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vcsps"]
+shader = ExtResource("3_2c5t4")
+shader_parameter/sway_speed = 2.00000009174012
+shader_parameter/sway_strength = 0.05000000074506
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cqa4"]
+atlas = ExtResource("3_qr8id")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6td3d"]
+resource_local_to_scene = true
+shader = ExtResource("3_2c5t4")
+shader_parameter/sway_speed = 1.00000004424012
+shader_parameter/sway_strength = 0.05000000074506
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 5.0000002375
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlo0o"]
+atlas = ExtResource("3_qr8id")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2c5t4"]
+resource_local_to_scene = true
+shader = ExtResource("3_2c5t4")
+shader_parameter/sway_speed = 5.0
+shader_parameter/sway_strength = 0.05000000074506
+shader_parameter/noise_scale = 5.00000019
+shader_parameter/time_offset = 15.0000007125
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wl5g"]
+atlas = ExtResource("3_qr8id")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="Animation" id="Animation_tlo0o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tentacle1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tentacle2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tentacle3:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1wl5g"]
+resource_name = "spinner"
+length = 60.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 60),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 60),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.2831855]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tentacle1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 60),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tentacle2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 60),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.2831855]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tentacle3:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 60),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.283185307179586, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tades"]
+_data = {
+&"RESET": SubResource("Animation_tlo0o"),
+&"spinner": SubResource("Animation_1wl5g")
+}
+
+[node name="EntityLoomer" type="Node2D" unique_id=784357269]
+z_index = -2
+script = ExtResource("1_w7cfc")
+
+[node name="Body" type="AnimatedSprite2D" parent="." unique_id=241333038]
+visible = false
+sprite_frames = SubResource("SpriteFrames_1cqa4")
+autoplay = "default"
+frame_progress = 0.93020993
+
+[node name="Body2" type="AnimatedSprite2D" parent="." unique_id=471780630]
+visible = false
+sprite_frames = SubResource("SpriteFrames_w7cfc")
+autoplay = "default"
+frame_progress = 0.89256686
+
+[node name="Tentacle1" type="Sprite2D" parent="." unique_id=1959398142]
+material = SubResource("ShaderMaterial_vcsps")
+texture = SubResource("AtlasTexture_1cqa4")
+
+[node name="Tentacle2" type="Sprite2D" parent="." unique_id=238537413]
+material = SubResource("ShaderMaterial_6td3d")
+texture = SubResource("AtlasTexture_tlo0o")
+
+[node name="Tentacle3" type="Sprite2D" parent="." unique_id=668713961]
+material = SubResource("ShaderMaterial_2c5t4")
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_1wl5g")
+
+[node name="SpinnerAnim" type="AnimationPlayer" parent="." unique_id=43702182]
+libraries/ = SubResource("AnimationLibrary_tades")
+autoplay = &"spinner"

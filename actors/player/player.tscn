@@ -2,12 +2,17 @@
 
 [ext_resource type="Script" uid="uid://bip5hhxeryemi" path="res://actors/player/player.gd" id="1_bop6h"]
 [ext_resource type="Texture2D" uid="uid://btde754ou25cc" path="res://actors/player/player_ship.png" id="1_nvxhs"]
+[ext_resource type="Shader" uid="uid://bm2uxvub5ysug" path="res://vfx/shaders/entity_hit_blink.gdshader" id="2_388e2"]
 [ext_resource type="PackedScene" uid="uid://depdp5g8qy1y" path="res://systems/Trail Component/trail.tscn" id="2_ilk7j"]
 [ext_resource type="PackedScene" uid="uid://p3eg848tu85" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HurtBox/hurtbox_component.tscn" id="7_a744p"]
 [ext_resource type="PackedScene" uid="uid://cd0gji0ohlvxv" path="res://systems/Entity Components/Health Component/HealthComponent.tscn" id="7_lsln6"]
 [ext_resource type="AudioStream" uid="uid://dg6s5ydre7ygv" path="res://sound/sfx/sfx_accelerating.mp3" id="8_388e2"]
 [ext_resource type="Texture2D" uid="uid://dsa5a54oekwx3" path="res://vfx/particles/dust_particles.png" id="8_a744p"]
-[ext_resource type="PackedScene" uid="uid://baahldfh4kwvn" path="res://systems/Entity Components/Movement Component/MovementComponent.tscn" id="10_7aotg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lsln6"]
+shader = ExtResource("2_388e2")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a744p"]
 radius = 3.0
@@ -25,6 +30,44 @@ particles_anim_loop = false
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.05319149, 0.5842697), 3.5646064, 3.5646064, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="Animation" id="Animation_hiosj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/blink_intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ssdk0"]
+resource_name = "blink"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/blink_intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7aotg"]
+_data = {
+&"RESET": SubResource("Animation_hiosj"),
+&"blink": SubResource("Animation_ssdk0")
+}
+
 [node name="Player" type="CharacterBody2D" unique_id=324051146 node_paths=PackedStringArray("hurtbox_component") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_bop6h")
@@ -32,12 +75,11 @@ BULLET_SPEED = 150.0
 hurtbox_component = NodePath("HurtboxComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=459279473]
+material = SubResource("ShaderMaterial_lsln6")
 texture = ExtResource("1_nvxhs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=920059306]
 shape = SubResource("CircleShape2D_a744p")
-
-[node name="MovementComponent" parent="." unique_id=1896702948 instance=ExtResource("10_7aotg")]
 
 [node name="HealthComponent" parent="." unique_id=1869818733 instance=ExtResource("7_lsln6")]
 MAX_HP = 5
@@ -85,6 +127,9 @@ stream = ExtResource("8_388e2")
 volume_db = -80.0
 pitch_scale = 0.01
 autoplay = true
+
+[node name="BlinkAnim" type="AnimationPlayer" parent="." unique_id=1096659331]
+libraries/ = SubResource("AnimationLibrary_7aotg")
 
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]

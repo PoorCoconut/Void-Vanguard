@@ -29,6 +29,7 @@ hframes = 2
 
 [node name="HitboxComponent" parent="." unique_id=1755790887 instance=ExtResource("4_3xmit")]
 collision_layer = 128
+knockback_force = 100.0
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=939226382]
 shape = SubResource("CircleShape2D_efowb")
@@ -48,6 +49,7 @@ rect = Rect2(-128, -128, 256, 256)
 width = 10.0
 
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]
 [connection signal="screen_entered" from="OnScreenNotifier" to="." method="_on_on_screen_notifier_screen_entered"]
 [connection signal="screen_exited" from="OnScreenNotifier" to="." method="_on_on_screen_notifier_screen_exited"]
 

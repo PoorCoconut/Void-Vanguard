@@ -1,7 +1,252 @@
 [gd_scene format=3 uid="uid://camlgx74mlna4"]
 
 [ext_resource type="Script" uid="uid://b6rwu6r4il3so" path="res://game_scenes/menus/MainMenu/main_menu.gd" id="1_h6sl1"]
+[ext_resource type="Texture2D" uid="uid://bsq5jxhctomel" path="res://game_assets/ui_sprites.png" id="2_3phpx"]
 [ext_resource type="Script" uid="uid://cxjik30ut0s3y" path="res://systems/Rebind Button Script Module/RebindButton.gd" id="2_c5njb"]
+[ext_resource type="Shader" uid="uid://bungmyc4iqet5" path="res://vfx/shaders/fiery.gdshader" id="2_kcaeb"]
+[ext_resource type="Texture2D" uid="uid://c6qm4tojwwj0n" path="res://game_assets/stars.png" id="2_x2ujj"]
+
+[sub_resource type="Animation" id="Animation_abyub"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("stars:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_x2ujj"]
+resource_name = "rotate"
+length = 120.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("stars:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 120),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_abyub"]
+_data = {
+&"RESET": SubResource("Animation_abyub"),
+&"rotate": SubResource("Animation_x2ujj")
+}
+
+[sub_resource type="Animation" id="Animation_b1bdr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(159, 26)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D5:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(158, 24)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D6:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(158, 24)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(164, 43)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(162, 41)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(159, 39)]
+}
+
+[sub_resource type="Animation" id="Animation_6hcsl"]
+resource_name = "title_screen"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(159, 26), Vector2(161, 28)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D5:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(158, 24), Vector2(156, 22)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D6:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(158, 24), Vector2(156, 22)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(164, 43), Vector2(166, 45)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(162, 41), Vector2(160, 39)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(159, 39), Vector2(157, 37)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1bdr"]
+_data = {
+&"RESET": SubResource("Animation_b1bdr"),
+&"title_screen": SubResource("Animation_6hcsl")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x2ujj"]
+shader = ExtResource("2_kcaeb")
+shader_parameter/sway_speed = 1.17600005260012
+shader_parameter/sway_strength = 0.02000000095
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abyub"]
+atlas = ExtResource("2_3phpx")
+region = Rect2(16, 32, 32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcaeb"]
+shader = ExtResource("2_kcaeb")
+shader_parameter/sway_speed = 1.17600005260012
+shader_parameter/sway_strength = 0.02000000095
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2ujj"]
+atlas = ExtResource("2_3phpx")
+region = Rect2(16, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcaeb"]
+atlas = ExtResource("2_3phpx")
+region = Rect2(64, 0, 176, 64)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abyub"]
+shader = ExtResource("2_kcaeb")
+shader_parameter/sway_speed = 1.17600005260012
+shader_parameter/sway_strength = 0.02000000095
+shader_parameter/noise_scale = 5.0
+shader_parameter/time_offset = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcpgc"]
+atlas = ExtResource("2_3phpx")
+region = Rect2(16, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hcsl"]
+atlas = ExtResource("2_3phpx")
+region = Rect2(64, 64, 176, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1bdr"]
+atlas = ExtResource("2_3phpx")
+region = Rect2(64, 128, 176, 64)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqmwn"]
 bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
@@ -24,6 +269,15 @@ grow_vertical = 2
 script = ExtResource("1_h6sl1")
 next_level_path = "uid://d4lexncmvmtmu"
 
+[node name="rot_stars" type="AnimationPlayer" parent="." unique_id=1758099299]
+libraries/ = SubResource("AnimationLibrary_abyub")
+autoplay = &"rotate"
+
+[node name="title_screen" type="AnimationPlayer" parent="." unique_id=536929306]
+libraries/ = SubResource("AnimationLibrary_b1bdr")
+autoplay = &"title_screen"
+speed_scale = 0.5
+
 [node name="TextureRect" type="ColorRect" parent="." unique_id=1943485005]
 layout_mode = 1
 anchors_preset = 15
@@ -33,7 +287,42 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.6117647, 0.6901961, 0.5019608, 1)
 
+[node name="stars" type="Sprite2D" parent="." unique_id=912376224]
+position = Vector2(160, 96)
+texture = ExtResource("2_x2ujj")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1387370033]
+material = SubResource("ShaderMaterial_x2ujj")
+position = Vector2(159, 26)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_abyub")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1970224715]
+material = SubResource("ShaderMaterial_kcaeb")
+position = Vector2(158, 24)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_x2ujj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2101759954]
+position = Vector2(164, 43)
+texture = SubResource("AtlasTexture_kcaeb")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=2122177387]
+material = SubResource("ShaderMaterial_abyub")
+position = Vector2(158, 24)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_dcpgc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1057482498]
+position = Vector2(162, 41)
+texture = SubResource("AtlasTexture_6hcsl")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1354113546]
+position = Vector2(159, 39)
+texture = SubResource("AtlasTexture_b1bdr")
+
 [node name="GameTitle" type="RichTextLabel" parent="." unique_id=1318100979]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -201,6 +490,17 @@ offset_bottom = 14.5
 size_flags_horizontal = 3
 max_value = 2.0
 step = 0.1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer" unique_id=821040674]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer" unique_id=1245170941]
+layout_mode = 2
+text = "EXPERIMENTAL TOUCH CONTROLS"
+horizontal_alignment = 1
+
+[node name="TouchControlsButton" type="CheckButton" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer" unique_id=1118294938]
+layout_mode = 2
 
 [node name="WarningLabel" type="RichTextLabel" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer" unique_id=2011723749]
 unique_name_in_owner = true
@@ -408,6 +708,7 @@ text = "BACK"
 [connection signal="value_changed" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/MasterVolume/Control/Slider_MaVol" to="." method="_on_slider_ma_vol_value_changed"]
 [connection signal="value_changed" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/MusicVolume/Control/Slider_MuVol" to="." method="_on_slider_mu_vol_value_changed"]
 [connection signal="value_changed" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/SFXVolume/Control/Slider_SVol" to="." method="_on_slider_s_vol_value_changed"]
+[connection signal="toggled" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer/TouchControlsButton" to="." method="_on_touch_controls_button_toggled"]
 [connection signal="pressed" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/NukeButton" to="." method="_on_nuke_button_pressed"]
 [connection signal="pressed" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer/VBoxContainer/Button_Windowed" to="." method="_on_button_windowed_pressed"]

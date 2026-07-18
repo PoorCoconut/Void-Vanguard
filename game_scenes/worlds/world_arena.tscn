@@ -5,17 +5,36 @@
 [ext_resource type="Script" uid="uid://dvndwf2l0vqyn" path="res://game_scenes/worlds/world_arena.gd" id="1_wudb1"]
 [ext_resource type="PackedScene" uid="uid://duw6u7qhe38it" path="res://systems/Enemy Spawner/enemy_spawner.tscn" id="2_wudb1"]
 [ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="3_ho3uq"]
-[ext_resource type="Resource" uid="uid://cuxicnrw57tgp" path="res://systems/resources/Wave/e_chasers.tres" id="4_8pwdk"]
+[ext_resource type="Resource" uid="uid://qvc3nfcpg06m" path="res://systems/resources/Wave/easy/e_asteroid_trip.tres" id="4_1ba5s"]
+[ext_resource type="Resource" uid="uid://cuxicnrw57tgp" path="res://systems/resources/Wave/easy/e_chasers.tres" id="4_8pwdk"]
 [ext_resource type="PackedScene" uid="uid://btbcu7i2ahwq5" path="res://systems/HUD/player_hud.tscn" id="4_wq4ge"]
 [ext_resource type="PackedScene" uid="uid://ckpxky2vskmbp" path="res://systems/AsteroidSpawner/asteroid_spawner.tscn" id="4_wudb1"]
 [ext_resource type="PackedScene" uid="uid://bkrih4wj555nw" path="res://systems/Pause Menu Component/pause_menu_component.tscn" id="5_46vrn"]
-[ext_resource type="Resource" uid="uid://du8kp748p8ap1" path="res://systems/resources/Wave/e_debris_field.tres" id="5_lkbj2"]
-[ext_resource type="Resource" uid="uid://bfwqs77bsutpr" path="res://systems/resources/Wave/e_random_blocks.tres" id="6_22y50"]
-[ext_resource type="Resource" uid="uid://dvwylkygbbdh0" path="res://systems/resources/Wave/e_ruins.tres" id="7_3nyde"]
+[ext_resource type="Resource" uid="uid://856jgosx474d" path="res://systems/resources/Wave/easy/e_binary_stars.tres" id="5_bhge8"]
+[ext_resource type="Resource" uid="uid://du8kp748p8ap1" path="res://systems/resources/Wave/easy/e_debris_field.tres" id="5_lkbj2"]
+[ext_resource type="Resource" uid="uid://bfwqs77bsutpr" path="res://systems/resources/Wave/easy/e_random_blocks.tres" id="6_22y50"]
+[ext_resource type="Resource" uid="uid://dvwylkygbbdh0" path="res://systems/resources/Wave/easy/e_ruins.tres" id="7_3nyde"]
 [ext_resource type="PackedScene" uid="uid://b3fobc4mms4jw" path="res://systems/World Camera Component/world_camera_component.tscn" id="7_xyawt"]
-[ext_resource type="Resource" uid="uid://dhcm48qrbs024" path="res://systems/resources/Wave/e_trapped_chasers.tres" id="8_vi0j5"]
+[ext_resource type="Resource" uid="uid://bl14mgqwb4jn3" path="res://systems/resources/Wave/easy/e_four_pointed_star.tres" id="8_bcjf8"]
+[ext_resource type="Resource" uid="uid://dhcm48qrbs024" path="res://systems/resources/Wave/easy/e_trapped_chasers.tres" id="8_vi0j5"]
+[ext_resource type="Resource" uid="uid://8sklt84xcsxc" path="res://systems/resources/Wave/easy/e_missile_attack.tres" id="9_7n23g"]
 [ext_resource type="PackedScene" uid="uid://cqp5k5hjblahw" path="res://systems/ShopMenuComponent/shop_menu_component.tscn" id="11_enm16"]
 [ext_resource type="AudioStream" uid="uid://bllghm36glfuh" path="res://sound/sfx/sfx_countdown.mp3" id="12_csdli"]
+[ext_resource type="Resource" uid="uid://denps2iaqa207" path="res://systems/resources/Wave/easy/e_smorgasboard.tres" id="12_jlxt8"]
+[ext_resource type="Resource" uid="uid://c334oy0066v1m" path="res://systems/resources/Wave/medium/m_better_chasers.tres" id="14_4qopo"]
+[ext_resource type="PackedScene" uid="uid://bqboy24p051bl" path="res://actors/enemies/Entity/entity_loomer.tscn" id="14_8pwdk"]
+[ext_resource type="Resource" uid="uid://ffp6x54iumeq" path="res://systems/resources/Wave/medium/m_blender.tres" id="15_rosgg"]
+[ext_resource type="Resource" uid="uid://bd1qqpkw0xwnr" path="res://systems/resources/Wave/medium/m_chasing_stars.tres" id="16_h4ffw"]
+[ext_resource type="Resource" uid="uid://d35kxaoc58mo6" path="res://systems/resources/Wave/medium/m_exploded_ruins.tres" id="17_775ub"]
+[ext_resource type="Resource" uid="uid://c3s6iloc12jpd" path="res://systems/resources/Wave/medium/m_minefield.tres" id="18_ob5jm"]
+[ext_resource type="Resource" uid="uid://bqdisd0i4e8jx" path="res://systems/resources/Wave/medium/m_missile_for_you.tres" id="19_ci02s"]
+[ext_resource type="Resource" uid="uid://df0brcon0o6b5" path="res://systems/resources/Wave/medium/m_slow_asteroids.tres" id="20_ju885"]
+[ext_resource type="Resource" uid="uid://disdmbofk7l3" path="res://systems/resources/Wave/hard/h_chain_reaction.tres" id="21_ob5jm"]
+[ext_resource type="Resource" uid="uid://chk2chkrhs6o5" path="res://systems/resources/Wave/hard/h_meteor_shower.tres" id="22_ci02s"]
+[ext_resource type="Resource" uid="uid://cbn4752c0ygyv" path="res://systems/resources/Wave/hard/h_smorgasboard2.tres" id="23_ju885"]
+[ext_resource type="Resource" uid="uid://cacgpxb33knq3" path="res://systems/resources/Wave/hard/h_target_locked.tres" id="24_xd7f4"]
+[ext_resource type="Resource" uid="uid://c75paeudktrds" path="res://systems/resources/Wave/boss/b_entity.tres" id="25_ju885"]
+[ext_resource type="Texture2D" uid="uid://c6qm4tojwwj0n" path="res://game_assets/stars.png" id="35_ju885"]
 
 [sub_resource type="Animation" id="Animation_g5pcb"]
 length = 0.001
@@ -142,12 +161,55 @@ _data = {
 &"blink": SubResource("Animation_8pwdk")
 }
 
+[sub_resource type="Animation" id="Animation_abyub"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("stars:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_x2ujj"]
+resource_name = "rotate"
+length = 120.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("stars:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 120),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xd7f4"]
+_data = {
+&"RESET": SubResource("Animation_abyub"),
+&"rotate": SubResource("Animation_x2ujj")
+}
+
 [node name="world_arena" type="Node2D" unique_id=473827935 groups=["world"]]
 script = ExtResource("1_wudb1")
 next_level_path = "uid://cm7jura061s14"
+win_path = "uid://cfipo3pg6i4ot"
 
 [node name="WaveManager" parent="." unique_id=2050366282 node_paths=PackedStringArray("spawner", "asteroid_spawner") instance=ExtResource("1_i3ico")]
-easy_waves = Array[ExtResource("3_ho3uq")]([ExtResource("4_8pwdk"), ExtResource("5_lkbj2"), ExtResource("6_22y50"), ExtResource("7_3nyde"), ExtResource("8_vi0j5")])
+easy_waves = Array[ExtResource("3_ho3uq")]([ExtResource("4_1ba5s"), ExtResource("5_bhge8"), ExtResource("4_8pwdk"), ExtResource("5_lkbj2"), ExtResource("8_bcjf8"), ExtResource("9_7n23g"), ExtResource("6_22y50"), ExtResource("7_3nyde"), ExtResource("12_jlxt8"), ExtResource("8_vi0j5")])
+medium_waves = Array[ExtResource("3_ho3uq")]([ExtResource("14_4qopo"), ExtResource("15_rosgg"), ExtResource("16_h4ffw"), ExtResource("17_775ub"), ExtResource("18_ob5jm"), ExtResource("19_ci02s"), ExtResource("20_ju885")])
+hard_waves = Array[ExtResource("3_ho3uq")]([ExtResource("21_ob5jm"), ExtResource("22_ci02s"), ExtResource("23_ju885"), ExtResource("24_xd7f4")])
+boss_waves = Array[ExtResource("3_ho3uq")]([ExtResource("25_ju885")])
 spawner = NodePath("../EnemySpawner")
 asteroid_spawner = NodePath("../AsteroidSpawner")
 
@@ -156,9 +218,10 @@ player = NodePath("../Player")
 
 [node name="AsteroidSpawner" parent="." unique_id=1228276115 instance=ExtResource("4_wudb1")]
 
-[node name="ShopMenuComponent" parent="." unique_id=442271377 node_paths=PackedStringArray("player") instance=ExtResource("11_enm16")]
+[node name="ShopMenuComponent" parent="." unique_id=442271377 node_paths=PackedStringArray("player", "entity") instance=ExtResource("11_enm16")]
 visible = false
 player = NodePath("../Player")
+entity = NodePath("../EntityLoomer")
 
 [node name="PlayerHUD" parent="." unique_id=1878162404 instance=ExtResource("4_wq4ge")]
 
@@ -167,12 +230,15 @@ visible = false
 menu_path = "uid://camlgx74mlna4"
 
 [node name="Background" type="ColorRect" parent="." unique_id=65147630]
-z_index = -2
+z_index = -4
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 336.0
 offset_bottom = 192.0
 color = Color(0.6117647, 0.6901961, 0.5019608, 1)
+
+[node name="EntityLoomer" parent="." unique_id=784357269 instance=ExtResource("14_8pwdk")]
+position = Vector2(160, 92)
 
 [node name="Player" parent="." unique_id=324051146 instance=ExtResource("1_0nqf4")]
 position = Vector2(160, 92)
@@ -247,8 +313,18 @@ ASTEROID BELT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="rot_stars" type="AnimationPlayer" parent="." unique_id=820563084]
+libraries/ = SubResource("AnimationLibrary_xd7f4")
+autoplay = &"rotate"
+
+[node name="stars" type="Sprite2D" parent="." unique_id=895765248]
+z_index = -3
+position = Vector2(160, 96)
+texture = ExtResource("35_ju885")
+
 [connection signal="wave_cleared" from="EnemySpawner" to="." method="_on_enemy_spawner_wave_cleared"]
 [connection signal="asteroid_belt_incoming" from="AsteroidSpawner" to="." method="_on_asteroid_spawner_asteroid_belt_incoming"]
 [connection signal="shop_exited" from="ShopMenuComponent" to="." method="_on_shop_menu_component_shop_exited"]
+[connection signal="time_done" from="EntityLoomer" to="." method="_on_entity_loomer_time_done"]
 [connection signal="player_death" from="Player" to="." method="_on_player_player_death"]
 [connection signal="animation_finished" from="CountDown" to="." method="_on_count_down_animation_finished"]

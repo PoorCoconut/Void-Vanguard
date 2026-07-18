@@ -7,6 +7,7 @@ signal wave_completed
 @export var easy_waves: Array[Wave] = []
 @export var medium_waves: Array[Wave] = []
 @export var hard_waves: Array[Wave] = []
+@export var boss_waves : Array[Wave] = []
 @export var spawner: EnemySpawner
 @export var asteroid_spawner: AsteroidSpawner
 
@@ -18,6 +19,7 @@ func start_random_wave() -> void:
 		"e": pool = easy_waves
 		"m": pool = medium_waves
 		"h": pool = hard_waves
+		"b": pool = boss_waves
 		_:
 			push_warning("Unknown difficulty: " + GameManager.difficulty)
 			return

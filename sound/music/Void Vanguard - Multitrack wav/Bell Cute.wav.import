@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://calpkitc5k06g"
+path="res://.godot/imported/Bell Cute.wav-0b480a2e2fdb480f990ef42f338b207c.sample"
+
+[deps]
+
+source_file="res://sound/music/Void Vanguard - Multitrack wav/Bell Cute.wav"
+dest_files=["res://.godot/imported/Bell Cute.wav-0b480a2e2fdb480f990ef42f338b207c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

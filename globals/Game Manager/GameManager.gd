@@ -1,9 +1,14 @@
 extends Node
 
 var CURRENT_WORLD_STATE : String = "Nothing"
+const SAVE_PATH : String = "user://savegame.json"
+
 var points : int = 0
 var difficulty : String = "e"
-const SAVE_PATH : String = "user://savegame.json"
+var diff_dmg : int = 0
+var diff_speed : float = 0
+var diff_hp : int = 0
+var diff_points_mult : int = 1
 
 #Player Upgrades
 var hull_upgraded: int = 0
@@ -16,6 +21,7 @@ var thruster_speed : float = 0
 var thruster_turn : float = 0
 var laser_cooldown : float = 0
 var laser_damage : int = 0
+var laser_speed : int = 0
 
 
 func _ready() -> void:
@@ -31,6 +37,13 @@ func reset_game():
 	thruster_turn = 0
 	laser_cooldown = 0
 	laser_damage = 0
+	
+	points = 0
+	difficulty = "e"
+	diff_dmg = 0
+	diff_speed = 0
+	diff_hp = 0
+	diff_points_mult = 1
 ##SAVE FILE LOGIC
 func save_player_position(player_pos: Vector2) -> void:
 	var save_data = {
