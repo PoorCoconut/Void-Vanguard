@@ -56,10 +56,8 @@ region = Rect2(16, 0, 8, 8)
 atlas = ExtResource("4_drksb")
 region = Rect2(0, 16, 40, 8)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_drksb"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_0sglx"]
-atlas = SubResource("CompressedTexture2D_drksb")
+atlas = ExtResource("4_drksb")
 region = Rect2(0, 24, 40, 8)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_857se"]
