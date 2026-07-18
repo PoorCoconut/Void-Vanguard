@@ -37,17 +37,22 @@ func _ready() -> void:
 	Events.bought_hull_upgrade.connect(add_max_hp)
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("shoot") and not on_cooldown:
-		on_cooldown = true
-		SoundBank.play_sfx("shoot", global_position)
-		var bullet : Bullet = bullet_path.instantiate()
-		bullet.SPEED = BULLET_SPEED
-		bullet.ROTA = rotation
-		get_tree().get_first_node_in_group("world").add_child(bullet)
-		bullet.global_position = %NosePoint.global_position
-		
-		await get_tree().create_timer(COOLDOWN + GameManager.laser_cooldown + secret_cooldown).timeout
-		on_cooldown = false
+	if Input.is_action_just_pressed("shoot"):
+		try_shoot()
+
+func try_shoot() -> void:
+	if on_cooldown:
+		return
+	on_cooldown = true
+	SoundBank.play_sfx("shoot", global_position)
+	var bullet: Bullet = bullet_path.instantiate()
+	bullet.SPEED = BULLET_SPEED
+	bullet.ROTA = rotation
+	get_tree().get_first_node_in_group("world").add_child(bullet)
+	bullet.global_position = %NosePoint.global_position
+	
+	await get_tree().create_timer(COOLDOWN + GameManager.laser_cooldown + secret_cooldown).timeout
+	on_cooldown = false
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("turn_left"):

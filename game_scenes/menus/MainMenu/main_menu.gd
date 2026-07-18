@@ -111,7 +111,7 @@ func _on_controls_reset_pressed() -> void:
 func _on_touch_controls_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		SoundBank.play_sfx("ui_next", Vector2.ZERO)
-		ExperimentalTouchScreen.show()
+		ExperimentalTouchScreen.enable_touch_mode()
 	else:
 		SoundBank.play_sfx("ui_back", Vector2.ZERO)
-		ExperimentalTouchScreen.hide()
+		ExperimentalTouchScreen.disable_touch_mode()

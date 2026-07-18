@@ -26,6 +26,7 @@ func _check_code(code: KonamiCode, event: InputEvent) -> void:
 		return
 	
 	var expected_action = code.sequence[_progress[code]]
+	print("Progress: ", _progress[code], " | Expected: ", expected_action, " | Event: ", event)
 	
 	if _progress[code] > 0 and _last_input_time.has(code):
 		if Time.get_ticks_msec() - _last_input_time[code] > code.input_timeout * 1000:
@@ -34,6 +35,7 @@ func _check_code(code: KonamiCode, event: InputEvent) -> void:
 	if event.is_action_pressed(expected_action):
 		_progress[code] += 1
 		_last_input_time[code] = Time.get_ticks_msec()
+		print("MATCHED! New progress: ", _progress[code])
 		
 		if _progress[code] >= code.sequence.size():
 			if code.single_use:
