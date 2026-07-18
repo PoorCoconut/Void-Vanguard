@@ -65,6 +65,5 @@ func _release_action(action: StringName) -> void:
 	Input.parse_input_event(ev)
 
 func _on_atk_pressed() -> void:
-	var player := get_tree().get_first_node_in_group("player")
-	if player:
-		player.try_shoot()
+	_press_action("shoot")
+	_release_action("shoot")
