@@ -32,9 +32,15 @@ var current_repair_cost: float
 signal shop_exited
 
 func _ready() -> void:
+	KonamiManager.code_entered.connect(debug_money)
 	if debug_points:
-		GameManager.points += 999999
+		debug_money("money")
 	current_repair_cost = config.repair_base_cost
+
+func debug_money(code_name:String):
+	if code_name == "money":
+		GameManager.points = 9999
+		refresh_ui()
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("debug") and debug_menu:

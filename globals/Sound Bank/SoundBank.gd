@@ -30,7 +30,7 @@ var sfx_dict : Dictionary = {
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-func play_sfx(sfx_name : String, spawn_pos : Vector2) -> void:
+func play_sfx(sfx_name : String, spawn_pos : Vector2 = Vector2.ZERO) -> void:
 	#Check if sound exists
 	if not sfx_dict.has(sfx_name):
 		push_error("GameManager: SFX '" + sfx_name + "' not found in dictionary.")

@@ -34,16 +34,31 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+theme_override_constants/separation = 8
 
 [node name="LeftButton" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=720658941]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-text = "<---"
+text = "←"
 
 [node name="RightButton" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=2066842203]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-text = "--->"
+text = "→"
+
+[node name="UpButton" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=1089375654]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+text = "↑"
+
+[node name="DownButton" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=1985942492]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+text = "↓"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer" unique_id=222416932]
 layout_mode = 2

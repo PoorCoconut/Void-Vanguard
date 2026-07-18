@@ -27,8 +27,10 @@ var on_cooldown : bool = false
 
 const bullet_path : PackedScene = preload("res://objects/Bullets/Player Bullet/player_bullet.tscn")
 var CUR_DIR : Vector2
+var secret_cooldown : float = 0
 
 func _ready() -> void:
+	KonamiManager.code_entered.connect(kon_codes)
 	hurtbox_component.knockback_received.connect(_on_knockback_received)
 	accelerate_sfx.volume_db = -5
 	Events.player_hp_updated.emit(health_component.CUR_HP, health_component.MAX_HP)
@@ -44,7 +46,7 @@ func _input(_event: InputEvent) -> void:
 		get_tree().get_first_node_in_group("world").add_child(bullet)
 		bullet.global_position = %NosePoint.global_position
 		
-		await get_tree().create_timer(COOLDOWN + GameManager.laser_cooldown).timeout
+		await get_tree().create_timer(COOLDOWN + GameManager.laser_cooldown + secret_cooldown).timeout
 		on_cooldown = false
 
 func _physics_process(delta: float) -> void:
@@ -85,3 +87,11 @@ func _on_health_component_died() -> void:
 func add_max_hp():
 	health_component.MAX_HP += 1
 	health_component.CUR_HP += 1
+
+func kon_codes(code_name : String):
+	if code_name == "classic":
+		secret_cooldown = -1.0
+		await get_tree().create_timer(5.0).timeout
+		secret_cooldown = 0
+	elif code_name == "cross":
+		health_component.take_damage(-100)

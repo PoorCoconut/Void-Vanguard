@@ -12,6 +12,7 @@ extends Control
 @export_file("*.tscn") var next_level_path : String
 
 func _ready() -> void:
+	KonamiManager.reset_used_codes()
 	Events.do_drums.emit(false)
 	Events.change_melody.emit("none")
 	GameManager.reset_game()
