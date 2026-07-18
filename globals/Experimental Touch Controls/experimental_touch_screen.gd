@@ -1,10 +1,10 @@
 extends CanvasLayer
-@onready var left_button: Button = %LeftButton   #turn_left
-@onready var right_button: Button = %RightButton  #turn_right
-@onready var up_button: Button = %UpButton        #up
-@onready var down_button: Button = %DownButton    #down
-@onready var atk_button: Button = %AtkButton      #shoot
-@onready var mov_button: Button = %MovButton      #move
+@onready var left_touch_screen: TouchScreenButton = %LeftTouchScreen
+@onready var right_touch_screen: TouchScreenButton = %RightTouchScreen
+@onready var up_touch_screen: TouchScreenButton = %UpTouchScreen
+@onready var down_touch_screen: TouchScreenButton = %DownTouchScreen
+@onready var atk_touch_screen: TouchScreenButton = %AtkTouchScreen
+@onready var mov_touch_screen: TouchScreenButton = %MovTouchScreen
 
 var _stored_shoot_mouse_events: Array[InputEvent] = []
 var _stored_move_mouse_events: Array[InputEvent] = []
@@ -12,22 +12,22 @@ var _stored_move_mouse_events: Array[InputEvent] = []
 func _ready() -> void:
 	hide()
 	
-	left_button.button_down.connect(func(): _press_action("turn_left"))
-	left_button.button_up.connect(func(): _release_action("turn_left"))
+	left_touch_screen.pressed.connect(func(): _press_action("turn_left"))
+	left_touch_screen.released.connect(func(): _release_action("turn_left"))
 	
-	right_button.button_down.connect(func(): _press_action("turn_right"))
-	right_button.button_up.connect(func(): _release_action("turn_right"))
+	right_touch_screen.pressed.connect(func(): _press_action("turn_right"))
+	right_touch_screen.released.connect(func(): _release_action("turn_right"))
 	
-	up_button.button_down.connect(func(): _press_action("up"))
-	up_button.button_up.connect(func(): _release_action("up"))
+	up_touch_screen.pressed.connect(func(): _press_action("up"))
+	up_touch_screen.released.connect(func(): _release_action("up"))
 	
-	down_button.button_down.connect(func(): _press_action("down"))
-	down_button.button_up.connect(func(): _release_action("down"))
+	down_touch_screen.pressed.connect(func(): _press_action("down"))
+	down_touch_screen.released.connect(func(): _release_action("down"))
 	
-	mov_button.button_down.connect(func(): _press_action("move"))
-	mov_button.button_up.connect(func(): _release_action("move"))
+	mov_touch_screen.pressed.connect(func(): _press_action("move"))
+	mov_touch_screen.released.connect(func(): _release_action("move"))
 	
-	atk_button.pressed.connect(_on_atk_pressed)
+	atk_touch_screen.pressed.connect(_on_atk_pressed)
 
 func enable_touch_mode() -> void:
 	_strip_mouse_bindings("shoot", _stored_shoot_mouse_events)
