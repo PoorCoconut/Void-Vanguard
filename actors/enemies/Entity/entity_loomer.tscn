@@ -276,12 +276,14 @@ script = ExtResource("1_w7cfc")
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=241333038]
 visible = false
+modulate = Color(0.15294118, 0.2, 0.21960784, 1)
 sprite_frames = SubResource("SpriteFrames_1cqa4")
 autoplay = "default"
 frame_progress = 0.93020993
 
 [node name="Body2" type="AnimatedSprite2D" parent="." unique_id=471780630]
 visible = false
+modulate = Color(0.15294118, 0.2, 0.21960784, 1)
 sprite_frames = SubResource("SpriteFrames_w7cfc")
 autoplay = "default"
 frame_progress = 0.89256686

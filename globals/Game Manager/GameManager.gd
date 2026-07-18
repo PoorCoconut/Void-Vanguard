@@ -2,6 +2,8 @@ extends Node
 
 var CURRENT_WORLD_STATE : String = "Nothing"
 const SAVE_PATH : String = "user://savegame.json"
+var ldm : bool = false
+var touch_screen : bool = false
 
 var points : int = 0
 var difficulty : String = "e"

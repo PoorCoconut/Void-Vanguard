@@ -502,6 +502,17 @@ horizontal_alignment = 1
 [node name="TouchControlsButton" type="CheckButton" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer" unique_id=1118294938]
 layout_mode = 2
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer" unique_id=361330401]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer2" unique_id=422997476]
+layout_mode = 2
+text = "LOW DETAIL MODE"
+horizontal_alignment = 1
+
+[node name="LowDetailModeButton" type="CheckButton" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer2" unique_id=519175359]
+layout_mode = 2
+
 [node name="WarningLabel" type="RichTextLabel" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer" unique_id=2011723749]
 unique_name_in_owner = true
 visible = false
@@ -709,6 +720,7 @@ text = "BACK"
 [connection signal="value_changed" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/MusicVolume/Control/Slider_MuVol" to="." method="_on_slider_mu_vol_value_changed"]
 [connection signal="value_changed" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/SFXVolume/Control/Slider_SVol" to="." method="_on_slider_s_vol_value_changed"]
 [connection signal="toggled" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer/TouchControlsButton" to="." method="_on_touch_controls_button_toggled"]
+[connection signal="toggled" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer2/LowDetailModeButton" to="." method="_on_low_detail_mode_button_toggled"]
 [connection signal="pressed" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/NukeButton" to="." method="_on_nuke_button_pressed"]
 [connection signal="pressed" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer/VBoxContainer/Button_Windowed" to="." method="_on_button_windowed_pressed"]

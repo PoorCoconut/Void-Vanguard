@@ -11,12 +11,25 @@ class_name EnemyEntity
 
 var progress : float = 0.0
 
+@onready var body: AnimatedSprite2D = $Body
+@onready var body_2: AnimatedSprite2D = $Body2
+@onready var tentacle_1: Sprite2D = $Tentacle1
+@onready var tentacle_2: Sprite2D = $Tentacle2
+@onready var tentacle_3: Sprite2D = $Tentacle3
+
 var scale_elapsed : float = 0.0
 var scale_from : Vector2 = Vector2.ZERO
 var is_scaling : bool = false
 signal time_done
 
 func _ready() -> void:
+	if GameManager.ldm:
+		body.show()
+		body_2.show()
+		tentacle_1.hide()
+		tentacle_2.hide()
+		tentacle_3.hide()
+	
 	scale = start_scale
 	scale_from = start_scale
 	is_scaling = true

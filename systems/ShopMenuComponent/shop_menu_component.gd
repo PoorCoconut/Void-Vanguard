@@ -28,6 +28,8 @@ class_name ShopMenuComponent
 @onready var entity_progress: ProgressBar = %EntityProgress
 @onready var player_points: Label = %PlayerPoints
 
+@onready var panel_container: PanelContainer = $Control/PanelContainer
+
 var current_repair_cost: float
 signal shop_exited
 

@@ -115,3 +115,11 @@ func _on_touch_controls_button_toggled(toggled_on: bool) -> void:
 	else:
 		SoundBank.play_sfx("ui_back", Vector2.ZERO)
 		ExperimentalTouchScreen.disable_touch_mode()
+	GameManager.touch_screen = toggled_on
+
+func _on_low_detail_mode_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		SoundBank.play_sfx("ui_next", Vector2.ZERO)
+	else:
+		SoundBank.play_sfx("ui_back", Vector2.ZERO)
+	GameManager.ldm = toggled_on
