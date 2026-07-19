@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://dc7nlv8io06ma"]
+
+[ext_resource type="PackedScene" uid="uid://c16bthglkir5v" path="res://objects/obstacles/asteroids/AsteroidsBig/asteroid_big.tscn" id="1_o2h8q"]
+[ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="2_1xh0e"]
+[ext_resource type="PackedScene" uid="uid://bimgj4dl0xtn7" path="res://actors/enemies/Shuriken/shuriken.tscn" id="2_yahbl"]
+[ext_resource type="PackedScene" uid="uid://do8jf8y45s7pp" path="res://objects/obstacles/Asteroids Small/asteroid_small.tscn" id="3_yahbl"]
+[ext_resource type="PackedScene" uid="uid://cp4hyfoo4jeei" path="res://objects/obstacles/asteroids/AsteroidsMega/asteroid_mega.tscn" id="4_yahbl"]
+
+[resource]
+script = ExtResource("2_1xh0e")
+enemies = Array[PackedScene]([ExtResource("2_yahbl"), ExtResource("2_yahbl"), ExtResource("1_o2h8q"), ExtResource("1_o2h8q"), ExtResource("1_o2h8q"), ExtResource("1_o2h8q"), ExtResource("3_yahbl"), ExtResource("3_yahbl"), ExtResource("3_yahbl"), ExtResource("4_yahbl")])
+spawn_all = true
+spawn_cooldown = 3.0
+has_asteroid_belt = true
+small_asteroid_count = 10
+big_asteroid_count = 20
+asteroid_speed_min = 40.0
+asteroid_speed_max = 80.0
+metadata/_custom_type_script = "uid://dxchcumix1ovh"

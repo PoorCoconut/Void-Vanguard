@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://d4etyphwqbt40" path="res://actors/enemies/BossEntity/boss_entity.tscn" id="2_7ymnx"]
 [ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="2_jcb5a"]
 [ext_resource type="PackedScene" uid="uid://do8jf8y45s7pp" path="res://objects/obstacles/Asteroids Small/asteroid_small.tscn" id="3_7ymnx"]
+[ext_resource type="PackedScene" uid="uid://cp4hyfoo4jeei" path="res://objects/obstacles/asteroids/AsteroidsMega/asteroid_mega.tscn" id="4_7ymnx"]
 
 [resource]
 script = ExtResource("2_jcb5a")
-enemies = Array[PackedScene]([ExtResource("2_7ymnx")])
+enemies = Array[PackedScene]([ExtResource("2_7ymnx"), ExtResource("3_7ymnx"), ExtResource("4_7ymnx"), ExtResource("4_7ymnx"), ExtResource("3_7ymnx")])
+spawn_all = true
 metadata/_custom_type_script = "uid://dxchcumix1ovh"

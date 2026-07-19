@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://5jr7qoy1bact"]
+
+[ext_resource type="PackedScene" uid="uid://c16bthglkir5v" path="res://objects/obstacles/asteroids/AsteroidsBig/asteroid_big.tscn" id="1_kneit"]
+[ext_resource type="PackedScene" uid="uid://do8jf8y45s7pp" path="res://objects/obstacles/Asteroids Small/asteroid_small.tscn" id="2_aausm"]
+[ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="3_78yng"]
+
+[resource]
+script = ExtResource("3_78yng")
+enemies = Array[PackedScene]([ExtResource("1_kneit"), ExtResource("1_kneit"), ExtResource("1_kneit"), ExtResource("2_aausm"), ExtResource("2_aausm")])
+spawn_all = true
+metadata/_custom_type_script = "uid://dxchcumix1ovh"

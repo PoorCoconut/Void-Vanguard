@@ -14,7 +14,7 @@ shader = ExtResource("2_r3trl")
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_intensity = 0.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ra0uu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gqwj"]
 atlas = ExtResource("5_r3trl")
 region = Rect2(0, 0, 16, 16)
 
@@ -24,7 +24,7 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_r3trl"]
 radius = 5.0
 
-[sub_resource type="Animation" id="Animation_ra0uu"]
+[sub_resource type="Animation" id="Animation_5j5ic"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_r3trl"]
+[sub_resource type="Animation" id="Animation_sngnk"]
 resource_name = "blink"
 length = 0.6
 step = 0.1
@@ -56,10 +56,10 @@ tracks/0/keys = {
 "values": [0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ra0uu"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ofoke"]
 _data = {
-&"RESET": SubResource("Animation_ra0uu"),
-&"blink": SubResource("Animation_r3trl")
+&"RESET": SubResource("Animation_5j5ic"),
+&"blink": SubResource("Animation_sngnk")
 }
 
 [node name="Shuriken" type="CharacterBody2D" unique_id=1526867429]
@@ -68,7 +68,7 @@ script = ExtResource("1_3rid2")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1878680617]
 material = SubResource("ShaderMaterial_ra0uu")
-texture = SubResource("AtlasTexture_ra0uu")
+texture = SubResource("AtlasTexture_2gqwj")
 
 [node name="HealthComponent" parent="." unique_id=1869818733 instance=ExtResource("1_c1ufq")]
 MAX_HP = 2
@@ -88,10 +88,10 @@ knockback_force = 70.0
 [node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=939226382]
 shape = SubResource("CircleShape2D_r3trl")
 
-[node name="BlinkAnim" type="AnimationPlayer" parent="." unique_id=850071448]
-libraries/ = SubResource("AnimationLibrary_ra0uu")
-
 [node name="Trail" parent="." unique_id=1115313834 instance=ExtResource("7_ra0uu")]
+
+[node name="BlinkAnim" type="AnimationPlayer" parent="." unique_id=630234872]
+libraries/ = SubResource("AnimationLibrary_ofoke")
 
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]

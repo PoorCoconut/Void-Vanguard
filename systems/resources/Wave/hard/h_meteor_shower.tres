@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_fhcwd")
-enemies = Array[PackedScene]([ExtResource("2_6rfp3"), ExtResource("2_6rfp3"), ExtResource("2_6rfp3"), ExtResource("2_6rfp3"), ExtResource("2_6rfp3"), ExtResource("2_6rfp3"), ExtResource("2_6rfp3"), ExtResource("2_6rfp3"), ExtResource("2_6rfp3"), ExtResource("2_6rfp3")])
+enemies = Array[PackedScene]([ExtResource("2_6rfp3"), ExtResource("2_6rfp3"), ExtResource("2_6rfp3"), ExtResource("3_6rfp3"), ExtResource("1_k13rp"), ExtResource("1_k13rp"), ExtResource("3_6rfp3"), ExtResource("3_6rfp3"), ExtResource("3_6rfp3"), ExtResource("1_k13rp"), ExtResource("2_6rfp3")])
 spawn_all = true
 has_asteroid_belt = true
 small_asteroid_count = 10

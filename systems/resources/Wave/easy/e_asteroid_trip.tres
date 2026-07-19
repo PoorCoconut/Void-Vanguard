@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_15cfo")
-enemies = Array[PackedScene]([ExtResource("2_w0pna")])
+enemies = Array[PackedScene]([ExtResource("2_w0pna"), ExtResource("3_w0pna"), ExtResource("3_w0pna"), ExtResource("3_w0pna"), ExtResource("3_w0pna"), ExtResource("3_w0pna")])
 small_asteroid_count = 0
 big_asteroid_count = 1
 metadata/_custom_type_script = "uid://dxchcumix1ovh"

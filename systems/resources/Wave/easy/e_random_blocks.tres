@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="1_8fp6x"]
 [ext_resource type="PackedScene" uid="uid://bf5atxwyrbuy8" path="res://actors/enemies/Statics/static_alien.tscn" id="1_8vyt5"]
+[ext_resource type="PackedScene" uid="uid://c16bthglkir5v" path="res://objects/obstacles/asteroids/AsteroidsBig/asteroid_big.tscn" id="1_gwec6"]
+[ext_resource type="PackedScene" uid="uid://do8jf8y45s7pp" path="res://objects/obstacles/Asteroids Small/asteroid_small.tscn" id="3_kmtrd"]
 
 [resource]
 script = ExtResource("1_8fp6x")
-enemies = Array[PackedScene]([ExtResource("1_8vyt5"), ExtResource("1_8vyt5"), ExtResource("1_8vyt5"), ExtResource("1_8vyt5"), ExtResource("1_8vyt5"), ExtResource("1_8vyt5")])
+enemies = Array[PackedScene]([ExtResource("1_8vyt5"), ExtResource("1_8vyt5"), ExtResource("1_8vyt5"), ExtResource("1_8vyt5"), ExtResource("1_8vyt5"), ExtResource("1_8vyt5"), ExtResource("3_kmtrd"), ExtResource("1_gwec6"), ExtResource("1_gwec6"), ExtResource("3_kmtrd"), ExtResource("3_kmtrd"), ExtResource("3_kmtrd")])
 spawn_cooldown = 0.2
 metadata/_custom_type_script = "uid://dxchcumix1ovh"

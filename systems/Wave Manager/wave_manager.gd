@@ -34,4 +34,6 @@ func start_random_wave() -> void:
 	asteroid_spawner.spawn_belt(current_wave)
 	spawner.spawn_wave(current_wave)
 	await spawner.wave_cleared
+	if GameManager.difficulty == "b":
+		Events.complete_game.emit()
 	wave_completed.emit()

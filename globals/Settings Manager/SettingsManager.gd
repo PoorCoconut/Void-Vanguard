@@ -8,6 +8,10 @@ var music_vol: float = 1.0
 var sfx_vol: float = 1.0
 var screen_shake: bool = true
 
+var ldm : bool = false
+var touch_screen : bool = false
+var crt_enabled : bool = false
+
 func _ready():
 	for action in InputMap.get_actions():
 		slotted_binds[action] = {}
@@ -22,7 +26,11 @@ func save_settings():
 		"master_vol": master_vol,
 		"music_vol": music_vol,
 		"sfx_vol": sfx_vol,
-		"screen_shake": screen_shake
+		"screen_shake": screen_shake,
+		
+		"ldm" : ldm,
+		"touch_screen": touch_screen,
+		"crt_enabled": crt_enabled
 	}
 	
 	# 2. Open the file and convert the Dictionary to a JSON string
@@ -47,6 +55,16 @@ func load_settings():
 	music_vol = data.get("music_vol", 1.0)
 	sfx_vol = data.get("sfx_vol", 1.0)
 	screen_shake = data.get("screen_shake", true)
+	
+	ldm = data.get("ldm", false)
+	touch_screen = data.get("touch_screen", false)
+	crt_enabled = data.get("crt_enabled", false)
+	
+	if touch_screen:
+		ExperimentalTouchScreen.enable_touch_mode()
+	else:
+		ExperimentalTouchScreen.disable_touch_mode()
+	ShaderLayer.toggle_self()
 	
 	apply_audio_settings()
 	load_keybinds()

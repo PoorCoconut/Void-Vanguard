@@ -32,6 +32,7 @@ class_name ShopMenuComponent
 
 var current_repair_cost: float
 signal shop_exited
+signal bought_dispel
 
 func _ready() -> void:
 	KonamiManager.code_entered.connect(debug_money)
@@ -43,8 +44,10 @@ func debug_money(code_name:String):
 	if code_name == "money":
 		GameManager.points = 9999
 		refresh_ui()
+	elif code_name == "shop":
+		show_menu()
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("debug") and debug_menu:
 		show_menu()
 
@@ -64,7 +67,6 @@ func show_menu() -> void:
 	get_tree().paused = true
 
 func hide_menu() -> void:
-	print("hide the menu!")
 	if GameManager.dispel_bought == 10:
 		Events.change_melody.emit("boss")
 	else:
@@ -211,6 +213,8 @@ func _on_repair_button_pressed() -> void:
 	refresh_ui()
 
 func _on_dispel_button_pressed() -> void:
+	bought_dispel.emit()
+	
 	if GameManager.dispel_bought >= config.dispel_costs.size():
 		return
 	var cost = config.dispel_costs[GameManager.dispel_bought]
@@ -226,14 +230,14 @@ func _on_dispel_button_pressed() -> void:
 		GameManager.diff_hp += 1
 		GameManager.diff_speed += 10
 		GameManager.diff_points_mult += 1
-		print("MEDIUM DIFFICULTY!")
+		print("YOU'RE NOW IN MEDIUM DIFFICULTY!!!")
 	elif GameManager.dispel_bought == 8:
 		GameManager.difficulty = "h"
 		GameManager.diff_dmg += 1
 		GameManager.diff_hp += 1
 		GameManager.diff_speed += 10
 		GameManager.diff_points_mult += 1
-		print("HARD DIFFICULTY!")
+		print("YOU'RE NOW IN HARD DIFFICULTY!!!")
 	elif GameManager.dispel_bought == 10:
 		GameManager.difficulty = "b"
 		Events.do_bf.emit()

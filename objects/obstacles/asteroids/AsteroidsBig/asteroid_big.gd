@@ -18,6 +18,9 @@ class_name AsteroidBig
 var has_been_onscreen: bool = false
 
 func _ready() -> void:
+	sprite.scale = Vector2.ZERO
+	var tween = get_tree().create_tween()
+	tween.tween_property(sprite, "scale", Vector2(1,1), randf_range(0.2, 0.5))
 	sprite.frame = randi_range(0, 1)
 	if rotation_speed == 0.0:
 		rotation_speed = randf_range(-30.0, 30.0) # gentle random tumble if not set

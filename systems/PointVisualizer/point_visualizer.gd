@@ -11,5 +11,5 @@ func _ready() -> void:
 	points_label.text = "+ " + str(p) + "P"
 	point_anim.play("show_p")
 
-func _on_point_anim_animation_finished(anim_name: StringName) -> void:
+func _on_point_anim_animation_finished(_anim_name: StringName) -> void:
 	queue_free()

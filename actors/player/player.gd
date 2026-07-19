@@ -26,6 +26,7 @@ var on_cooldown : bool = false
 @onready var screen_size: Vector2 = get_viewport_rect().size
 
 const bullet_path : PackedScene = preload("res://objects/Bullets/Player Bullet/player_bullet.tscn")
+const boss_path : PackedScene = preload("uid://d4etyphwqbt40")
 var CUR_DIR : Vector2
 var secret_cooldown : float = 0
 
@@ -100,3 +101,7 @@ func kon_codes(code_name : String):
 		secret_cooldown = 0
 	elif code_name == "cross":
 		health_component.take_damage(-100)
+	elif code_name == "boss":
+		var boss := boss_path.instantiate()
+		boss.global_position = global_position
+		get_tree().get_first_node_in_group("world").add_child(boss)

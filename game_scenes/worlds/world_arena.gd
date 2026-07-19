@@ -5,6 +5,8 @@ extends Node2D
 @onready var count_down: AnimationPlayer = $CountDown
 @onready var wave_manager: WaveManager = $WaveManager
 @onready var shop: ShopMenuComponent = $ShopMenuComponent
+@onready var white_out_anim: AnimationPlayer = $WhiteOutAnim
+@onready var control_hint_anim: AnimationPlayer = $ControlHintAnim
 
 func _ready() -> void:
 	Events.do_drums.emit(true)
@@ -13,7 +15,7 @@ func _ready() -> void:
 	Events.complete_game.connect(_complete_game)
 	if no_wave:
 		return
-	count_down.play("wave_countdown")
+	control_hint_anim.play("control_hint")
 
 func _on_player_player_death() -> void:
 	GameManager.load_next_level(next_level_path)
@@ -43,4 +45,12 @@ func _on_entity_loomer_time_done() -> void:
 	GameManager.load_next_level(next_level_path)
 
 func _complete_game():
+	await get_tree().create_timer(3).timeout
 	GameManager.load_next_level(win_path)
+
+func _on_control_hint_anim_animation_finished(anim_name: StringName) -> void:
+	$EntityLoomer.reset_scale()
+	count_down.play("wave_countdown")
+
+func _on_shop_menu_component_bought_dispel() -> void:
+	white_out_anim.play("whiteout")

@@ -2,9 +2,10 @@ extends Node
 
 var CURRENT_WORLD_STATE : String = "Nothing"
 const SAVE_PATH : String = "user://savegame.json"
-var ldm : bool = false
-var touch_screen : bool = false
 
+var game_won : bool = false
+
+#Difficulty
 var points : int = 0
 var difficulty : String = "e"
 var diff_dmg : int = 0
@@ -27,7 +28,7 @@ var laser_speed : int = 0
 
 
 func _ready() -> void:
-	print("GAME MANAGER LOADED!")
+	print("HEY THERE! DO YOU KNOW ABOUT ↑ ↑ ↓ ↓ ← → ← → Z X? A SECRET DEUS EX MACHINA WEAPON IS READY FOR YOU!")
 
 func reset_game():
 	hull_upgraded = 0
@@ -46,6 +47,7 @@ func reset_game():
 	diff_speed = 0
 	diff_hp = 0
 	diff_points_mult = 1
+
 ##SAVE FILE LOGIC
 func save_player_position(player_pos: Vector2) -> void:
 	var save_data = {

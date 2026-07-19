@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://daqxmalbr6ibs"]
+
+[ext_resource type="Script" uid="uid://dghuc2gdnj18n" path="res://globals/Shader Layer/shader_layer.gd" id="1_lm4hn"]
+[ext_resource type="Shader" uid="uid://bpsv8cqvadjn8" path="res://globals/Shader Layer/shader_crt.gdshader" id="1_mv6bp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lm4hn"]
+shader = ExtResource("1_mv6bp")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.30000001425
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.0
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
+[node name="ShaderLayer" type="CanvasLayer" unique_id=1435933447]
+process_mode = 3
+layer = 200
+script = ExtResource("1_lm4hn")
+
+[node name="Control" type="Control" parent="." unique_id=1009489481]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1971884386]
+material = SubResource("ShaderMaterial_lm4hn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

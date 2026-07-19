@@ -2,12 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://c16bthglkir5v" path="res://objects/obstacles/asteroids/AsteroidsBig/asteroid_big.tscn" id="1_h0hv3"]
 [ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="2_3k8dm"]
-[ext_resource type="PackedScene" uid="uid://bf5atxwyrbuy8" path="res://actors/enemies/Statics/static_alien.tscn" id="2_yppo5"]
 [ext_resource type="PackedScene" uid="uid://do8jf8y45s7pp" path="res://objects/obstacles/Asteroids Small/asteroid_small.tscn" id="3_yppo5"]
 
 [resource]
 script = ExtResource("2_3k8dm")
-enemies = Array[PackedScene]([ExtResource("2_yppo5"), ExtResource("2_yppo5"), ExtResource("2_yppo5"), ExtResource("2_yppo5")])
+enemies = Array[PackedScene]([ExtResource("1_h0hv3"), ExtResource("1_h0hv3"), ExtResource("1_h0hv3"), ExtResource("1_h0hv3")])
 spawn_by = 4
 spawn_cooldown = 5.0
 has_asteroid_belt = true

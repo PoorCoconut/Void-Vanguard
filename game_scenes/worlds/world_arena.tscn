@@ -30,10 +30,14 @@
 [ext_resource type="Resource" uid="uid://bqdisd0i4e8jx" path="res://systems/resources/Wave/medium/m_missile_for_you.tres" id="19_ci02s"]
 [ext_resource type="Resource" uid="uid://df0brcon0o6b5" path="res://systems/resources/Wave/medium/m_slow_asteroids.tres" id="20_ju885"]
 [ext_resource type="Resource" uid="uid://disdmbofk7l3" path="res://systems/resources/Wave/hard/h_chain_reaction.tres" id="21_ob5jm"]
+[ext_resource type="Resource" uid="uid://hkyscqs7t524" path="res://systems/resources/Wave/hard/h_bullet_roid.tres" id="22_8rkex"]
 [ext_resource type="Resource" uid="uid://chk2chkrhs6o5" path="res://systems/resources/Wave/hard/h_meteor_shower.tres" id="22_ci02s"]
 [ext_resource type="Resource" uid="uid://cbn4752c0ygyv" path="res://systems/resources/Wave/hard/h_smorgasboard2.tres" id="23_ju885"]
 [ext_resource type="Resource" uid="uid://cacgpxb33knq3" path="res://systems/resources/Wave/hard/h_target_locked.tres" id="24_xd7f4"]
 [ext_resource type="Resource" uid="uid://c75paeudktrds" path="res://systems/resources/Wave/boss/b_entity.tres" id="25_ju885"]
+[ext_resource type="Resource" uid="uid://dc7nlv8io06ma" path="res://systems/resources/Wave/hard/h_planetary_explosion.tres" id="25_xd7f4"]
+[ext_resource type="Resource" uid="uid://bko6fufr2x8ih" path="res://systems/resources/Wave/hard/h_random_bs_go.tres" id="26_unyo3"]
+[ext_resource type="Resource" uid="uid://5jr7qoy1bact" path="res://systems/resources/Wave/easy/e_asteroid_field.tres" id="26_xd7f4"]
 [ext_resource type="Texture2D" uid="uid://c6qm4tojwwj0n" path="res://game_assets/stars.png" id="35_ju885"]
 
 [sub_resource type="Animation" id="Animation_g5pcb"]
@@ -161,6 +165,82 @@ _data = {
 &"blink": SubResource("Animation_8pwdk")
 }
 
+[sub_resource type="Animation" id="Animation_unyo3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/WhiteOut:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8rkex"]
+resource_name = "whiteout"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/WhiteOut:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_unyo3"]
+_data = {
+&"RESET": SubResource("Animation_unyo3"),
+&"whiteout": SubResource("Animation_8rkex")
+}
+
+[sub_resource type="Animation" id="Animation_ejyi5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlHint:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_qqu5a"]
+resource_name = "control_hint"
+length = 5.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlHint:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ejyi5"]
+_data = {
+&"RESET": SubResource("Animation_ejyi5"),
+&"control_hint": SubResource("Animation_qqu5a")
+}
+
 [sub_resource type="Animation" id="Animation_abyub"]
 length = 0.001
 tracks/0/type = "value"
@@ -205,10 +285,31 @@ script = ExtResource("1_wudb1")
 next_level_path = "uid://cm7jura061s14"
 win_path = "uid://cfipo3pg6i4ot"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1503257004]
+process_mode = 3
+layer = 5
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1924982439]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 184.0
+mouse_filter = 2
+
+[node name="WhiteOut" type="ColorRect" parent="CanvasLayer/Control" unique_id=2067487286]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
 [node name="WaveManager" parent="." unique_id=2050366282 node_paths=PackedStringArray("spawner", "asteroid_spawner") instance=ExtResource("1_i3ico")]
-easy_waves = Array[ExtResource("3_ho3uq")]([ExtResource("4_1ba5s"), ExtResource("5_bhge8"), ExtResource("4_8pwdk"), ExtResource("5_lkbj2"), ExtResource("8_bcjf8"), ExtResource("9_7n23g"), ExtResource("6_22y50"), ExtResource("7_3nyde"), ExtResource("12_jlxt8"), ExtResource("8_vi0j5")])
+easy_waves = Array[ExtResource("3_ho3uq")]([ExtResource("26_xd7f4"), ExtResource("4_1ba5s"), ExtResource("5_bhge8"), ExtResource("4_8pwdk"), ExtResource("5_lkbj2"), ExtResource("8_bcjf8"), ExtResource("9_7n23g"), ExtResource("6_22y50"), ExtResource("7_3nyde"), ExtResource("12_jlxt8"), ExtResource("8_vi0j5")])
 medium_waves = Array[ExtResource("3_ho3uq")]([ExtResource("14_4qopo"), ExtResource("15_rosgg"), ExtResource("16_h4ffw"), ExtResource("17_775ub"), ExtResource("18_ob5jm"), ExtResource("19_ci02s"), ExtResource("20_ju885")])
-hard_waves = Array[ExtResource("3_ho3uq")]([ExtResource("21_ob5jm"), ExtResource("22_ci02s"), ExtResource("23_ju885"), ExtResource("24_xd7f4")])
+hard_waves = Array[ExtResource("3_ho3uq")]([ExtResource("22_8rkex"), ExtResource("21_ob5jm"), ExtResource("22_ci02s"), ExtResource("25_xd7f4"), ExtResource("26_unyo3"), ExtResource("23_ju885"), ExtResource("24_xd7f4")])
 boss_waves = Array[ExtResource("3_ho3uq")]([ExtResource("25_ju885")])
 spawner = NodePath("../EnemySpawner")
 asteroid_spawner = NodePath("../AsteroidSpawner")
@@ -254,8 +355,37 @@ libraries/ = SubResource("AnimationLibrary_y8meh")
 libraries/ = SubResource("AnimationLibrary_lkbj2")
 autoplay = &"blink"
 
+[node name="WhiteOutAnim" type="AnimationPlayer" parent="." unique_id=1975286410]
+libraries/ = SubResource("AnimationLibrary_unyo3")
+
+[node name="ControlHintAnim" type="AnimationPlayer" parent="." unique_id=426686248]
+libraries/ = SubResource("AnimationLibrary_ejyi5")
+
 [node name="CountdownSFX" type="AudioStreamPlayer" parent="." unique_id=312796946]
 stream = ExtResource("12_csdli")
+
+[node name="ControlHint" type="Control" parent="." unique_id=264099638]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ControlHint" unique_id=627694529]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[wave amp=5.0]TURN[/wave] WITH LEFT/RIGHT ARROW KEYS OR A/D
+
+[wave amp=5.0]MOVE[/wave] WITH Z / RMB
+
+[wave amp=5.0]SHOOT[/wave] WITH X / LMB"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Control" type="Control" parent="." unique_id=171804189]
 visible = false
@@ -324,7 +454,9 @@ texture = ExtResource("35_ju885")
 
 [connection signal="wave_cleared" from="EnemySpawner" to="." method="_on_enemy_spawner_wave_cleared"]
 [connection signal="asteroid_belt_incoming" from="AsteroidSpawner" to="." method="_on_asteroid_spawner_asteroid_belt_incoming"]
+[connection signal="bought_dispel" from="ShopMenuComponent" to="." method="_on_shop_menu_component_bought_dispel"]
 [connection signal="shop_exited" from="ShopMenuComponent" to="." method="_on_shop_menu_component_shop_exited"]
 [connection signal="time_done" from="EntityLoomer" to="." method="_on_entity_loomer_time_done"]
 [connection signal="player_death" from="Player" to="." method="_on_player_player_death"]
 [connection signal="animation_finished" from="CountDown" to="." method="_on_count_down_animation_finished"]
+[connection signal="animation_finished" from="ControlHintAnim" to="." method="_on_control_hint_anim_animation_finished"]

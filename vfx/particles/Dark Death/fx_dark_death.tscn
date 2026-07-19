@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bu5ghv4tf1l8y"]
+
+[ext_resource type="Texture2D" uid="uid://dsa5a54oekwx3" path="res://vfx/particles/dust_particles.png" id="1_00s5x"]
+[ext_resource type="Script" uid="uid://ccrlmukex51hb" path="res://vfx/particles/Dark Death/fx_dark_death.gd" id="1_r5eu1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r5eu1"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 4
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_a4m4c"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.16956522, 1), 0.0, 0.0, 0, 0, Vector2(0.826087, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="FxDarkDeath" type="Node2D" unique_id=2014507147]
+script = ExtResource("1_r5eu1")
+
+[node name="ExplosionFX" type="CPUParticles2D" parent="." unique_id=1319295812]
+material = SubResource("CanvasItemMaterial_r5eu1")
+emitting = false
+amount = 30
+texture = ExtResource("1_00s5x")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.5
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 88.89
+initial_velocity_max = 88.89
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_curve = SubResource("Curve_a4m4c")
+color = Color(0.15294118, 0.2, 0.21960784, 1)
+anim_offset_max = 1.0
+
+[connection signal="finished" from="ExplosionFX" to="." method="_on_explosion_fx_finished"]

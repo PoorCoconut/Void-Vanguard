@@ -23,7 +23,7 @@ var is_scaling : bool = false
 signal time_done
 
 func _ready() -> void:
-	if GameManager.ldm:
+	if SettingsManager.ldm:
 		body.show()
 		body_2.show()
 		tentacle_1.hide()
@@ -32,7 +32,6 @@ func _ready() -> void:
 	
 	scale = start_scale
 	scale_from = start_scale
-	is_scaling = true
 
 func _process(delta: float) -> void:
 	if GameManager.dispel_bought == 10:

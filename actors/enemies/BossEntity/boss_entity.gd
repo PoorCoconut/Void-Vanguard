@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name EnemyBossEntity
 
-enum enemy_state { SEEKING, PRIMING, LUNGING }
+enum enemy_state { SEEKING, PRIMING, LUNGING, DEAD }
 var current_state: enemy_state = enemy_state.SEEKING
 var points : int = 999999999
 
@@ -15,6 +15,7 @@ var points : int = 999999999
 
 @export var explosion_path : PackedScene = preload("uid://f3n5igu32ac3")
 @export var point_visual_path : PackedScene = preload("uid://8kjvlwgpdk8j")
+@export var dark_death_path : PackedScene = preload("uid://bu5ghv4tf1l8y")
 @onready var blink_anim: AnimationPlayer = $BlinkAnim
 
 var target : Node2D
@@ -47,6 +48,8 @@ func _physics_process(delta: float) -> void:
 		enemy_state.LUNGING:
 			if global_position.distance_to(target_spot) < 5.0:
 				current_state = enemy_state.SEEKING
+		enemy_state.DEAD:
+			velocity = velocity.move_toward(Vector2.ZERO, delta * FRICTION)
 	move_and_slide()
 
 func _on_stopping_radius_body_entered(body: Node2D) -> void:
@@ -58,8 +61,6 @@ func _on_seek_timer_timeout() -> void:
 		current_state = enemy_state.PRIMING
 
 func _on_health_component_died() -> void:
-	Events.complete_game.emit()
-	
 	var explosion := explosion_path.instantiate()
 	explosion.global_position = global_position
 	get_tree().get_first_node_in_group("world").call_deferred("add_child", explosion)

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://bko6fufr2x8ih"]
+
+[ext_resource type="PackedScene" uid="uid://c16bthglkir5v" path="res://objects/obstacles/asteroids/AsteroidsBig/asteroid_big.tscn" id="1_3l5v3"]
+[ext_resource type="Script" uid="uid://dxchcumix1ovh" path="res://systems/resources/Wave/wave.gd" id="2_3h7ok"]
+[ext_resource type="PackedScene" uid="uid://bimgj4dl0xtn7" path="res://actors/enemies/Shuriken/shuriken.tscn" id="2_tpg4n"]
+[ext_resource type="PackedScene" uid="uid://bf5atxwyrbuy8" path="res://actors/enemies/Statics/static_alien.tscn" id="3_hmas6"]
+[ext_resource type="PackedScene" uid="uid://do8jf8y45s7pp" path="res://objects/obstacles/Asteroids Small/asteroid_small.tscn" id="3_lxroe"]
+[ext_resource type="PackedScene" uid="uid://bgqtco8cyoak0" path="res://actors/enemies/SeekerMissiles/seeker_missiles.tscn" id="4_4bve5"]
+[ext_resource type="PackedScene" uid="uid://cp4hyfoo4jeei" path="res://objects/obstacles/asteroids/AsteroidsMega/asteroid_mega.tscn" id="6_hmas6"]
+
+[resource]
+script = ExtResource("2_3h7ok")
+enemies = Array[PackedScene]([ExtResource("2_tpg4n"), ExtResource("3_hmas6"), ExtResource("3_hmas6"), ExtResource("3_hmas6"), ExtResource("2_tpg4n"), ExtResource("4_4bve5"), ExtResource("4_4bve5"), ExtResource("4_4bve5"), ExtResource("2_tpg4n"), ExtResource("3_lxroe"), ExtResource("3_lxroe"), ExtResource("1_3l5v3"), ExtResource("1_3l5v3"), ExtResource("1_3l5v3"), ExtResource("3_lxroe"), ExtResource("6_hmas6")])
+spawn_all = true
+has_asteroid_belt = true
+small_asteroid_count = 0
+big_asteroid_count = 7
+asteroid_speed_min = 40.0
+asteroid_speed_max = 80.0
+metadata/_custom_type_script = "uid://dxchcumix1ovh"

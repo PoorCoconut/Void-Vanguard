@@ -28,12 +28,13 @@ func _ready() -> void:
 	SettingsManager.keybinds_updated.connect(update_button_text)
 
 func _pressed() -> void:
+	SoundBank.play_sfx("ui_next")
 	is_listening = true
 	text = "Press any key..."
 
 func _input(event: InputEvent) -> void:
 	if not is_listening: return
-		
+	
 	var is_valid_input: bool = false
 	if allow_keyboard and event is InputEventKey: is_valid_input = true
 	elif allow_mouse and event is InputEventMouseButton: is_valid_input = true
@@ -41,6 +42,7 @@ func _input(event: InputEvent) -> void:
 		
 	if is_valid_input and event.is_pressed():
 		# Send the specific Slot Number (bind_index) to the Manager
+		SoundBank.play_sfx("point")
 		SettingsManager.update_keybind(action_name, bind_index, event)
 		is_listening = false
 		get_viewport().set_input_as_handled()

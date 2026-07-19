@@ -50,7 +50,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D4:position")
+tracks/0/path = NodePath("VoidBack:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -62,7 +62,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D5:position")
+tracks/1/path = NodePath("VoidMid:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -74,7 +74,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D6:position")
+tracks/2/path = NodePath("VoidFront:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -127,7 +127,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D4:position")
+tracks/0/path = NodePath("VoidBack:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -139,7 +139,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D5:position")
+tracks/1/path = NodePath("VoidMid:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -151,7 +151,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D6:position")
+tracks/2/path = NodePath("VoidFront:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -212,7 +212,19 @@ shader_parameter/time_offset = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_abyub"]
 atlas = ExtResource("2_3phpx")
-region = Rect2(16, 32, 32, 32)
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcaeb"]
+atlas = ExtResource("2_3phpx")
+region = Rect2(64, 0, 176, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hcsl"]
+atlas = ExtResource("2_3phpx")
+region = Rect2(64, 64, 176, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1bdr"]
+atlas = ExtResource("2_3phpx")
+region = Rect2(64, 128, 176, 64)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kcaeb"]
 shader = ExtResource("2_kcaeb")
@@ -225,10 +237,6 @@ shader_parameter/time_offset = 0.0
 atlas = ExtResource("2_3phpx")
 region = Rect2(16, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kcaeb"]
-atlas = ExtResource("2_3phpx")
-region = Rect2(64, 0, 176, 64)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_abyub"]
 shader = ExtResource("2_kcaeb")
 shader_parameter/sway_speed = 1.17600005260012
@@ -239,14 +247,6 @@ shader_parameter/time_offset = 0.0
 [sub_resource type="AtlasTexture" id="AtlasTexture_dcpgc"]
 atlas = ExtResource("2_3phpx")
 region = Rect2(16, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6hcsl"]
-atlas = ExtResource("2_3phpx")
-region = Rect2(64, 64, 176, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b1bdr"]
-atlas = ExtResource("2_3phpx")
-region = Rect2(64, 128, 176, 64)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqmwn"]
 bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
@@ -291,27 +291,15 @@ color = Color(0.6117647, 0.6901961, 0.5019608, 1)
 position = Vector2(160, 96)
 texture = ExtResource("2_x2ujj")
 
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1387370033]
+[node name="VoidBack" type="Sprite2D" parent="." unique_id=1387370033]
 material = SubResource("ShaderMaterial_x2ujj")
 position = Vector2(159, 26)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_abyub")
 
-[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1970224715]
-material = SubResource("ShaderMaterial_kcaeb")
-position = Vector2(158, 24)
-scale = Vector2(0.8, 0.8)
-texture = SubResource("AtlasTexture_x2ujj")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2101759954]
 position = Vector2(164, 43)
 texture = SubResource("AtlasTexture_kcaeb")
-
-[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=2122177387]
-material = SubResource("ShaderMaterial_abyub")
-position = Vector2(158, 24)
-scale = Vector2(0.8, 0.8)
-texture = SubResource("AtlasTexture_dcpgc")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1057482498]
 position = Vector2(162, 41)
@@ -320,6 +308,18 @@ texture = SubResource("AtlasTexture_6hcsl")
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1354113546]
 position = Vector2(159, 39)
 texture = SubResource("AtlasTexture_b1bdr")
+
+[node name="VoidMid" type="Sprite2D" parent="." unique_id=1970224715]
+material = SubResource("ShaderMaterial_kcaeb")
+position = Vector2(158, 24)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_x2ujj")
+
+[node name="VoidFront" type="Sprite2D" parent="." unique_id=2122177387]
+material = SubResource("ShaderMaterial_abyub")
+position = Vector2(158, 24)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_dcpgc")
 
 [node name="GameTitle" type="RichTextLabel" parent="." unique_id=1318100979]
 visible = false
@@ -415,7 +415,6 @@ metadata/_tab_name = "General"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SettingsContainer/SettingsTabs/GeneralSettings" unique_id=1643775459]
 layout_mode = 2
-theme_override_constants/separation = 6
 
 [node name="Label" type="Label" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer" unique_id=801633829]
 layout_mode = 2
@@ -500,6 +499,7 @@ text = "EXPERIMENTAL TOUCH CONTROLS"
 horizontal_alignment = 1
 
 [node name="TouchControlsButton" type="CheckButton" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer" unique_id=1118294938]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer" unique_id=361330401]
@@ -511,6 +511,19 @@ text = "LOW DETAIL MODE"
 horizontal_alignment = 1
 
 [node name="LowDetailModeButton" type="CheckButton" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer2" unique_id=519175359]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer" unique_id=1833184060]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer3" unique_id=539222456]
+layout_mode = 2
+text = "CRT SHADER"
+horizontal_alignment = 1
+
+[node name="CRTShaderButton" type="CheckButton" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer3" unique_id=1923117789]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="WarningLabel" type="RichTextLabel" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer" unique_id=2011723749]
@@ -716,11 +729,13 @@ text = "BACK"
 [connection signal="pressed" from="ButtonContainerSizer/ButtonContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="ButtonContainerSizer/ButtonContainer/Button_Credits" to="." method="_on_button_credits_pressed"]
 [connection signal="pressed" from="ButtonContainerSizer/ButtonContainer/Button_Exit" to="." method="_on_button_exit_pressed"]
+[connection signal="tab_clicked" from="SettingsContainer/SettingsTabs" to="." method="_on_settings_tabs_tab_clicked"]
 [connection signal="value_changed" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/MasterVolume/Control/Slider_MaVol" to="." method="_on_slider_ma_vol_value_changed"]
 [connection signal="value_changed" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/MusicVolume/Control/Slider_MuVol" to="." method="_on_slider_mu_vol_value_changed"]
 [connection signal="value_changed" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/SFXVolume/Control/Slider_SVol" to="." method="_on_slider_s_vol_value_changed"]
 [connection signal="toggled" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer/TouchControlsButton" to="." method="_on_touch_controls_button_toggled"]
 [connection signal="toggled" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer2/LowDetailModeButton" to="." method="_on_low_detail_mode_button_toggled"]
+[connection signal="toggled" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/HBoxContainer3/CRTShaderButton" to="." method="_on_crt_shader_button_toggled"]
 [connection signal="pressed" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/NukeButton" to="." method="_on_nuke_button_pressed"]
 [connection signal="pressed" from="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer/VBoxContainer/Button_Windowed" to="." method="_on_button_windowed_pressed"]

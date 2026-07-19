@@ -39,7 +39,7 @@ func _set_drum_volume(db: float) -> void:
 	sync_stream.set_sync_stream_volume(STREAM_DRUMS, db)
 
 func handle_melody(type: String) -> void:
-	print("CHANGING MELODY TO: " + type)
+	#print("CHANGING MELODY TO: " + type)
 	
 	if melody_tween and melody_tween.is_valid():
 		melody_tween.kill()
