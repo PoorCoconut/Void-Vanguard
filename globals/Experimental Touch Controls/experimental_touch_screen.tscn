@@ -4,6 +4,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx1ej"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81v1l"]
+
 [node name="ExperimentalTouchScreen" type="CanvasLayer" unique_id=339463489]
 process_mode = 3
 layer = 5
@@ -40,24 +42,28 @@ theme_override_constants/separation = 10
 
 [node name="LeftButton" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=720658941]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5882353)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 text = "←"
 
 [node name="RightButton" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=2066842203]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5882353)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 text = "→"
 
 [node name="UpButton" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=1089375654]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5882353)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 text = "↑"
 
 [node name="DownButton" type="Button" parent="Control/MarginContainer/HBoxContainer" unique_id=1985942492]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5882353)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 text = "↓"
@@ -112,12 +118,27 @@ theme_override_constants/separation = 10
 
 [node name="AtkButton" type="Button" parent="Control/MarginContainer/HBoxContainer2" unique_id=596149132]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5882353)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 text = "X"
 
 [node name="MovButton" type="Button" parent="Control/MarginContainer/HBoxContainer2" unique_id=1972025727]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5882353)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 text = "Z"
+
+[node name="PauseButton" type="Button" parent="Control/MarginContainer" unique_id=1349891646]
+modulate = Color(1, 1, 1, 0.5882353)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "E"
+
+[node name="PauseTouchScreen" type="TouchScreenButton" parent="Control/MarginContainer" unique_id=162434061]
+unique_name_in_owner = true
+position = Vector2(18, 18)
+shape = SubResource("RectangleShape2D_81v1l")
+action = "pause"

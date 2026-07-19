@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var down_touch_screen: TouchScreenButton = %DownTouchScreen
 @onready var atk_touch_screen: TouchScreenButton = %AtkTouchScreen
 @onready var mov_touch_screen: TouchScreenButton = %MovTouchScreen
+@onready var pause_touch_screen: TouchScreenButton = %PauseTouchScreen
 
 var _stored_shoot_mouse_events: Array[InputEvent] = []
 var _stored_move_mouse_events: Array[InputEvent] = []
@@ -28,6 +29,7 @@ func _ready() -> void:
 	mov_touch_screen.released.connect(func(): _release_action("move"))
 	
 	atk_touch_screen.pressed.connect(_on_atk_pressed)
+	pause_touch_screen.pressed.connect(_on_pause_pressed)
 
 func enable_touch_mode() -> void:
 	_strip_mouse_bindings("shoot", _stored_shoot_mouse_events)
@@ -67,3 +69,7 @@ func _release_action(action: StringName) -> void:
 func _on_atk_pressed() -> void:
 	_press_action("shoot")
 	_release_action("shoot")
+
+func _on_pause_pressed() -> void:
+	_press_action("pause")
+	_release_action("pause")

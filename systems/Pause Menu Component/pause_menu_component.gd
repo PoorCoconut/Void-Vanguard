@@ -26,12 +26,12 @@ func _ready() -> void:
 	low_pass_filter = AudioServer.get_bus_effect(music_bus_idx, 0)
 
 ##TOGGLE MENU
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	## In this commented out code, you can change it so that when something happens, pressing pause doesn't pause the game
 	#if GameManager.CURRENT_WORLD_STATE == "SOMETHING":
 		#return
 	
-	if event.is_action_pressed("ui_cancel"): 
+	if Input.is_action_just_pressed("pause"): 
 		if get_tree().paused:
 			hide_menu()
 		else:
@@ -77,3 +77,12 @@ func _on_menu_button_pressed() -> void:
 
 func _on_back_button_pressed() -> void:
 	hide_menu()
+
+
+func _on_window_button_pressed() -> void:
+	SoundBank.play_sfx("ui_next", Vector2.ZERO)
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func _on_full_screen_button_pressed() -> void:
+	SoundBank.play_sfx("ui_next", Vector2.ZERO)
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

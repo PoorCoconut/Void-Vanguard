@@ -119,7 +119,23 @@ size_flags_horizontal = 3
 max_value = 2.0
 step = 0.1
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=482303580]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1991978898]
+layout_mode = 2
+text = "WINDOW CONTROLS"
+
+[node name="WindowButton" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1240929050]
+layout_mode = 2
+text = "WINDOW"
+
+[node name="FullScreenButton" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1877984925]
+layout_mode = 2
+text = "FULLSCREEN"
+
 [node name="Stretcher" type="Control" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=2072005496]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -147,5 +163,7 @@ text = "RESUME"
 [connection signal="value_changed" from="Control/MarginContainer/PanelContainer/VBoxContainer/MasterVolume/Control/VolMasterSlider" to="." method="_on_vol_master_slider_value_changed"]
 [connection signal="value_changed" from="Control/MarginContainer/PanelContainer/VBoxContainer/MusicVolume/Control/VolMusicSlider" to="." method="_on_vol_music_slider_value_changed"]
 [connection signal="value_changed" from="Control/MarginContainer/PanelContainer/VBoxContainer/SFXVolume/Control/VolSFXSlider" to="." method="_on_vol_sfx_slider_value_changed"]
+[connection signal="pressed" from="Control/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/WindowButton" to="." method="_on_window_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/FullScreenButton" to="." method="_on_full_screen_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ButtonContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ButtonContainer/BackButton" to="." method="_on_back_button_pressed"]
