@@ -378,6 +378,7 @@ text = "EXIT"
 
 [node name="SettingsContainer" type="MarginContainer" parent="." unique_id=386881365]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -398,13 +399,12 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_oqmwn")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_c5njb")
 theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_3phpx")
-current_tab = 2
+current_tab = 0
 tab_0/title = "General"
 tab_1/title = "Viewport"
 tab_2/title = "Controls"
 
 [node name="GeneralSettings" type="MarginContainer" parent="SettingsContainer/SettingsTabs" unique_id=1393486794]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -594,6 +594,7 @@ theme_override_font_sizes/font_size = 8
 text = "EXCLUSIVE FULLSCREEN"
 
 [node name="ControlsSettings" type="MarginContainer" parent="SettingsContainer/SettingsTabs" unique_id=2007466088]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
