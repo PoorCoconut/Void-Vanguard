@@ -62,4 +62,4 @@ func update_button_text() -> void:
 	if current_event != null:
 		text = current_event.as_text().trim_suffix(" - Physical")
 	else:
-		text = "Unassigned"
+		text = "NONE"
