@@ -32,6 +32,11 @@ SimpleMusicManager="*uid://bn5ilj6dvhaem"
 ExperimentalTouchScreen="*uid://br1ajwyix4rbj"
 KonamiManager="*uid://0ae1cms8lw8j"
 ShaderLayer="*uid://daqxmalbr6ibs"
+SaveManager="*uid://du4ckvnut0s86"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
 
 [display]
 
@@ -140,3 +145,4 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

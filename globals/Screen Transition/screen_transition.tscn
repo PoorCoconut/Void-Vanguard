@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_se8wf"]
 shader = ExtResource("2_klng5")
 shader_parameter/progress = 0.0
-shader_parameter/diamondPixelSize = 50.0
+shader_parameter/diamondPixelSize = 10.0
 
 [node name="ScreenTransition" type="CanvasLayer" unique_id=1394423562]
 script = ExtResource("1_i4ufd")
