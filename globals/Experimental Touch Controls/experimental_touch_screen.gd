@@ -1,10 +1,5 @@
 extends CanvasLayer
-@onready var left_touch_screen: TouchScreenButton = %LeftTouchScreen
-@onready var right_touch_screen: TouchScreenButton = %RightTouchScreen
-@onready var up_touch_screen: TouchScreenButton = %UpTouchScreen
-@onready var down_touch_screen: TouchScreenButton = %DownTouchScreen
 @onready var atk_touch_screen: TouchScreenButton = %AtkTouchScreen
-@onready var mov_touch_screen: TouchScreenButton = %MovTouchScreen
 @onready var pause_touch_screen: TouchScreenButton = %PauseTouchScreen
 
 var _stored_shoot_mouse_events: Array[InputEvent] = []
@@ -12,22 +7,6 @@ var _stored_move_mouse_events: Array[InputEvent] = []
 
 func _ready() -> void:
 	hide()
-	
-	left_touch_screen.pressed.connect(func(): _press_action("turn_left"))
-	left_touch_screen.released.connect(func(): _release_action("turn_left"))
-	
-	right_touch_screen.pressed.connect(func(): _press_action("turn_right"))
-	right_touch_screen.released.connect(func(): _release_action("turn_right"))
-	
-	up_touch_screen.pressed.connect(func(): _press_action("up"))
-	up_touch_screen.released.connect(func(): _release_action("up"))
-	
-	down_touch_screen.pressed.connect(func(): _press_action("down"))
-	down_touch_screen.released.connect(func(): _release_action("down"))
-	
-	mov_touch_screen.pressed.connect(func(): _press_action("move"))
-	mov_touch_screen.released.connect(func(): _release_action("move"))
-	
 	atk_touch_screen.pressed.connect(_on_atk_pressed)
 	pause_touch_screen.pressed.connect(_on_pause_pressed)
 
