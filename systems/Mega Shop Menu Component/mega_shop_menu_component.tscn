@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dqyh3pagolua" path="res://systems/Mega Shop Menu Component/mega_shop_bg.png" id="3_iopb7"]
 [ext_resource type="Texture2D" uid="uid://bp5gn11pwl7tv" path="res://objects/Bullets/bullets.png" id="4_2oyth"]
 [ext_resource type="FontFile" uid="uid://dp8fsptdm4isk" path="res://fonts/Tiny5/Tiny5-Regular.ttf" id="5_s10j0"]
+[ext_resource type="Texture2D" uid="uid://bsq5jxhctomel" path="res://game_assets/ui_sprites.png" id="6_s10j0"]
+[ext_resource type="PackedScene" uid="uid://dg257eg6glbq1" path="res://systems/Mega Shop Menu Component/Shop Item Row Component/shop_item_row_component.tscn" id="7_b66gw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2oyth"]
 shader = ExtResource("2_kkuuj")
@@ -17,6 +19,14 @@ shader_parameter/node_scale = Vector2(1, 3)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b66gw"]
 atlas = ExtResource("4_2oyth")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tisj3"]
+atlas = ExtResource("6_s10j0")
+region = Rect2(240, 0, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1d5i"]
+atlas = ExtResource("6_s10j0")
+region = Rect2(288, 0, 48, 117)
 
 [node name="MegaShopMenuComponent" type="CanvasLayer" unique_id=1984877129]
 script = ExtResource("1_nq1pm")
@@ -85,3 +95,99 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("5_s10j0")
 text = "Save the worlds, Void Vanguard!"
 horizontal_alignment = 1
+
+[node name="ShopProper" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1306021974]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ImageContainer" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/ShopProper" unique_id=517742892]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tisj3")
+
+[node name="ShipImageBar" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer/ShopProper/ImageContainer" unique_id=1937058760]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+max_value = 117.0
+value = 117.0
+fill_mode = 3
+texture_progress = SubResource("AtlasTexture_c1d5i")
+
+[node name="wpn_items" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/ShopProper" unique_id=321867570]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShopItemRowComponent" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items" unique_id=855921384 instance=ExtResource("7_b66gw")]
+layout_mode = 2
+item_desc = "CHARGE YOUR ENERGY WITH [X] TO FIRE A PIERCING LASER. 
+WHILE THE LASER IS FIRING, 
+[wave amp=1.0 freq=2.0]TURNING IS SLOWED DOWN."
+item_id = "wpn_novabeam"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent" index="1" unique_id=1008983197]
+text = "NOVA BEAM"
+
+[node name="ShopItemRowComponent2" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items" unique_id=1340335360 instance=ExtResource("7_b66gw")]
+layout_mode = 2
+item_desc = "FIRE A MISSILE THAT PERSISTS AFTER HITTING AN ENEMY. IT WILL BOUNCE TOWARD A RANDOM DIRECTION."
+item_id = "wpn_reboundmiss"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent2" index="1" unique_id=1008983197]
+text = "RBND MISSI."
+
+[node name="ShopItemRowComponent3" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items" unique_id=1518631865 instance=ExtResource("7_b66gw")]
+layout_mode = 2
+item_desc = "FIRE A FAST BOLT OF ENERGY THAT CAN LOOP ACROSS THE BATTLEFIELD. THE ENERGY CAN HURT YOUR SHIP!"
+item_id = "wpn_reboundmiss"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent3" index="1" unique_id=1008983197]
+text = "WARP BOLTS"
+
+[node name="ShopItemRowComponent4" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items" unique_id=1236526496 instance=ExtResource("7_b66gw")]
+layout_mode = 2
+item_desc = "BLAST A SPRAY OF SCRAP THAT CAN BRUTE ITSELF THROUGH HORDES WITH YOUR PROPULSION SYSTEM. YOU WILL GET SIGNIFICANTLY [wave amp=1.0 freq=2.0]KNOCKED BACK WHEN YOU FIRE THE WEAPON."
+item_id = "wpn_reboundmiss"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent4" index="1" unique_id=1008983197]
+text = "SCRAPYARD"
+
+[node name="ItemHintMessage" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper" unique_id=2009844807]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("5_s10j0")
+bbcode_enabled = true
+text = "CHARGE X TO UNLEASH A DEVASTATING ATTACK"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PageButtons" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=295977359]
+layout_mode = 2
+
+[node name="PrevButton" type="Button" parent="Control/MarginContainer/VBoxContainer/PageButtons" unique_id=1318959503]
+layout_mode = 2
+text = "←"
+
+[node name="Control" type="Control" parent="Control/MarginContainer/VBoxContainer/PageButtons" unique_id=2142593756]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextButton" type="Button" parent="Control/MarginContainer/VBoxContainer/PageButtons" unique_id=1043922011]
+layout_mode = 2
+text = "→"
+
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_pressed" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_button_pressed"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_pressed" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_button_pressed"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_pressed" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_button_pressed"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent4" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_pressed" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent4" to="." method="_on_shop_item_row_component_ir_button_pressed"]
+
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent2"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent3"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent4"]
