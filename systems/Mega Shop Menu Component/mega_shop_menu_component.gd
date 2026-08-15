@@ -36,17 +36,17 @@ func hide_shop():
 	pass
 
 
-func _on_shop_item_row_component_ir_button_hover(img: CompressedTexture2D, desc: String) -> void:
+func _on_shop_item_row_component_ir_button_hover(img: Texture2D, desc: String) -> void:
 	ship_image_bar.value = 0.0
 	ship_image_bar.texture_progress = img
 	var tween : Tween = get_tree().create_tween()
-	tween.tween_property(ship_image_bar, "value", ship_image_bar.max_value, 0.3)
+	tween.tween_property(ship_image_bar, "value", ship_image_bar.max_value, 0.5)
 	
 	item_hint_message.visible_ratio = 0.0
 	item_hint_message.text = desc
 	var tween2 : Tween = get_tree().create_tween()
-	tween2.tween_property(item_hint_message, "visible_ratio", 1.0, 0.3)
-
+	tween2.tween_property(item_hint_message, "visible_ratio", 1.0, 0.5)
+		  
 func _on_shop_item_row_component_ir_button_pressed(id: String) -> void:
 	match id:
 		"wpn_novabeam":

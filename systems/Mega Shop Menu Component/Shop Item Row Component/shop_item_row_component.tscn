@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://chafs3hijr8gt" path="res://systems/Mega Shop Menu Component/Shop Item Row Component/shop_item_row_component.gd" id="1_ffm7e"]
 [ext_resource type="Texture2D" uid="uid://bsq5jxhctomel" path="res://game_assets/ui_sprites.png" id="1_jx2u0"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5ejf"]
+atlas = ExtResource("1_jx2u0")
+region = Rect2(336, 0, 48, 117)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ffm7e"]
 atlas = ExtResource("1_jx2u0")
 region = Rect2(0, 0, 8, 8)
@@ -35,6 +39,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ffm7e")
+ship_image = SubResource("AtlasTexture_l5ejf")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=500948889]
 layout_mode = 2

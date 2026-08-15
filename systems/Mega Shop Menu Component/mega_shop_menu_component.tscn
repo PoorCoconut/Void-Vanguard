@@ -28,6 +28,61 @@ region = Rect2(240, 0, 48, 117)
 atlas = ExtResource("6_s10j0")
 region = Rect2(288, 0, 48, 117)
 
+[sub_resource type="GDScript" id="GDScript_b66gw"]
+script/source = "extends HBoxContainer
+
+@export var ship_image : Texture2D = preload(\"uid://b5ha2ebfytva7\")
+@export_multiline(\"ENTER ITEM DESCRIPTION\") var item_desc : String = \"DESCRIPTION\"
+##3 types: wpn, engi, hull
+@export var item_id : String = \"type_item\"
+
+@onready var item_label: RichTextLabel = $ItemLabel
+@onready var texture_button: TextureButton = $TextureButton
+var itemlabel_string : String = \"ITEM\"
+signal ir_button_hover(img : Texture2D, desc : String)
+signal ir_button_pressed(id : String)
+
+func _ready() -> void:
+	itemlabel_string = item_label.text
+
+func _on_texture_button_mouse_entered() -> void:
+	item_label.text = \"[wave amp=1.0]\" + itemlabel_string + \"[/wave]\"
+	ir_button_hover.emit(ship_image, item_desc)
+
+func _on_texture_button_mouse_exited() -> void:
+	item_label.text = itemlabel_string
+
+func _on_texture_button_pressed() -> void:
+	SoundBank.play_sfx(\"ui_buy\")
+	texture_button.disabled = true
+	ir_button_pressed.emit(item_id)
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqkix"]
+atlas = ExtResource("6_s10j0")
+region = Rect2(384, 0, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qb6so"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ttg1"]
+atlas = SubResource("CompressedTexture2D_qb6so")
+region = Rect2(240, 128, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b0etm"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cayk2"]
+atlas = SubResource("CompressedTexture2D_b0etm")
+region = Rect2(288, 128, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kaq28"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qip68"]
+atlas = SubResource("CompressedTexture2D_kaq28")
+region = Rect2(336, 128, 48, 117)
+
 [node name="MegaShopMenuComponent" type="CanvasLayer" unique_id=1984877129]
 script = ExtResource("1_nq1pm")
 
@@ -118,11 +173,18 @@ texture_progress = SubResource("AtlasTexture_c1d5i")
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items" unique_id=440162492]
+layout_mode = 2
+text = "WEAPONS"
+
 [node name="ShopItemRowComponent" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items" unique_id=855921384 instance=ExtResource("7_b66gw")]
 layout_mode = 2
-item_desc = "CHARGE YOUR ENERGY WITH [X] TO FIRE A PIERCING LASER. 
-WHILE THE LASER IS FIRING, 
-[wave amp=1.0 freq=2.0]TURNING IS SLOWED DOWN."
+script = SubResource("GDScript_b66gw")
+ship_image = SubResource("AtlasTexture_rqkix")
+item_desc = "DEVASTATING LIGHT TECH DEVELOPED FROM THE ERA OF WAR. 
+
+HOLD [X] TO CHARGE A [wave amp=1.0 freq=2.0]PIERCING LASER.[/wave]
+FIRING THE LASER WILL [wave amp=1.0 freq=2.0]SIGNIFICANTLY REDUCE TURNING SPEED."
 item_id = "wpn_novabeam"
 
 [node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent" index="1" unique_id=1008983197]
@@ -130,7 +192,10 @@ text = "NOVA BEAM"
 
 [node name="ShopItemRowComponent2" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items" unique_id=1340335360 instance=ExtResource("7_b66gw")]
 layout_mode = 2
-item_desc = "FIRE A MISSILE THAT PERSISTS AFTER HITTING AN ENEMY. IT WILL BOUNCE TOWARD A RANDOM DIRECTION."
+ship_image = SubResource("AtlasTexture_0ttg1")
+item_desc = "ITS OUTER SHELL IS MADE OF A THIN SHEET OF NEUTRON STAR'S CORE.
+
+FIRE A MISSILE THAT PERSISTS AFTER HITTING AN ENEMY. [wave amp=1.0 freq=2.0]IT WILL BOUNCE TOWARD A RANDOM DIRECTION."
 item_id = "wpn_reboundmiss"
 
 [node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent2" index="1" unique_id=1008983197]
@@ -138,15 +203,21 @@ text = "RBND MISSI."
 
 [node name="ShopItemRowComponent3" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items" unique_id=1518631865 instance=ExtResource("7_b66gw")]
 layout_mode = 2
-item_desc = "FIRE A FAST BOLT OF ENERGY THAT CAN LOOP ACROSS THE BATTLEFIELD. THE ENERGY CAN HURT YOUR SHIP!"
+ship_image = SubResource("AtlasTexture_cayk2")
+item_desc = "CREATED THROUGH A RECURSIVE PROCESS FROM WARP TECHNOLOGY THAT CAME OUT OF THE UNIVERSE. 
+
+FIRE A FAST BOLT OF ENERGY THAT CAN [wave amp=1.0 freq=2.0]LOOP ACROSS THE BATTLEFIELD[/wave]. THE ENERGY CAN [wave amp=1.0 freq=2.0]HURT YOUR SHIP!"
 item_id = "wpn_reboundmiss"
 
 [node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent3" index="1" unique_id=1008983197]
-text = "WARP BOLTS"
+text = "WARP BOLT"
 
 [node name="ShopItemRowComponent4" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items" unique_id=1236526496 instance=ExtResource("7_b66gw")]
 layout_mode = 2
-item_desc = "BLAST A SPRAY OF SCRAP THAT CAN BRUTE ITSELF THROUGH HORDES WITH YOUR PROPULSION SYSTEM. YOU WILL GET SIGNIFICANTLY [wave amp=1.0 freq=2.0]KNOCKED BACK WHEN YOU FIRE THE WEAPON."
+ship_image = SubResource("AtlasTexture_qip68")
+item_desc = "CRUDE SCAVENGER TECH THAT BLASTS MATERIAL OUT INTO SPACE.
+
+BLAST A SPRAY OF SCRAP THAT CAN BRUTE ITSELF THROUGH HORDES WITH YOUR PROPULSION SYSTEM. YOU WILL GET SIGNIFICANTLY [wave amp=1.0 freq=2.0]KNOCKED BACK WHEN YOU FIRE THE WEAPON."
 item_id = "wpn_reboundmiss"
 
 [node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent4" index="1" unique_id=1008983197]
