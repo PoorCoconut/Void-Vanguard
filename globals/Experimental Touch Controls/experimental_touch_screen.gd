@@ -1,35 +1,26 @@
 extends CanvasLayer
-@onready var left_touch_screen: TouchScreenButton = %LeftTouchScreen
-@onready var right_touch_screen: TouchScreenButton = %RightTouchScreen
-@onready var up_touch_screen: TouchScreenButton = %UpTouchScreen
-@onready var down_touch_screen: TouchScreenButton = %DownTouchScreen
 @onready var atk_touch_screen: TouchScreenButton = %AtkTouchScreen
-@onready var mov_touch_screen: TouchScreenButton = %MovTouchScreen
 @onready var pause_touch_screen: TouchScreenButton = %PauseTouchScreen
 
 var _stored_shoot_mouse_events: Array[InputEvent] = []
 var _stored_move_mouse_events: Array[InputEvent] = []
 
+var updown_toggle : bool = false
 func _ready() -> void:
 	hide()
 	
-	left_touch_screen.pressed.connect(func(): _press_action("turn_left"))
-	left_touch_screen.released.connect(func(): _release_action("turn_left"))
-	
-	right_touch_screen.pressed.connect(func(): _press_action("turn_right"))
-	right_touch_screen.released.connect(func(): _release_action("turn_right"))
-	
-	up_touch_screen.pressed.connect(func(): _press_action("up"))
-	up_touch_screen.released.connect(func(): _release_action("up"))
-	
-	down_touch_screen.pressed.connect(func(): _press_action("down"))
-	down_touch_screen.released.connect(func(): _release_action("down"))
-	
-	mov_touch_screen.pressed.connect(func(): _press_action("move"))
-	mov_touch_screen.released.connect(func(): _release_action("move"))
-	
 	atk_touch_screen.pressed.connect(_on_atk_pressed)
 	pause_touch_screen.pressed.connect(_on_pause_pressed)
+	if updown_toggle:
+		%UpButton.show()
+		%DownButton.show()
+		%UpTouchScreen.show()
+		%DownTouchScreen.show()
+	else:
+		%UpButton.hide()
+		%DownButton.hide()
+		%UpTouchScreen.hide()
+		%DownTouchScreen.hide()
 
 func enable_touch_mode() -> void:
 	_strip_mouse_bindings("shoot", _stored_shoot_mouse_events)
@@ -73,3 +64,18 @@ func _on_atk_pressed() -> void:
 func _on_pause_pressed() -> void:
 	_press_action("pause")
 	_release_action("pause")
+
+func _on_toggle_up_down_pressed() -> void:
+	print("pressed: ", updown_toggle)
+	if updown_toggle:
+		%UpButton.hide()
+		%DownButton.hide()
+		%UpTouchScreen.hide()
+		%DownTouchScreen.hide()
+		updown_toggle = false
+	else:
+		%UpButton.show()
+		%DownButton.show()
+		%UpTouchScreen.show()
+		%DownTouchScreen.show()
+		updown_toggle = true

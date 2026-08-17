@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var progress_bar = $LoadingBar
-var target_scene_path : String = ""
+var target_scene_path : String = "res://game_scenes/menus/MainMenu/main_menu.tscn"
 
 func _ready():
 	hide()

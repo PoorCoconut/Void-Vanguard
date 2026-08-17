@@ -17,6 +17,29 @@ extends Control
 @onready var void_mid: Sprite2D = $VoidMid
 @onready var void_front: Sprite2D = $VoidFront
 
+#Play Menu Things [these are displayed when the PLAY button is hit] 
+@onready var play_container: PanelContainer = $PlayContainer
+@onready var play_button_hints: RichTextLabel = %PlayButtonHints
+@onready var play_endless: Button = %Play_Endless
+@onready var play_arena: Button = %Play_Arena
+
+var hints_text : Array = [
+	"THE STANDARD EXPERIENCE OF VOID VANGUARD!",
+	
+	"TIME TRAVEL TECHNOLOGY HAS GIVEN YOU THE CHANCE TO ENDLESSLY DO THE CAMPAIGN.\n\nFOR EVERY WIN, YOU GET TO [wave amp=2.0]KEEP A SECTOR POINT[/wave] BUT WILL ALSO MAKE YOUR JOURNEY [shake]HARDER.[/shake]\n\n[wave amp=2.0]HOW MANY LOOPS CAN YOU HANDLE?",
+	
+	"VOID VANGUARD'S\nGAME JAM VERSION!",
+	
+	"GAIN YOUR OWN\nTESTING CHAMBERS!\nEQUIPPED WITH HIGH-END TECHNOLOGY, CLONING AND INFINITE MONEY!\n\nEXPERIMENT AND TEST LOADOUTS AND SUMMON ENEMIES!",
+	
+	"GO BACK TO THE MAIN MENU",
+	
+	#Unlocking Hints
+	"BEAT STORY MODE TO UNLOCK!",
+	"WARP TO APOCRYPHA TO UNLOCK!"
+	 ]
+var play_hint_tween : Tween
+
 
 @export_file("*.tscn") var next_level_path : String
 
@@ -49,7 +72,7 @@ func _ready() -> void:
 
 func _on_button_play_pressed() -> void:
 	SoundBank.play_sfx("ui_next", Vector2.ZERO)
-	GameManager.load_next_level(next_level_path)
+	play_container.show()
 
 func _on_button_settings_pressed() -> void:
 	SoundBank.play_sfx("ui_next", Vector2.ZERO)
@@ -163,3 +186,71 @@ func _on_crt_shader_button_toggled(toggled_on: bool) -> void:
 
 func _on_settings_tabs_tab_clicked(tab: int) -> void:
 	SoundBank.play_sfx("ui_next", Vector2.ZERO)
+
+
+func _on_play_story_mode_mouse_entered() -> void:
+	if play_hint_tween: play_hint_tween.kill()
+	play_button_hints.visible_ratio = 0.0
+	play_button_hints.text = hints_text[0]
+	play_hint_tween = get_tree().create_tween()
+	play_hint_tween.tween_property(play_button_hints, "visible_ratio", 1, 0.5)
+
+func _on_play_endless_mouse_entered() -> void:
+	if play_hint_tween: play_hint_tween.kill()
+	play_button_hints.visible_ratio = 0.0
+	
+	if play_endless.disabled:
+		play_button_hints.text = hints_text[5]
+		play_hint_tween = get_tree().create_tween()
+		play_hint_tween.tween_property(play_button_hints, "visible_ratio", 1, 0.5)
+		return
+	
+	play_button_hints.text = hints_text[1]
+	play_hint_tween = get_tree().create_tween()
+	play_hint_tween.tween_property(play_button_hints, "visible_ratio", 1, 2)
+
+func _on_play_legacy_mouse_entered() -> void:
+	if play_hint_tween: play_hint_tween.kill()
+	play_button_hints.visible_ratio = 0.0
+	play_button_hints.text = hints_text[2]
+	play_hint_tween = get_tree().create_tween()
+	play_hint_tween.tween_property(play_button_hints, "visible_ratio", 1, 0.5)
+
+func _on_play_arena_mouse_entered() -> void:
+	if play_hint_tween: play_hint_tween.kill()
+	play_button_hints.visible_ratio = 0.0
+	
+	if play_arena.disabled:
+		play_button_hints.text = hints_text[6]
+		play_hint_tween = get_tree().create_tween()
+		play_hint_tween.tween_property(play_button_hints, "visible_ratio", 1, 0.5)
+		return
+	
+	play_button_hints.text = hints_text[3]
+	play_hint_tween = get_tree().create_tween()
+	play_hint_tween.tween_property(play_button_hints, "visible_ratio", 1, 2)
+
+func _on_play_back_mouse_entered() -> void:
+	if play_hint_tween: play_hint_tween.kill()
+	play_button_hints.visible_ratio = 0.0
+	play_button_hints.text = hints_text[4]
+	play_hint_tween = get_tree().create_tween()
+	play_hint_tween.tween_property(play_button_hints, "visible_ratio", 1, 0.5)
+
+
+func _on_play_story_mode_pressed() -> void:
+	SoundBank.play_sfx("ui_next", Vector2.ZERO)
+
+func _on_play_endless_pressed() -> void:
+	SoundBank.play_sfx("ui_next", Vector2.ZERO)
+
+func _on_play_legacy_pressed() -> void:
+	SoundBank.play_sfx("ui_next", Vector2.ZERO)
+	GameManager.load_next_level(next_level_path)
+
+func _on_play_arena_pressed() -> void:
+	SoundBank.play_sfx("ui_next", Vector2.ZERO)
+
+func _on_play_back_pressed() -> void:
+	SoundBank.play_sfx("ui_back", Vector2.ZERO)
+	play_container.hide()

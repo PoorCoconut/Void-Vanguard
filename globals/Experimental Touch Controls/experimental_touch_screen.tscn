@@ -101,7 +101,6 @@ unique_name_in_owner = true
 position = Vector2(245, 15)
 scale = Vector2(1.3, 1.3)
 shape = SubResource("RectangleShape2D_bx1ej")
-action = "shoot"
 
 [node name="MovTouchScreen" type="TouchScreenButton" parent="Control/MarginContainer/HBoxContainer" unique_id=876821496]
 unique_name_in_owner = true
@@ -130,15 +129,27 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 text = "Z"
 
-[node name="PauseButton" type="Button" parent="Control/MarginContainer" unique_id=1349891646]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1978774876]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="PauseButton" type="Button" parent="Control/MarginContainer/HBoxContainer3" unique_id=1349891646]
 modulate = Color(1, 1, 1, 0.5882353)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "E"
 
+[node name="ToggleUpDown" type="Button" parent="Control/MarginContainer/HBoxContainer3" unique_id=193213388]
+modulate = Color(1, 1, 1, 0.5882353)
+layout_mode = 2
+size_flags_vertical = 0
+text = "↑↓"
+
 [node name="PauseTouchScreen" type="TouchScreenButton" parent="Control/MarginContainer" unique_id=162434061]
 unique_name_in_owner = true
 position = Vector2(18, 18)
 shape = SubResource("RectangleShape2D_81v1l")
-action = "pause"
+
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer3/ToggleUpDown" to="." method="_on_toggle_up_down_pressed"]

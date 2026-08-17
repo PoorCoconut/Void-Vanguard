@@ -259,6 +259,9 @@ expand_margin_right = 5.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3phpx"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2ujj"]
+bg_color = Color(0.15294118, 0.2, 0.21960784, 1)
+
 [node name="MainMenu" type="Control" unique_id=804645915]
 layout_mode = 3
 anchors_preset = 15
@@ -742,6 +745,73 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 8
 text = "BACK"
 
+[node name="PlayContainer" type="PanelContainer" parent="." unique_id=132138655]
+visible = false
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2ujj")
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayContainer" unique_id=1405255936]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayContainer/MarginContainer" unique_id=1280174018]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayContainer/MarginContainer/HBoxContainer" unique_id=356847314]
+layout_mode = 2
+alignment = 1
+
+[node name="Play_StoryMode" type="Button" parent="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1448175855]
+layout_mode = 2
+text = "STORY MODE"
+
+[node name="Play_Endless" type="Button" parent="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1802761007]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "ENDLESS"
+
+[node name="Play_Legacy" type="Button" parent="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1999178510]
+layout_mode = 2
+text = "LEGACY"
+
+[node name="Play_Arena" type="Button" parent="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=811296669]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "ARENA"
+
+[node name="Control" type="Control" parent="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1707326560]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Play_Back" type="Button" parent="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1230651907]
+layout_mode = 2
+text = "BACK"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PlayContainer/MarginContainer/HBoxContainer" unique_id=1190837087]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PlayButtonHints" type="RichTextLabel" parent="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=341586404]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "GAIN YOUR OWN 
+TESTING CHAMBERS!
+EQUIPPED WITH HIGH-END TECHNOLOGY, CLONING AND INFINITE MONEY!
+
+EXPERIMENT AND TEST LOADOUTS AND SUMMON ENEMIES!"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="ButtonContainerSizer/ButtonContainer/Button_Play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="ButtonContainerSizer/ButtonContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="ButtonContainerSizer/ButtonContainer/Button_Credits" to="." method="_on_button_credits_pressed"]
@@ -760,3 +830,13 @@ text = "BACK"
 [connection signal="pressed" from="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer/VBoxContainer/Button_ExclusiveFullscreen" to="." method="_on_button_exclusive_fullscreen_pressed"]
 [connection signal="pressed" from="SettingsContainer/SettingsTabs/ControlsSettings/VBoxContainer/ControlsReset" to="." method="_on_controls_reset_pressed"]
 [connection signal="pressed" from="SettingsContainer/Back/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="mouse_entered" from="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer/Play_StoryMode" to="." method="_on_play_story_mode_mouse_entered"]
+[connection signal="pressed" from="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer/Play_StoryMode" to="." method="_on_play_story_mode_pressed"]
+[connection signal="mouse_entered" from="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer/Play_Endless" to="." method="_on_play_endless_mouse_entered"]
+[connection signal="pressed" from="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer/Play_Endless" to="." method="_on_play_endless_pressed"]
+[connection signal="mouse_entered" from="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer/Play_Legacy" to="." method="_on_play_legacy_mouse_entered"]
+[connection signal="pressed" from="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer/Play_Legacy" to="." method="_on_play_legacy_pressed"]
+[connection signal="mouse_entered" from="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer/Play_Arena" to="." method="_on_play_arena_mouse_entered"]
+[connection signal="pressed" from="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer/Play_Arena" to="." method="_on_play_arena_pressed"]
+[connection signal="mouse_entered" from="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer/Play_Back" to="." method="_on_play_back_mouse_entered"]
+[connection signal="pressed" from="PlayContainer/MarginContainer/HBoxContainer/VBoxContainer/Play_Back" to="." method="_on_play_back_pressed"]
